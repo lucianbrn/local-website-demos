@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Baku Delicious — Azerbaijani Bakery &amp; Café in Fairfax, VA | Preview Demo</title>
+<meta name="description" content="Baku Delicious is an Azerbaijani bakery and café in Fairfax, Virginia — plov, dolma, khachapuri, pakhlava, honey cake, Azerbaijani tea and Turkish coffee.">
+<style>
+  :root{
+    --cream:#fdf6ec; --paper:#fffaf1; --ink:#33241a; --muted:#7a5f4d;
+    --pom:#8e2f32; --pom-dark:#6e2226; --saffron:#d99a2b; --saffron-soft:#f3d9a4;
+    --pistachio:#5f7247; --line:#e8d5bd; --card:#ffffff;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:Georgia,'Times New Roman',serif;background:var(--cream);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+  .pattern-band{height:14px;background:
+    repeating-linear-gradient(45deg,var(--pom) 0 14px,var(--saffron) 14px 28px,var(--pistachio) 28px 42px,var(--cream) 42px 56px)}
+  /* ---------- hero ---------- */
+  header{background:radial-gradient(ellipse at 50% -20%,#a83c3f 0%,var(--pom-dark) 55%,#571a1e 100%);color:#fdf3e3;text-align:center;padding:3.2rem 1.25rem 3.6rem;position:relative;overflow:hidden}
+  header::before,header::after{content:"✦ ✦ ✦";position:absolute;color:rgba(243,217,164,.28);letter-spacing:1.2em;font-size:.85rem;left:50%;transform:translateX(-50%);white-space:nowrap}
+  header::before{top:1rem} header::after{bottom:1rem}
+  .eyebrow{font-family:Helvetica,Arial,sans-serif;letter-spacing:.32em;text-transform:uppercase;font-size:.7rem;color:var(--saffron-soft);margin-bottom:1rem}
+  h1{font-size:clamp(2.6rem,9vw,4.4rem);font-weight:normal;line-height:1.05;letter-spacing:.01em}
+  h1 em{font-style:italic;color:var(--saffron-soft)}
+  .hero-sub{max-width:34rem;margin:1.1rem auto 0;font-size:1.08rem;color:#f6e7cf}
+  .hero-tags{display:flex;flex-wrap:wrap;gap:.5rem;justify-content:center;margin:1.5rem auto 1.8rem;max-width:36rem}
+  .hero-tags span{font-family:Helvetica,Arial,sans-serif;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;border:1px solid rgba(243,217,164,.55);color:#fbeed3;border-radius:999px;padding:.35rem .8rem}
+  .btn{display:inline-block;font-family:Helvetica,Arial,sans-serif;text-decoration:none;border-radius:999px;padding:.95rem 2rem;font-size:1rem;letter-spacing:.04em;transition:transform .15s ease,box-shadow .15s ease}
+  .btn-call{background:var(--saffron);color:#3a2200;font-weight:bold;box-shadow:0 8px 22px rgba(0,0,0,.28)}
+  .btn-call:hover{transform:translateY(-2px)}
+  .btn-ghost{border:1.5px solid #f6e7cf;color:#fdf3e3;margin-left:.6rem}
+  .hero-note{margin-top:1.1rem;font-size:.9rem;color:#ecd9b8;font-style:italic}
+  /* ---------- layout ---------- */
+  main{max-width:68rem;margin:0 auto;padding:0 1.1rem}
+  section{padding:3rem 0 0}
+  .kicker{font-family:Helvetica,Arial,sans-serif;letter-spacing:.3em;text-transform:uppercase;font-size:.68rem;color:var(--pom);text-align:center}
+  h2{font-size:clamp(1.7rem,5.5vw,2.3rem);font-weight:normal;text-align:center;margin:.4rem 0 .6rem}
+  .rule{width:64px;height:3px;background:var(--saffron);border-radius:2px;margin:.8rem auto 1.4rem}
+  .lede{max-width:42rem;margin:0 auto;text-align:center;color:#4c382a;font-size:1.03rem}
+  /* ---------- about ---------- */
+  .about-cards{display:grid;gap:1rem;margin-top:1.8rem}
+  @media(min-width:720px){.about-cards{grid-template-columns:repeat(3,1fr)}}
+  .card{background:var(--card);border:1px solid var(--line);border-top:4px solid var(--saffron);border-radius:12px;padding:1.4rem 1.25rem;box-shadow:0 4px 14px rgba(90,50,20,.06)}
+  .card h3{font-size:1.12rem;font-weight:normal;color:var(--pom-dark);margin-bottom:.45rem}
+  .card p{font-size:.95rem;color:#54402f}
+  .card .orn{font-size:1.3rem;color:var(--saffron);display:block;margin-bottom:.5rem}
+  /* ---------- menu ---------- */
+  .menu-grid{display:grid;gap:1rem;margin-top:.6rem}
+  @media(min-width:720px){.menu-grid{grid-template-columns:1fr 1fr}}
+  .menu-cat{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:1.5rem 1.4rem}
+  .menu-cat h3{font-size:1.25rem;font-weight:normal;color:var(--pom-dark);border-bottom:2px dotted var(--saffron);padding-bottom:.5rem;margin-bottom:.8rem}
+  .menu-cat ul{list-style:none}
+  .menu-cat li{padding:.42rem 0;border-bottom:1px dashed #efdfc6;font-size:.99rem}
+  .menu-cat li:last-child{border-bottom:none}
+  .menu-cat li small{display:block;color:var(--muted);font-size:.85rem;font-style:italic}
+  .menu-foot{text-align:center;color:var(--muted);font-style:italic;margin-top:1.2rem;font-size:.93rem}
+  /* ---------- visit ---------- */
+  .visit{background:linear-gradient(160deg,#3c2320,#2c1815);color:#f6e7cf;border-radius:16px;padding:2.2rem 1.5rem;margin-top:3rem;text-align:center}
+  .visit h2{color:#fdf3e3}
+  .visit address{font-style:normal;font-size:1.15rem;line-height:1.7}
+  .visit a{color:var(--saffron-soft)}
+  .visit .hours{display:inline-block;margin-top:1rem;border:1px solid rgba(243,217,164,.5);border-radius:999px;padding:.45rem 1.1rem;font-family:Helvetica,Arial,sans-serif;font-size:.85rem;letter-spacing:.08em}
+  .visit-actions{margin-top:1.4rem}
+  /* ---------- form ---------- */
+  form{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:1.8rem 1.4rem;max-width:36rem;margin:1.6rem auto 0;box-shadow:0 6px 18px rgba(90,50,20,.07);text-align:left}
+  label{font-family:Helvetica,Arial,sans-serif;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:var(--pom-dark);display:block;margin:1rem 0 .35rem}
+  label:first-of-type{margin-top:0}
+  input,textarea,select{width:100%;font-family:Georgia,serif;font-size:1rem;padding:.75rem .85rem;border:1.5px solid var(--line);border-radius:9px;background:#fffdf8;color:var(--ink)}
+  input:focus,textarea:focus,select:focus{outline:2px solid var(--saffron);border-color:var(--saffron)}
+  .submit{margin-top:1.3rem;width:100%;background:var(--pom);color:#fff;border:none;cursor:pointer;font-weight:bold}
+  .submit:hover{background:var(--pom-dark)}
+  .demo-tag{font-family:Helvetica,Arial,sans-serif;font-size:.75rem;color:var(--muted);text-align:center;margin-top:.9rem}
+  /* ---------- footer ---------- */
+  footer{text-align:center;padding:2.6rem 1.2rem 0;color:var(--muted);font-size:.92rem}
+  .preview-banner{margin-top:3rem;background:#241612;color:#f3d9a4;font-family:Helvetica,Arial,sans-serif;font-size:.86rem;letter-spacing:.02em;text-align:center;padding:1rem 1.2rem;line-height:1.55}
+</style>
+</head>
+<body>
+
+<header>
+  <p class="eyebrow">Fairfax, Virginia · Flavours of Baku</p>
+  <h1>Baku <em>Delicious</em></h1>
+  <p class="hero-sub">An Azerbaijani bakery &amp; café bringing the flavours of Baku to Fairfax — aromatic plov, stuffed dolma, flaky khachapuri, and pastries like pakhlava, shekerbura and kete.</p>
+  <div class="hero-tags">
+    <span>Bakery</span><span>Café</span><span>Azerbaijani Shop</span><span>Breakfast Daily</span>
+  </div>
+  <a class="btn btn-call" href="tel:+17035033003">Call (703) 503-3003</a>
+  <a class="btn btn-ghost" href="#menu">See the menu</a>
+  <p class="hero-note">Traditional recipes, passed through generations.</p>
+</header>
+<div class="pattern-band" aria-hidden="true"></div>
+
+<main>
+  <!-- ABOUT -->
+  <section id="about">
+    <p class="kicker">Our Restaurant</p>
+    <h2>A taste of home, in Fairfax</h2>
+    <div class="rule"></div>
+    <p class="lede">Located in Fairfax, Virginia, Baku Delicious brings you the authentic flavours of Azerbaijani, Turkish, Georgian, Slavic and Uzbek cuisine — every dish crafted to remind you of home, in a warm and welcoming atmosphere.</p>
+    <div class="about-cards">
+      <div class="card"><span class="orn">✦</span><h3>The Bakery</h3><p>Fresh pastries and cakes from Azerbaijani tradition — pakhlava layered with walnut and honey, shekerbura, kete, honey cake, Napoleon cake and Spartak cake.</p></div>
+      <div class="card"><span class="orn">✦</span><h3>The Café</h3><p>A cosy café serving breakfast every day, Azerbaijani tea and Turkish coffee, and mains from across the Caucasus and Central Asia.</p></div>
+      <div class="card"><span class="orn">✦</span><h3>The Shop</h3><p>An Azerbaijani shop alongside the café — stop in for the tastes and ingredients of home, from sweets and teas to regional specialities.</p></div>
+    </div>
+  </section>
+
+  <!-- MENU -->
+  <section id="menu">
+    <p class="kicker">Our Food</p>
+    <h2>From the menu</h2>
+    <div class="rule"></div>
+    <p class="lede">Azerbaijan's cuisine brings a rich tapestry of flavours to your table — fresh herbs, warm spices and centuries-old traditions.</p>
+    <div class="menu-grid" style="margin-top:1.6rem">
+      <div class="menu-cat">
+        <h3>Mains</h3>
+        <ul>
+          <li>Azerbaijan Plov<small>Rice with beef and lamb, onion, chestnut and dry yellow plum</small></li>
+          <li>Levengi<small>Grilled chicken with ground walnut, onion and special plum sauce, served with rice</small></li>
+          <li>Cabbage Dolma<small>Cabbage leaves stuffed with ground meat, rice and fresh herbs</small></li>
+          <li>Grape Leaves Dolma</li>
+        </ul>
+      </div>
+      <div class="menu-cat">
+        <h3>Azerbaijani Savoury</h3>
+        <ul>
+          <li>Samsa — Lamb, Chicken or Beef</li>
+          <li>Gutab — Beef or Green</li>
+          <li>Shorgoghal</li>
+          <li>Azerbaijan Breakfast Set</li>
+        </ul>
+      </div>
+      <div class="menu-cat">
+        <h3>Georgian Cuisine</h3>
+        <ul>
+          <li>Khinkali — Beef or Lamb<small>Georgian dumplings</small></li>
+          <li>Khachapuri — Imeruli, Megruli &amp; Kubdari</li>
+        </ul>
+      </div>
+      <div class="menu-cat">
+        <h3>Salads &amp; Soups</h3>
+        <ul>
+          <li>Oliviyer Salad</li>
+          <li>Shuba</li>
+          <li>Borscht</li>
+          <li>Soup Dovga</li>
+          <li>Lentil Soup</li>
+        </ul>
+      </div>
+      <div class="menu-cat">
+        <h3>Sweets &amp; Cakes</h3>
+        <ul>
+          <li>Azerbaijani Pakhlava</li>
+          <li>Honey Cake</li>
+          <li>Napoleon Cake</li>
+          <li>Spartak Cake</li>
+          <li>Baku Delicious Cake</li>
+        </ul>
+      </div>
+      <div class="menu-cat">
+        <h3>Beverages</h3>
+        <ul>
+          <li>Azerbaijani Tea</li>
+          <li>Turkish Coffee</li>
+        </ul>
+      </div>
+    </div>
+    <p class="menu-foot">Full menu and today's availability change — call <a href="tel:+17035033003" style="color:var(--pom)">(703) 503-3003</a> and the team will walk you through what's fresh.</p>
+  </section>
+
+  <!-- VISIT -->
+  <div class="visit" id="visit">
+    <p class="kicker" style="color:var(--saffron-soft)">Visit Us</p>
+    <h2>Find us in Fairfax</h2>
+    <address>
+      Baku Delicious<br>
+      3900 Pickett Road, Suite C<br>
+      Fairfax, VA 22031<br><br>
+      <a href="tel:+17035033003">(703) 503-3003</a><br>
+      <a href="mailto:info@bakudelicious.com">info@bakudelicious.com</a>
+    </address>
+    <div class="hours">Hours — Call for hours: (703) 503-3003</div>
+    <div class="visit-actions">
+      <a class="btn btn-call" href="tel:+17035033003">Call the bakery</a>
+    </div>
+  </div>
+
+  <!-- ORDER / CONTACT -->
+  <section id="order">
+    <p class="kicker">Order &amp; Contact</p>
+    <h2>Ask about an order</h2>
+    <div class="rule"></div>
+    <p class="lede">Planning a cake, a tray of pakhlava, or a family-size plov? Send a request and Baku Delicious can confirm availability and timing.</p>
+    <form action="#" method="post" onsubmit="return false;" aria-label="Demo order request form">
+      <label for="name">Your name</label>
+      <input id="name" name="name" type="text" autocomplete="name" placeholder="Your name">
+      <label for="phone">Phone</label>
+      <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="Best number to reach you">
+      <label for="request">What would you like?</label>
+      <textarea id="request" name="request" rows="4" placeholder="e.g. A honey cake for Saturday, or plov for 10 people…"></textarea>
+      <button class="submit btn" type="submit">Send request</button>
+      <p class="demo-tag">Demo form — this preview form does not send anywhere yet. On the live site it would deliver straight to Baku Delicious.</p>
+    </form>
+  </section>
+
+  <footer>
+    <p>Baku Delicious · Azerbaijani Bakery &amp; Café · Fairfax, Virginia</p>
+  </footer>
+</main>
+
+<div class="preview-banner">Preview demo built for Baku Delicious by Lucian Brucker — not this business's official website.</div>
+
+</body>
+</html>
