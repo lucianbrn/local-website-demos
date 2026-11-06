@@ -8,91 +8,202 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{
-  --ground:#eef0e6; --ground2:#e2e6d4;
+  --ground:#edf0e2; --ground2:#dde3cd;
   --ink:#26302a; --ink2:#4c5a50;
-  --sage:#5c7263; --sage-deep:#33473b;
-  --linen:#fbfaf3; --paper:#fffef9;
-  --gold:#b9975a; --mist:#aebfa9;
-  --line:rgba(51,71,59,.28);
+  --sage:#5c7263; --sage-deep:#2f4237; --sage-ink:#223128;
+  --linen:#fbfaf3; --shirt:#fffef9; --paper:#fffef9;
+  --gold:#b9975a; --gold-soft:#d9bc7f; --mist:#c3d2bd; --leaf:#6d8a5f;
+  --line:rgba(51,71,59,.30);
 }
 html{scroll-behavior:smooth}
 body{
-  font-family:Georgia,'Times New Roman',serif;
-  color:var(--ink); background:var(--ground);
+  font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;color:var(--ink);
+  /* pressed linen: woven ground with three pressed creases running its length */
+  background-color:var(--ground);
   background-image:
-    repeating-linear-gradient(0deg, rgba(51,71,59,.045) 0 1px, transparent 1px 7px),
-    radial-gradient(rgba(92,114,99,.06) 1px, transparent 1.4px),
+    linear-gradient(90deg, transparent 0 calc(50% - 1px), rgba(51,71,59,.14) calc(50% - 1px) 50%, rgba(255,254,249,.5) 50% calc(50% + 1px), transparent calc(50% + 1px)),
+    repeating-linear-gradient(0deg, rgba(51,71,59,.04) 0 1px, transparent 1px 7px),
+    repeating-linear-gradient(90deg, rgba(51,71,59,.028) 0 1px, transparent 1px 7px),
+    radial-gradient(960px 520px at 50% -10%, rgba(109,138,95,.16), transparent 64%),
+    radial-gradient(820px 560px at 6% 106%, rgba(185,151,90,.13), transparent 60%),
+    radial-gradient(820px 560px at 94% 106%, rgba(92,114,99,.14), transparent 60%),
     linear-gradient(180deg,var(--ground),var(--ground2));
-  background-size:100% 7px,26px 26px,100% 100%;
   line-height:1.55;
 }
-.wrap{max-width:1060px;margin:0 auto;padding:20px 16px 56px}
-/* pressed-crease frame motif */
-.frame{position:relative;border:1px solid var(--line);padding:10px;margin-top:10px;background:rgba(251,250,243,.5)}
-.frame::before{content:"";position:absolute;top:0;bottom:0;left:50%;width:1px;background:rgba(51,71,59,.18)}
-.frame::after{content:"";position:absolute;inset:6px;border:1px dashed rgba(185,151,90,.55);pointer-events:none}
-/* nameplate */
-.nameplate{background:var(--sage-deep);color:var(--linen);text-align:center;padding:54px 22px 42px;position:relative}
-.nameplate::before,.nameplate::after{content:"";position:absolute;top:16px;width:26px;height:14px;border:2px solid var(--gold);border-bottom:0;border-radius:26px 26px 0 0;opacity:.85}
-.nameplate::before{left:22px}
-.nameplate::after{right:22px}
-.kicker{font-family:Verdana,Geneva,sans-serif;font-size:.68rem;letter-spacing:.34em;text-transform:uppercase;color:var(--gold)}
-h1{font-size:clamp(2rem,7vw,3.7rem);letter-spacing:.2em;text-transform:uppercase;font-weight:400;margin:14px 0 6px;line-height:1.08}
-.sub{letter-spacing:.22em;text-transform:uppercase;font-size:.78rem;color:#d5dfd0;font-family:Verdana,Geneva,sans-serif}
+body::after{content:"";position:fixed;inset:0;z-index:120;pointer-events:none;opacity:.045;
+  background-image:url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.6'/%3E%3C/svg%3E");background-size:160px 160px}
+.wrap{max-width:1060px;margin:0 auto;padding:24px 16px 60px}
+.kicker{font-size:.68rem;letter-spacing:.34em;text-transform:uppercase;color:var(--gold);font-weight:700}
+.kicker.rule-in{display:flex;align-items:center;gap:14px;justify-content:center}
+.kicker.rule-in::before,.kicker.rule-in::after{content:"";height:1px;width:52px;background:currentColor;opacity:.45}
 .rule{width:74px;height:1px;background:var(--gold);margin:18px auto;border:0}
-.nameplate p.lede{max-width:580px;margin:0 auto;font-style:italic;color:#eef1e6;font-size:1.02rem}
-.cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:24px}
-.btn{font-family:Verdana,Geneva,sans-serif;font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;padding:13px 22px;border-radius:999px;display:inline-block}
-.btn-call{background:var(--gold);color:#1f2a23}
-.btn-ghost{border:1px solid rgba(251,250,243,.65);color:var(--linen)}
-/* layered panels */
-.panel-wrap{position:relative;margin-top:34px}
-.panel-wrap::before{content:"";position:absolute;inset:0;transform:translate(10px,10px);background:var(--mist);opacity:.5}
-.panel-wrap.gold::before{background:var(--gold);opacity:.35}
-.panel-wrap.deep::before{background:var(--sage-deep);opacity:.28}
-.panel{position:relative;background:var(--paper);border:1px solid var(--line);padding:28px 24px;box-shadow:0 10px 28px rgba(38,48,42,.10)}
-.panel .kicker{color:var(--sage)}
-h2{font-size:1.55rem;letter-spacing:.12em;text-transform:uppercase;font-weight:400;margin:8px 0 4px;color:var(--sage-deep)}
-h3{font-size:1.05rem;letter-spacing:.12em;text-transform:uppercase;font-weight:400;color:var(--sage-deep)}
-hr.hair{border:0;border-top:1px solid var(--line);margin:12px 0 16px}
-.note{font-size:.9rem;color:var(--ink2);font-style:italic}
-/* eco strip */
-.eco{display:grid;grid-template-columns:1fr;gap:10px;text-align:center}
-@media(min-width:720px){.eco{grid-template-columns:repeat(3,1fr)}}
-.eco div{border:1px solid var(--line);background:var(--linen);padding:16px 10px;font-family:Verdana,Geneva,sans-serif;font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;color:var(--sage-deep)}
-/* services */
-.svc-grid{display:grid;grid-template-columns:1fr;gap:14px}
-@media(min-width:720px){.svc-grid{grid-template-columns:1fr 1fr}}
-.svc{border:1px solid var(--line);background:var(--linen);padding:20px 18px;position:relative}
-.svc::before{content:"";position:absolute;top:0;left:18px;right:18px;height:1px;background:repeating-linear-gradient(90deg,var(--gold) 0 6px,transparent 6px 12px);opacity:.7}
-.svc p{color:var(--ink2);font-size:.96rem;margin-top:6px}
-.price{font-family:Verdana,Geneva,sans-serif;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--sage);margin-top:10px;display:block}
-/* info */
-.cols{display:grid;grid-template-columns:1fr;gap:22px}
-@media(min-width:720px){.cols{grid-template-columns:1fr 1fr}}
-.hours{width:100%;border-collapse:collapse;font-size:.98rem}
-.hours td{padding:7px 4px;border-bottom:1px dotted rgba(51,71,59,.3)}
-.hours td:last-child{text-align:right;font-family:Verdana,Geneva,sans-serif;font-size:.86rem;color:var(--ink2)}
+.btn{font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;padding:13px 24px;border-radius:999px;display:inline-block;font-weight:700}
+.btn-call{background:var(--gold);color:#1f2a23;box-shadow:0 8px 18px rgba(38,48,42,.22)}
+.btn-ghost{border:1px solid rgba(51,71,59,.55);color:var(--sage-deep);background:rgba(255,254,249,.6)}
+.cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:22px}
 a{color:var(--sage-deep)}
-.big-link{font-size:1.12rem}
-/* ending */
-.ending{background:var(--sage-deep);color:var(--linen);text-align:center}
-.ending .kicker{color:#d9bc7f}
-.ending h2{color:var(--linen)}
-.ending p{max-width:600px;margin:10px auto 0;color:#e2e9da}
-footer{text-align:center;margin-top:36px;padding:22px 14px;border-top:1px solid var(--line)}
-footer .fname{letter-spacing:.26em;text-transform:uppercase;font-size:.85rem;color:var(--sage-deep)}
-footer p{font-size:.8rem;color:var(--ink2);margin-top:8px;font-family:Verdana,Geneva,sans-serif}
-.sticky-call{position:fixed;left:12px;right:12px;bottom:12px;z-index:9;text-align:center}
-.sticky-call a{display:block;background:var(--sage-deep);color:#fff;text-decoration:none;font-family:Verdana,Geneva,sans-serif;letter-spacing:.16em;text-transform:uppercase;font-size:.82rem;padding:15px;border-radius:999px;box-shadow:0 10px 24px rgba(0,0,0,.25)}
+.note{font-size:.9rem;color:var(--ink2);font-style:italic;font-family:Georgia,'Times New Roman',serif}
+.big-link{font-size:1.12rem;font-family:Georgia,'Times New Roman',serif}
+h2{font-family:Georgia,'Times New Roman',serif;font-size:1.6rem;letter-spacing:.1em;text-transform:uppercase;font-weight:400;color:var(--sage-deep);margin-top:9px}
+
+/* ============ THE RAIL & THE PRESSED SHIRT — nameplate ============ */
+.rail-zone{position:relative;padding-top:8px}
+.rail{height:10px;border-radius:6px;position:relative;
+  background:linear-gradient(180deg,#f4f4f2,#b9bcb6 38%,#7e837e 62%,#d7d9d4);
+  box-shadow:0 3px 6px rgba(38,48,42,.28)}
+.rail::before,.rail::after{content:"";position:absolute;top:-5px;width:18px;height:18px;border-radius:50%;
+  background:radial-gradient(circle at 36% 32%,#fdfdfb,#9a9e98 70%,#6d726d);box-shadow:0 2px 4px rgba(38,48,42,.3)}
+.rail::before{left:3%}.rail::after{right:3%}
+.hangers{display:flex;justify-content:space-between;max-width:900px;margin:0 auto;padding:0 4%;height:0;position:relative;z-index:3}
+.hangers svg{width:150px;overflow:visible;flex:none}
+.hangers svg.mid{width:190px}
+@media(max-width:640px){.hangers svg{width:84px}.hangers svg.mid{width:110px}}
+/* the shirt itself: collar, placket, buttons, pocket, pressed creases, stitched hem */
+.shirt{
+  position:relative;max-width:760px;margin:118px auto 0;background:var(--shirt);
+  border:1px solid var(--line);padding:0 40px 40px;text-align:center;
+  box-shadow:12px 12px 0 rgba(92,114,99,.35), 0 24px 44px rgba(38,48,42,.18);
+}
+@media(max-width:640px){.shirt{margin-top:74px;padding:0 18px 30px}}
+.shirt::before,.shirt::after{content:"";position:absolute;top:0;bottom:0;width:1px;
+  background:linear-gradient(180deg,transparent,rgba(51,71,59,.20) 18%,rgba(51,71,59,.20) 82%,transparent)}
+.shirt::before{left:11%}.shirt::after{right:11%}
+.shirt .stitch{position:absolute;left:9px;right:9px;bottom:9px;border-top:2px dashed rgba(185,151,90,.6)}
+.collar{display:block;margin:-2px auto 0;width:min(300px,72%)}
+.placket{position:absolute;left:50%;top:104px;bottom:20px;width:26px;transform:translateX(-50%);
+  border-left:1px solid rgba(51,71,59,.16);border-right:1px solid rgba(51,71,59,.16);pointer-events:none}
+.placket i{position:absolute;left:50%;transform:translateX(-50%);width:7px;height:7px;border-radius:50%;
+  background:radial-gradient(circle at 36% 32%,#ffffff,#cfd2c8 72%,#a7aba1);box-shadow:0 1px 2px rgba(38,48,42,.3)}
+.shirt .kicker{color:var(--sage);margin-top:22px;position:relative;z-index:2}
+.shirt h1{font-family:Georgia,'Times New Roman',serif;font-size:clamp(2rem,6.6vw,3.6rem);letter-spacing:.18em;text-transform:uppercase;font-weight:400;margin:13px 0 6px;line-height:1.1;color:var(--sage-ink);position:relative;z-index:2}
+.shirt .sub{letter-spacing:.24em;text-transform:uppercase;font-size:.78rem;color:var(--sage);font-weight:700;position:relative;z-index:2}
+.shirt p.lede{position:relative;z-index:2;max-width:520px;margin:4px auto 0;font-family:Georgia,'Times New Roman',serif;font-style:italic;color:var(--ink2);font-size:1.05rem}
+.shirt .cta-row{position:relative;z-index:2}
+.pocket{position:absolute;left:13%;top:285px;width:56px;height:48px;border:1px solid rgba(51,71,59,.25);border-top:0;pointer-events:none}
+.pocket::before{content:"";position:absolute;top:0;left:0;right:0;height:10px;border-bottom:1px solid rgba(51,71,59,.25);
+  background:linear-gradient(45deg,transparent 49%,rgba(51,71,59,.25) 49% 51%,transparent 51%),linear-gradient(-45deg,transparent 49%,rgba(51,71,59,.25) 49% 51%,transparent 51%);background-size:12px 10px}
+.pocket .leafmark{position:absolute;left:50%;top:17px;transform:translateX(-50%);width:20px}
+@media(max-width:640px){.pocket{display:none}.placket{display:none}}
+
+/* ============ THE LEAF — the eco promise as a veined system ============ */
+.leaf-sec{position:relative;margin-top:74px}
+.leaf-sec::before{content:"";position:absolute;inset:0;transform:translate(11px,11px);background:var(--sage-deep);opacity:.30}
+.leaf{
+  position:relative;background:linear-gradient(160deg,#f4f6ec,#e8edd9);border:1px solid var(--line);
+  border-radius:6px 46% 6px 46%/6px 130px 6px 130px;
+  padding:46px 54px 52px;overflow:hidden;box-shadow:0 18px 36px rgba(38,48,42,.14);
+}
+@media(max-width:640px){.leaf{border-radius:8px 60px 8px 60px;padding:32px 20px 36px}}
+.leaf-head{text-align:center;position:relative;z-index:2}
+.leaf-head .kicker{color:var(--sage)}
+.vein{position:relative;max-width:640px;margin:34px auto 0;z-index:2}
+.vein::before{content:"";position:absolute;left:50%;top:-8px;bottom:-8px;width:2px;transform:translateX(-50%);
+  background:linear-gradient(180deg,var(--leaf),rgba(109,138,95,.25))}
+.branch{position:relative;width:50%;padding:14px 30px 14px 0;text-align:right}
+.branch:nth-child(even){margin-left:50%;padding:14px 0 14px 30px;text-align:left}
+.branch::before{content:"";position:absolute;top:50%;width:30px;height:1px;background:var(--leaf)}
+.branch:nth-child(odd)::before{right:0}
+.branch:nth-child(even)::before{left:0}
+.branch::after{content:"";position:absolute;top:50%;width:11px;height:11px;border-radius:50%;transform:translateY(-50%);
+  background:radial-gradient(circle at 36% 32%,#eef3df,var(--leaf) 72%);box-shadow:0 0 0 3px rgba(109,138,95,.22)}
+.branch:nth-child(odd)::after{right:-6px}
+.branch:nth-child(even)::after{left:-6px}
+.branch p{font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:var(--sage-deep);line-height:1.7}
+@media(max-width:560px){.branch,.branch:nth-child(even){width:100%;margin-left:0;text-align:center;padding:12px 6px}.branch::before{display:none}.vein::before{display:none}.branch::after{display:none}}
+
+/* ============ GARMENT TAGS — the six services, hanging in a row ============ */
+.tags-sec{margin-top:76px}
+.tags-head{text-align:center}
+.tags-head .kicker{color:var(--sage)}
+.tag-rail{height:6px;border-radius:4px;margin:38px 2px 0;
+  background:linear-gradient(180deg,#efefec,#a9ada5 55%,#83877f);box-shadow:0 2px 4px rgba(38,48,42,.25)}
+.tags{display:grid;grid-template-columns:1fr;gap:34px 22px;margin-top:0}
+@media(min-width:680px){.tags{grid-template-columns:1fr 1fr}}
+@media(min-width:980px){.tags{grid-template-columns:repeat(3,1fr)}}
+.tag{position:relative;background:var(--paper);border:1px solid var(--line);padding:40px 22px 20px;margin-top:44px;
+  box-shadow:0 14px 26px rgba(38,48,42,.13)}
+.tag.tilt-l{transform:rotate(-1.1deg)}
+.tag.tilt-r{transform:rotate(1.1deg)}
+.tag.mist{background:linear-gradient(175deg,#fbfaf3,#eef1e2)}
+.tag.gilt{background:linear-gradient(175deg,#fffef9,#f7efdb)}
+.tag::before{content:"";position:absolute;inset:7px;border:1px dashed rgba(185,151,90,.55);pointer-events:none}
+.tag::after{content:"";position:absolute;top:-1px;right:-1px;width:0;height:0;pointer-events:none;
+  border-style:solid;border-width:0 27px 27px 0;border-color:transparent var(--ground) rgba(185,151,90,.45) transparent;
+  filter:drop-shadow(-2px 2px 2px rgba(38,48,42,.18))}
+.tag .string{position:absolute;left:50%;top:-44px;width:1px;height:44px;background:repeating-linear-gradient(180deg,var(--sage) 0 4px,transparent 4px 7px)}
+.tag .ring{position:absolute;left:50%;top:13px;transform:translateX(-50%);width:17px;height:17px;border-radius:50%;
+  border:3px solid #a9ada5;background:var(--ground);box-shadow:inset 0 1px 2px rgba(38,48,42,.35)}
+.tag h3{font-family:Georgia,'Times New Roman',serif;font-size:1.14rem;letter-spacing:.08em;text-transform:uppercase;font-weight:400;color:var(--sage-deep);text-align:center;line-height:1.3}
+.tag>p{color:var(--ink2);font-size:.96rem;margin-top:9px;text-align:center;font-family:Georgia,'Times New Roman',serif}
+.tag .barcode{margin-top:16px;border-top:1px solid var(--line);padding-top:11px;text-align:center}
+.tag .barcode .bars{height:20px;margin:0 auto 7px;max-width:170px;
+  background:repeating-linear-gradient(90deg,var(--sage-deep) 0 2px,transparent 2px 5px,var(--sage-deep) 5px 6px,transparent 6px 11px,var(--sage-deep) 11px 14px,transparent 14px 17px,var(--sage-deep) 17px 18px,transparent 18px 23px)}
+.tag .barcode span{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--sage);font-weight:700}
+.tags-note{text-align:center;margin-top:26px}
+
+/* ============ FOLDED — the about panel, folded in three ============ */
+.folded{position:relative;margin-top:76px}
+.folded::before{content:"";position:absolute;inset:0;transform:translate(11px,11px);background:var(--gold);opacity:.32}
+.fold-stack{position:relative;background:var(--paper);border:1px solid var(--line);box-shadow:0 16px 32px rgba(38,48,42,.12)}
+.fold{padding:30px 30px 26px;position:relative}
+.fold + .fold{border-top:1px solid var(--line);
+  background-image:linear-gradient(180deg,rgba(51,71,59,.09),transparent 14px)}
+.fold .kicker{color:var(--sage)}
+.fold p{font-family:Georgia,'Times New Roman',serif;font-size:1.01rem;max-width:760px}
+.fold p + p{margin-top:12px}
+.fold .stitchline{position:absolute;left:14px;right:14px;bottom:8px;border-top:2px dashed rgba(185,151,90,.45)}
+
+/* ============ CARE LABEL — hours & location ============ */
+.carelabel{position:relative;margin-top:76px;max-width:880px;margin-left:auto;margin-right:auto}
+.carelabel::before{content:"";position:absolute;inset:0;transform:translate(10px,10px);background:var(--mist);opacity:.65}
+.label-in{position:relative;background:#fffef9;border:1px solid var(--line);padding:32px 30px 28px;box-shadow:0 14px 30px rgba(38,48,42,.12)}
+.label-in::before{content:"";position:absolute;inset:6px;border:2px dashed rgba(92,114,99,.4);pointer-events:none}
+.label-head{text-align:center;position:relative;z-index:2}
+.care-symbols{display:flex;gap:10px;justify-content:center;margin-top:18px;position:relative;z-index:2}
+.care-symbols svg{width:40px;height:40px}
+.cols{display:grid;grid-template-columns:1fr;gap:26px;position:relative;z-index:2;margin-top:8px}
+@media(min-width:720px){.cols{grid-template-columns:1fr 1fr}}
+.label-in h3{font-family:Georgia,'Times New Roman',serif;font-size:1.04rem;letter-spacing:.12em;text-transform:uppercase;font-weight:400;color:var(--sage-deep);margin-bottom:9px}
+hr.hair{border:0;border-top:1px solid var(--line);margin:14px 0 20px}
+.hours{width:100%;border-collapse:collapse;font-size:.98rem;font-family:Georgia,'Times New Roman',serif}
+.hours td{padding:7px 4px;border-bottom:1px dotted rgba(51,71,59,.3)}
+.hours td:last-child{text-align:right;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:.86rem;color:var(--ink2)}
+
+/* ============ THE CLOSING HANGER ============ */
+.closing{position:relative;margin-top:84px;text-align:center}
+.closing .hook{display:block;margin:0 auto -6px;width:120px;position:relative;z-index:3}
+.closing-band{position:relative;background:linear-gradient(165deg,#3a5243,var(--sage-deep) 55%,var(--sage-ink));color:var(--linen);
+  padding:52px 26px 44px;box-shadow:11px 11px 0 rgba(185,151,90,.45);overflow:hidden}
+.closing-band::before,.closing-band::after{content:"";position:absolute;top:0;bottom:0;width:1px;background:rgba(251,250,243,.22)}
+.closing-band::before{left:12%}.closing-band::after{right:12%}
+.closing-band .kicker{color:var(--gold-soft)}
+.closing-band h2{color:var(--linen);font-size:1.85rem;line-height:1.3}
+.closing-band p{max-width:600px;margin:12px auto 0;color:#e2e9da;font-family:Georgia,'Times New Roman',serif;position:relative;z-index:2}
+.closing-band .cta-row{position:relative;z-index:2}
+.closing-band .btn-call{box-shadow:0 8px 18px rgba(0,0,0,.3)}
+footer{text-align:center;margin-top:40px;padding:22px 14px;border-top:1px solid var(--line)}
+footer .fname{letter-spacing:.26em;text-transform:uppercase;font-size:.85rem;color:var(--sage-deep);font-family:Georgia,'Times New Roman',serif}
+footer p{font-size:.8rem;color:var(--ink2);margin-top:8px}
+.sticky-call{position:fixed;left:12px;right:12px;bottom:12px;z-index:130;text-align:center}
+.sticky-call a{display:block;background:var(--sage-deep);color:#fff;text-decoration:none;letter-spacing:.16em;text-transform:uppercase;font-size:.82rem;font-weight:700;padding:15px;border-radius:999px;box-shadow:0 10px 24px rgba(0,0,0,.25)}
 @media(min-width:720px){.sticky-call{display:none}}
 </style>
 </head>
 <body>
 <div class="wrap">
 
-  <div class="frame">
-    <header class="nameplate">
+  <!-- THE RAIL & THE PRESSED SHIRT -->
+  <div class="rail-zone">
+    <div class="rail" aria-hidden="true"></div>
+    <div class="hangers" aria-hidden="true">
+      <svg viewBox="0 0 150 120"><path d="M75 8 a10 10 0 1 1 10 10 q0 8 -10 10 M75 28 L14 108 M75 28 L136 108 M14 108 H136" fill="none" stroke="#8b9089" stroke-width="4" stroke-linecap="round"/></svg>
+      <svg class="mid" viewBox="0 0 190 120"><path d="M95 6 a11 11 0 1 1 11 11 q0 9 -11 11 M95 28 L18 110 M95 28 L172 110 M18 110 H172" fill="none" stroke="#6d726d" stroke-width="4.5" stroke-linecap="round"/></svg>
+      <svg viewBox="0 0 150 120"><path d="M75 8 a10 10 0 1 1 10 10 q0 8 -10 10 M75 28 L14 108 M75 28 L136 108 M14 108 H136" fill="none" stroke="#8b9089" stroke-width="4" stroke-linecap="round"/></svg>
+    </div>
+    <header class="shirt">
+      <svg class="collar" viewBox="0 0 300 64" aria-hidden="true"><path d="M18 6 L118 44 L150 22 L182 44 L282 6 L262 58 L168 34 L150 46 L132 34 L38 58 Z" fill="#fffef9" stroke="rgba(51,71,59,.35)" stroke-width="1.5"/><path d="M132 34 L150 46 L168 34 L160 56 L150 62 L140 56 Z" fill="#f4f2e6" stroke="rgba(51,71,59,.3)" stroke-width="1.2"/></svg>
+      <div class="placket" aria-hidden="true"><i style="top:26px"></i><i style="top:86px"></i><i style="top:146px"></i><i style="top:206px"></i></div>
+      <div class="pocket" aria-hidden="true"><svg class="leafmark" viewBox="0 0 24 24"><path d="M12 21 C5 16 4 8 6 3 C12 3 19 6 20 6 C20 12 18 19 12 21 Z" fill="none" stroke="#6d8a5f" stroke-width="1.6"/><path d="M12 21 C12 15 14 10 18 7" fill="none" stroke="#6d8a5f" stroke-width="1.3"/></svg></div>
       <div class="kicker">Vienna · Virginia</div>
       <h1>Vienna Valet</h1>
       <div class="sub">Eco-Friendly Dry Cleaners</div>
@@ -102,85 +213,108 @@ footer p{font-size:.8rem;color:var(--ink2);margin-top:8px;font-family:Verdana,Ge
         <a class="btn btn-call" href="tel:+17039388634">Call (703) 938-8634</a>
         <a class="btn btn-ghost" href="#services">Our Services</a>
       </div>
+      <div class="stitch" aria-hidden="true"></div>
     </header>
   </div>
 
-  <!-- ECO PROMISE -->
-  <div class="panel-wrap gold">
-    <section class="panel">
-      <div class="kicker">The Vienna Valet Way</div>
-      <h2>Eco-Friendly, By Design</h2>
-      <hr class="hair">
-      <div class="eco">
-        <div>Eco-Friendly<br>Dry Cleaners</div>
-        <div>No Harmful Chemicals<br>No Chemical Smell</div>
-        <div>Better For<br>Your Clothes</div>
+  <!-- THE LEAF -->
+  <div class="leaf-sec">
+    <section class="leaf">
+      <div class="leaf-head">
+        <div class="kicker rule-in">The Vienna Valet Way</div>
+        <h2>Eco-Friendly, By Design</h2>
+      </div>
+      <div class="vein">
+        <div class="branch"><p>Eco-Friendly<br>Dry Cleaners</p></div>
+        <div class="branch"><p>No Harmful Chemicals<br>No Chemical Smell</p></div>
+        <div class="branch"><p>Better For<br>Your Clothes</p></div>
       </div>
     </section>
   </div>
 
-  <!-- SERVICES -->
-  <div class="panel-wrap" id="services">
-    <section class="panel">
-      <div class="kicker">Professional Services</div>
+  <!-- GARMENT TAGS -->
+  <section class="tags-sec" id="services">
+    <div class="tags-head">
+      <div class="kicker rule-in">Professional Services</div>
       <h2>What We Provide</h2>
-      <hr class="hair">
-      <div class="svc-grid">
-        <div class="svc">
-          <h3>Dry Cleaning</h3>
-          <p>Our core dry cleaning service — done the eco-friendly way, with no harmful chemicals and no chemical smell.</p>
-          <span class="price">Call for details</span>
-        </div>
-        <div class="svc">
-          <h3>Dress Shirt Laundry</h3>
-          <p>Dress shirt laundry, handled by experienced and friendly professionals.</p>
-          <span class="price">Call for details</span>
-        </div>
-        <div class="svc">
-          <h3>Same Day Services</h3>
-          <p>Same day services for when you need your garments back on schedule.</p>
-          <span class="price">Call for details</span>
-        </div>
-        <div class="svc">
-          <h3>Alterations</h3>
-          <p>Alterations, completed efficiently and on schedule.</p>
-          <span class="price">Call for details</span>
-        </div>
-        <div class="svc">
-          <h3>Wedding Dress Cleaning</h3>
-          <p>Wedding dress cleaning — entrusted to a team that goes above and beyond for its clients.</p>
-          <span class="price">Call for details</span>
-        </div>
-        <div class="svc">
-          <h3>Household Items Cleaning</h3>
-          <p>Household items cleaning, with the same care we give your wardrobe.</p>
-          <span class="price">Call for details</span>
+    </div>
+    <div class="tag-rail" aria-hidden="true"></div>
+    <div class="tags">
+      <article class="tag tilt-l">
+        <span class="string" aria-hidden="true"></span><span class="ring" aria-hidden="true"></span>
+        <h3>Dry Cleaning</h3>
+        <p>Our core dry cleaning service — done the eco-friendly way, with no harmful chemicals and no chemical smell.</p>
+        <div class="barcode" aria-hidden="false"><div class="bars" aria-hidden="true"></div><span>Call for details</span></div>
+      </article>
+      <article class="tag mist tilt-r">
+        <span class="string" aria-hidden="true"></span><span class="ring" aria-hidden="true"></span>
+        <h3>Dress Shirt Laundry</h3>
+        <p>Dress shirt laundry, handled by experienced and friendly professionals.</p>
+        <div class="barcode"><div class="bars" aria-hidden="true"></div><span>Call for details</span></div>
+      </article>
+      <article class="tag gilt tilt-l">
+        <span class="string" aria-hidden="true"></span><span class="ring" aria-hidden="true"></span>
+        <h3>Same Day Services</h3>
+        <p>Same day services for when you need your garments back on schedule.</p>
+        <div class="barcode"><div class="bars" aria-hidden="true"></div><span>Call for details</span></div>
+      </article>
+      <article class="tag gilt tilt-r">
+        <span class="string" aria-hidden="true"></span><span class="ring" aria-hidden="true"></span>
+        <h3>Alterations</h3>
+        <p>Alterations, completed efficiently and on schedule.</p>
+        <div class="barcode"><div class="bars" aria-hidden="true"></div><span>Call for details</span></div>
+      </article>
+      <article class="tag tilt-l">
+        <span class="string" aria-hidden="true"></span><span class="ring" aria-hidden="true"></span>
+        <h3>Wedding Dress Cleaning</h3>
+        <p>Wedding dress cleaning — entrusted to a team that goes above and beyond for its clients.</p>
+        <div class="barcode"><div class="bars" aria-hidden="true"></div><span>Call for details</span></div>
+      </article>
+      <article class="tag mist tilt-r">
+        <span class="string" aria-hidden="true"></span><span class="ring" aria-hidden="true"></span>
+        <h3>Household Items Cleaning</h3>
+        <p>Household items cleaning, with the same care we give your wardrobe.</p>
+        <div class="barcode"><div class="bars" aria-hidden="true"></div><span>Call for details</span></div>
+      </article>
+    </div>
+    <p class="note tags-note">Pricing isn't published online — call <a href="tel:+17039388634">(703) 938-8634</a> for details on any service.</p>
+  </section>
+
+  <!-- FOLDED: ABOUT -->
+  <div class="folded">
+    <div class="fold-stack">
+      <section class="fold">
+        <div class="kicker">About Us</div>
+        <h2>Reliable &amp; Honest</h2>
+        <div class="stitchline" aria-hidden="true"></div>
+      </section>
+      <section class="fold">
+        <p>Since our founding, we've worked with numerous clients throughout the Vienna area. Great service begins and ends with experienced and friendly professionals, which is why we put so much consideration into selecting only the best to join our team.</p>
+        <div class="stitchline" aria-hidden="true"></div>
+      </section>
+      <section class="fold">
+        <p>We complete projects efficiently and on schedule, and go above and beyond to form lasting relationships with our clients.</p>
+      </section>
+    </div>
+  </div>
+
+  <!-- CARE LABEL -->
+  <div class="carelabel">
+    <section class="label-in">
+      <div class="label-head">
+        <div class="kicker rule-in">Get In Touch</div>
+        <h2>Hours &amp; Location</h2>
+        <div class="care-symbols" aria-hidden="true">
+          <svg viewBox="0 0 40 40"><rect x="3" y="3" width="34" height="34" fill="none" stroke="#5c7263" stroke-width="1.6"/><path d="M9 17 h22 l-3 12 a3 3 0 0 1 -3 2 h-10 a3 3 0 0 1 -3 -2 z" fill="none" stroke="#5c7263" stroke-width="1.8"/><path d="M9 21 q5 -4 11 0 q6 4 11 0" fill="none" stroke="#5c7263" stroke-width="1.6"/></svg>
+          <svg viewBox="0 0 40 40"><rect x="3" y="3" width="34" height="34" fill="none" stroke="#5c7263" stroke-width="1.6"/><path d="M20 9 a11 11 0 1 1 -7.8 3.2 M20 9 v9 l7 4" fill="none" stroke="#5c7263" stroke-width="1.8"/></svg>
+          <svg viewBox="0 0 40 40"><rect x="3" y="3" width="34" height="34" fill="none" stroke="#5c7263" stroke-width="1.6"/><path d="M12 28 C8 20 11 11 15 8 C21 8 27 12 28 12 C28 19 25 26 19 28 C16 29 13 29 12 28 Z M12 28 C13 22 16 17 21 14" fill="none" stroke="#6d8a5f" stroke-width="1.8"/></svg>
+          <svg viewBox="0 0 40 40"><rect x="3" y="3" width="34" height="34" fill="none" stroke="#5c7263" stroke-width="1.6"/><path d="M10 29 L20 12 L30 29 Z M14 29 h12 M20 20 v9" fill="none" stroke="#5c7263" stroke-width="1.8"/></svg>
         </div>
       </div>
-      <p class="note" style="margin-top:16px">Pricing isn't published online — call <a href="tel:+17039388634">(703) 938-8634</a> for details on any service.</p>
-    </section>
-  </div>
-
-  <!-- ABOUT -->
-  <div class="panel-wrap deep">
-    <section class="panel">
-      <div class="kicker">About Us</div>
-      <h2>Reliable &amp; Honest</h2>
-      <hr class="hair">
-      <p>Since our founding, we've worked with numerous clients throughout the Vienna area. Great service begins and ends with experienced and friendly professionals, which is why we put so much consideration into selecting only the best to join our team.</p>
-      <p style="margin-top:12px">We complete projects efficiently and on schedule, and go above and beyond to form lasting relationships with our clients.</p>
-    </section>
-  </div>
-
-  <!-- VISIT -->
-  <div class="panel-wrap gold">
-    <section class="panel">
-      <div class="kicker">Get In Touch</div>
-      <h2>Hours &amp; Location</h2>
       <hr class="hair">
       <div class="cols">
         <div>
-          <h3 style="margin-bottom:8px">Hours</h3>
+          <h3>Hours</h3>
           <table class="hours">
             <tr><td>Monday – Friday</td><td>7:00 AM – 7:00 PM</td></tr>
             <tr><td>Saturday</td><td>8:00 AM – 6:00 PM</td></tr>
@@ -189,7 +323,7 @@ footer p{font-size:.8rem;color:var(--ink2);margin-top:8px;font-family:Verdana,Ge
           <p class="note" style="margin-top:10px">Questions, comments or requests? Feel free to reach out — we'd love to hear from you.</p>
         </div>
         <div>
-          <h3 style="margin-bottom:8px">Find Us</h3>
+          <h3>Find Us</h3>
           <p class="big-link">103 Beulah Rd #103<br>Vienna, VA 22180</p>
           <p style="margin-top:10px"><a href="https://www.google.com/maps/search/?api=1&amp;query=Vienna+Valet+103+Beulah+Rd+Vienna+VA+22180" target="_blank" rel="noopener">Get directions on Google Maps →</a></p>
           <p style="margin-top:14px">Call: <a href="tel:+17039388634">(703) 938-8634</a><br>
@@ -199,9 +333,10 @@ footer p{font-size:.8rem;color:var(--ink2);margin-top:8px;font-family:Verdana,Ge
     </section>
   </div>
 
-  <!-- SIGNATURE ENDING -->
-  <div class="panel-wrap">
-    <section class="panel ending">
+  <!-- THE CLOSING HANGER -->
+  <div class="closing">
+    <svg class="hook" viewBox="0 0 120 74" aria-hidden="true"><path d="M60 4 a9 9 0 1 1 9 9 q0 7 -9 9 M60 22 L10 70 M60 22 L110 70 M10 70 H110" fill="none" stroke="#b9975a" stroke-width="4" stroke-linecap="round"/></svg>
+    <section class="closing-band">
       <div class="kicker">Reliable &amp; Honest</div>
       <h2>Pressed, Finished,<br>Better For Your Clothes.</h2>
       <hr class="rule">

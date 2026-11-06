@@ -2,79 +2,157 @@
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>The Happy Tart — 100% Gluten-Free Bakery &amp; Café · Falls Church, VA</title>
 <meta name="description" content="Falls Church's 100% gluten-free and wheat-free specialty bakery and café since 2012. Tarts, pastries, custom cakes, artisan breads and brunch.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;1,9..144,500&family=Karla:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
+:root{
+  --plum:#6e2436; --plum-deep:#471826; --rasp:#a83a52;
+  --gold:#c99a3f; --gold-soft:#ecd28a; --paper:#fdf6e3; --ticket:#fffdf4;
+  --mint:#eef3df; --mint-line:#cfdcb2; --blush:#fbe9e2; --ink:#43252b; --muted:#6f5748;
+}
 *{box-sizing:border-box}html{scroll-behavior:smooth}
-body{margin:0;font-family:Georgia,'Times New Roman',serif;color:#3d2329;background:#fbf1dc;background-image:radial-gradient(#e8d5ae .7px,transparent .8px),radial-gradient(#fff8 .6px,transparent .7px);background-size:22px 22px,13px 13px;background-position:0 0,7px 9px;line-height:1.6}
-a{color:#7a2e3f}
-.topbar{background:#3d2329;color:#fbf1dc;text-align:center;padding:.55rem 1rem;font-family:Verdana,sans-serif;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase}
-.topbar a{color:#f6c86b;text-decoration:none;font-weight:700}
-.wrap{max-width:1080px;margin:0 auto;padding:18px}
-.frame{border:2px solid #7a2e3f;outline:6px double #c99a3f33;padding:10px;background:#fffaf0}
-.kicker{font-family:Verdana,sans-serif;font-size:.68rem;letter-spacing:.32em;text-transform:uppercase;color:#7a2e3f;display:flex;align-items:center;gap:12px}
-.kicker:before,.kicker:after{content:"";height:1px;background:#c99a3f;flex:1}
-.nameplate{text-align:center;padding:42px 18px 30px;border-bottom:1px solid #e3cfa3;position:relative}
-.nameplate:before{content:"✦  EST. 2012  ·  FALLS CHURCH, VIRGINIA  ✦";font-family:Verdana,sans-serif;font-size:.62rem;letter-spacing:.3em;color:#8a6d2f}
-h1{margin:.35em 0 .15em;font-size:clamp(2.2rem,7vw,4.4rem);letter-spacing:.14em;text-transform:uppercase;color:#7a2e3f;line-height:1.05;font-weight:400}
-.sub{font-style:italic;font-size:clamp(1rem,2.6vw,1.3rem);color:#5c3a2e}
-.badge{display:inline-block;margin-top:16px;background:#7a2e3f;color:#fff;padding:.5rem 1rem;border-radius:999px;font-family:Verdana,sans-serif;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase}
-.cta-row{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:20px}
-.btn{display:inline-block;padding:.8rem 1.2rem;border-radius:999px;text-decoration:none;font-family:Verdana,sans-serif;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700}
-.btn.primary{background:#7a2e3f;color:#fff}.btn.ghost{border:1.5px solid #7a2e3f;color:#7a2e3f;background:#fff}
-.grid{display:grid;gap:22px;margin:26px 0}@media(min-width:760px){.grid.two{grid-template-columns:1fr 1fr}.grid.three{grid-template-columns:repeat(3,1fr)}}
-.panel{position:relative;padding:24px;background:#fff;border:1px solid #e3cfa3;box-shadow:10px 10px 0 #f3dfae}
-.panel.rose{background:#fdf0ec;box-shadow:10px 10px 0 #eec9bd}.panel.sage{background:#f1f5e6;box-shadow:10px 10px 0 #cfdcb2}.panel.gold{background:#fff7df;box-shadow:10px 10px 0 #ecd28a}
-.panel h2,.panel h3{margin:.2em 0 .5em;color:#7a2e3f;font-weight:400;letter-spacing:.04em}
-.panel h2{font-size:1.7rem}.small{font-size:.92rem;color:#5f4a3a}
-.list{list-style:none;padding:0;margin:0}.list li{padding:.65rem 0;border-bottom:1px dashed #d9bd7a}.list li:last-child{border:0}
-.list strong{color:#7a2e3f}
-.price-note{background:#3d2329;color:#fbf1dc;padding:22px;text-align:center}
-.order{display:block;text-decoration:none;color:inherit}
-.order:hover{outline:2px solid #7a2e3f}
-footer{text-align:center;padding:28px 16px 10px;color:#6b5844;font-size:.88rem}
-.sig{font-size:clamp(1.4rem,4vw,2.2rem);font-style:italic;color:#7a2e3f;text-align:center;padding:10px}
+body{margin:0;font-family:'Karla',Verdana,sans-serif;color:var(--ink);line-height:1.6;
+  background:
+    radial-gradient(700px 320px at 4% 0%,rgba(200,154,63,.20),transparent 62%),
+    radial-gradient(760px 380px at 98% 18%,rgba(168,58,82,.12),transparent 60%),
+    radial-gradient(900px 500px at 50% 108%,rgba(200,154,63,.16),transparent 64%),
+    var(--paper)}
+body::before{content:"";position:fixed;inset:0;z-index:90;pointer-events:none;opacity:.05;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E")}
+h1,h2,h3{font-family:'Fraunces',Georgia,serif;color:var(--plum);line-height:1.12;font-weight:700}
+a{color:var(--rasp)}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px 8px}
+/* ---------- counter strip: a torn ticket stub, not a topbar bar ---------- */
+.counter{display:flex;justify-content:center;padding:18px 16px 0}
+.counter-stub{background:var(--plum-deep);color:#fbeed3;font-size:.72rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;
+  padding:10px 22px;position:relative;text-align:center;
+  -webkit-mask:radial-gradient(circle 6px at 0 50%,transparent 5.5px,#000 6px) left/51% 100% no-repeat,radial-gradient(circle 6px at 100% 50%,transparent 5.5px,#000 6px) right/51% 100% no-repeat;
+          mask:radial-gradient(circle 6px at 0 50%,transparent 5.5px,#000 6px) left/51% 100% no-repeat,radial-gradient(circle 6px at 100% 50%,transparent 5.5px,#000 6px) right/51% 100% no-repeat}
+.counter-stub a{color:var(--gold-soft);text-decoration:none}
+/* ---------- pastry-box lid nameplate: ribbon cross + wax seal ---------- */
+.boxlid{position:relative;margin:22px auto 0;background:linear-gradient(160deg,#fffdf4,#fdf0d8);border:2px solid var(--plum);
+  padding:54px 26px 40px;text-align:center;overflow:hidden;box-shadow:12px 12px 0 rgba(110,36,54,.16)}
+.boxlid::before{content:"";position:absolute;top:0;bottom:0;left:50%;width:44px;transform:translateX(-50%);
+  background:repeating-linear-gradient(180deg,var(--gold) 0 14px,#b8892f 14px 28px);opacity:.5}
+.boxlid::after{content:"";position:absolute;left:0;right:0;top:50%;height:44px;transform:translateY(-50%);
+  background:repeating-linear-gradient(90deg,var(--gold) 0 14px,#b8892f 14px 28px);opacity:.5}
+.boxlid>*{position:relative;z-index:1}
+.box-kicker{display:inline-block;background:var(--ticket);border:1px solid var(--gold);padding:6px 16px;font-size:.66rem;font-weight:800;letter-spacing:.34em;text-transform:uppercase;color:var(--plum)}
+h1{font-size:clamp(2.6rem,7.5vw,4.8rem);margin:.28em 0 .12em;letter-spacing:.02em;text-transform:none;background:var(--ticket);display:inline-block;padding:.05em .35em;border-radius:4px}
+.box-sub{display:block}
+.box-sub span{display:inline-block;background:var(--ticket);padding:6px 18px;font-family:'Fraunces',Georgia,serif;font-style:italic;font-size:clamp(1rem,2.6vw,1.3rem);color:#5c3a2e;max-width:44em}
+.seal{position:absolute;top:18px;right:18px;z-index:2;width:86px;height:86px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#c04a63,var(--plum) 68%);
+  color:#fbeed3;display:flex;flex-direction:column;align-items:center;justify-content:center;transform:rotate(9deg);
+  font-size:.56rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;text-align:center;line-height:1.5;
+  box-shadow:0 6px 14px rgba(71,24,38,.35);border:2px dashed rgba(251,238,211,.65);outline:3px solid rgba(110,36,54,.35)}
+.seal b{font-size:.95rem;letter-spacing:.05em}
+.badge{display:inline-block;margin-top:18px;background:var(--ticket);border:1.5px solid var(--plum);color:var(--plum);padding:.5rem 1.1rem;font-size:.72rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase}
+.cta-row{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:18px}
+.btn{display:inline-block;padding:.8rem 1.25rem;text-decoration:none;font-size:.8rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;border-radius:3px}
+.btn.primary{background:var(--plum);color:#fff;box-shadow:5px 5px 0 var(--gold-soft)}
+.btn.ghost{border:1.5px solid var(--plum);color:var(--plum);background:#fff}
+/* ---------- order tickets: perforated, punched, tear lines ---------- */
+.kicker{font-size:.68rem;font-weight:800;letter-spacing:.32em;text-transform:uppercase;color:var(--rasp);display:flex;align-items:center;gap:12px}
+.kicker::after{content:"";height:1px;background:var(--gold);flex:1}
+.ticket{position:relative;background:var(--ticket);border:1px solid #e3cfa3;padding:26px 28px 24px 44px;margin:26px 0;
+  box-shadow:10px 10px 0 #f3dfae}
+.ticket::before{content:"";position:absolute;top:0;bottom:0;left:26px;border-left:2px dashed #d9bd7a}
+.ticket::after{content:"✂";position:absolute;top:-11px;left:19px;background:var(--paper);padding:0 3px;color:var(--rasp);font-size:.85rem}
+.ticket .hole{position:absolute;left:7px;top:50%;transform:translateY(-50%);width:13px;height:13px;border-radius:50%;background:var(--paper);border:1.5px solid #d9bd7a}
+.ticket h2{font-size:1.65rem;margin:.15em 0 .45em}
+.ticket.blush{background:var(--blush);box-shadow:10px 10px 0 #eec9bd}
+.ticket.mint{background:var(--mint);box-shadow:10px 10px 0 var(--mint-line)}
+.ticket.goldbg{background:#fff7df;box-shadow:10px 10px 0 var(--gold-soft)}
+.duo{display:grid;gap:0}@media(min-width:820px){.duo{grid-template-columns:1fr 1fr;gap:26px}.duo .ticket{margin:13px 0}}
+.list{list-style:none;padding:0;margin:0}.list li{padding:.6rem 0;border-bottom:1px dotted #c8a24a}
+.list li:last-child{border:0}.list strong{color:var(--plum)}
+.small{font-size:.92rem;color:var(--muted)}
+/* ---------- the day's bake: a single long counter ticket, dotted leaders ---------- */
+.counter-ticket{background:var(--ticket);border:1px solid #e3cfa3;box-shadow:10px 10px 0 #f3dfae;padding:30px 34px;margin:30px 0;position:relative}
+.counter-ticket::before,.counter-ticket::after{content:"";position:absolute;left:0;right:0;height:10px;
+  background:radial-gradient(circle 5px at 8px 50%,var(--paper) 4.5px,transparent 5px);background-size:20px 10px}
+.counter-ticket::before{top:-5px}.counter-ticket::after{bottom:-5px}
+.bake-row{display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:baseline;padding:.85rem 0;border-bottom:1px dashed #e0cd96}
+.bake-row:last-child{border:0}
+.bake-row h3{font-size:1.22rem;margin:0;white-space:nowrap}
+.bake-row .dots{border-bottom:3px dotted #d9bd7a;transform:translateY(-4px)}
+.bake-row p{margin:0;font-size:.95rem;color:#5f4a3a;max-width:34em;text-align:right}
+@media(max-width:700px){.bake-row{grid-template-columns:1fr}.bake-row .dots{display:none}.bake-row p{text-align:left}}
+/* ---------- TICKET WINDOW: awning + four numbered windows ---------- */
+.window-frame{margin:34px 0 8px;border:3px solid var(--plum-deep);background:#fff8e8;box-shadow:12px 12px 0 rgba(71,24,38,.22)}
+.awning{height:46px;background:repeating-linear-gradient(90deg,var(--rasp) 0 34px,#fdf6e3 34px 68px);border-bottom:3px solid var(--plum-deep);position:relative}
+.awning::after{content:"";position:absolute;left:0;right:0;bottom:-13px;height:13px;
+  background:radial-gradient(circle 9px at 17px -3px,var(--rasp) 8px,transparent 9px),radial-gradient(circle 9px at 51px -3px,#fdf6e3 8px,transparent 9px);background-size:68px 13px}
+.window-head{text-align:center;padding:30px 20px 4px}
+.window-head h2{font-size:clamp(1.7rem,4vw,2.3rem);margin:.25em 0 0}
+.windows{display:grid;gap:0}@media(min-width:820px){.windows{grid-template-columns:repeat(2,1fr)}}
+.win{display:block;text-decoration:none;color:inherit;padding:24px 26px;border-top:2px dashed #d9bd7a;position:relative;background:var(--ticket)}
+@media(min-width:820px){.win:nth-child(odd){border-right:2px dashed #d9bd7a}.win:nth-child(-n+2){border-top:0}.win{border-top:2px dashed #d9bd7a}}
+.win:hover{background:#fff3d0}
+.win .no{font-family:'Fraunces',Georgia,serif;font-size:2rem;color:var(--gold);line-height:1}
+.win .stub-tag{display:inline-block;font-size:.62rem;font-weight:800;letter-spacing:.26em;text-transform:uppercase;color:#fff;background:var(--rasp);padding:4px 10px;margin:8px 0 6px}
+.win h3{font-size:1.3rem;margin:.1em 0 .35em}
+.win p{margin:0;font-size:.95rem;color:#5f4a3a}
+.win .go{font-weight:800;color:var(--plum);letter-spacing:.08em}
+.window-foot{border-top:2px dashed #d9bd7a;background:#fdf0d8;padding:16px 22px;text-align:center;font-size:.92rem;color:var(--muted)}
+/* ---------- closing ribbon band ---------- */
+.ribbon-band{margin:36px 0 0;background:linear-gradient(90deg,var(--plum-deep),var(--plum) 30%,var(--plum) 70%,var(--plum-deep));color:#fbeed3;text-align:center;padding:30px 20px 26px;position:relative}
+.ribbon-band::before,.ribbon-band::after{content:"";position:absolute;left:0;right:0;border-top:2px dashed rgba(236,210,138,.55)}
+.ribbon-band::before{top:7px}.ribbon-band::after{bottom:7px}
+.sig{font-family:'Fraunces',Georgia,serif;font-size:clamp(1.4rem,4vw,2.1rem);font-style:italic;margin:0 0 10px;color:#fff}
+.ribbon-band a{color:var(--gold-soft);font-weight:800}
+footer{text-align:center;padding:26px 16px 30px;color:var(--muted);font-size:.88rem}
 address{font-style:normal}
+@media(max-width:640px){.ticket{padding-left:36px}.ticket::before{left:19px}.seal{width:70px;height:70px;top:10px;right:10px}}
 </style></head>
 <body>
-<div class="topbar">100% Gluten-Free &amp; Wheat-Free &nbsp;·&nbsp; <a href="tel:+15713958280">Call (571) 395-8280</a></div>
-<div class="wrap"><div class="frame">
-<header class="nameplate">
-<div class="kicker">Specialty Bakery &amp; Café</div>
-<h1>The Happy Tart</h1>
-<p class="sub">Falls Church&rsquo;s 100% Gluten-Free, and Wheat-Free, Specialty Bakery &amp; Café — where every bite is a delight!</p>
-<span class="badge">Safe for celiacs · Craveable for everyone</span>
+<div class="counter"><div class="counter-stub">100% Gluten-Free &amp; Wheat-Free &nbsp;·&nbsp; <a href="tel:+15713958280">Call (571) 395-8280</a></div></div>
+<div class="wrap">
+
+<header class="boxlid">
+<div class="seal"><span>Est.</span><b>2012</b><span>Falls Church</span></div>
+<span class="box-kicker">Specialty Bakery &amp; Café</span>
+<div><h1>The Happy Tart</h1></div>
+<p class="box-sub"><span>Falls Church&rsquo;s 100% Gluten-Free, and Wheat-Free, Specialty Bakery &amp; Café — where every bite is a delight!</span></p>
+<div><span class="badge">Safe for celiacs · Craveable for everyone</span></div>
 <div class="cta-row"><a class="btn primary" href="tel:+15713958280">☎ Tap to Call</a><a class="btn ghost" href="https://www.google.com/maps/search/?api=1&amp;query=The+Happy+Tart+410+S+Maple+Ave+%23110+Falls+Church+VA+22046">Get Directions</a><a class="btn ghost" href="mailto:info@happytartbakery.com">Email Us</a></div>
 </header>
 
-<section class="grid two">
-<article class="panel rose"><div class="kicker">From Our Kitchen</div><h2>Baked Without Gluten. Ever.</h2><p>The Happy Tart has been Northern Virginia&rsquo;s dedicated gluten-and-wheat-free bakery <strong>since 2012</strong>, and under new ownership since 2025, we&rsquo;re bringing fresh energy to the kitchen.</p><p>Expect bold, seasonal flavors, classic French technique, and real butter, chocolate, and fruit in everything we bake — all from our 100% gluten-free and wheat-free kitchen.</p></article>
-<article class="panel sage"><div class="kicker">Good To Know</div><h2>Options For Many Tables</h2><ul class="list"><li><strong>100% gluten-free &amp; wheat-free</strong> kitchen</li><li><strong>Dairy-free</strong> and <strong>nut-free</strong> options too</li><li>Soy-free, gluten-free, dairy-free, nut-free &amp; wheat-free offerings daily</li><li>Scratch-baked with butter, eggs, cream &amp; our own gluten-free flour blends</li></ul><p class="small">Hours and menu prices: <strong>Call for details</strong> — (571) 395-8280.</p></article>
-</section>
-
-<section><div class="kicker">What We Make</div><h2 style="text-align:center;color:#7a2e3f;font-weight:400;font-size:2rem;margin:.4em 0">Real Services, Up Front</h2>
-<div class="grid three">
-<article class="panel"><h3>Tarts &amp; Pastries</h3><p>Flaky tarts and pastries, baked fresh with classic French technique.</p></article>
-<article class="panel gold"><h3>Custom Celebration Cakes</h3><p>Beautifully crafted cakes and delightful event treats for life&rsquo;s special moments — including weddings.</p></article>
-<article class="panel"><h3>Artisan Breads</h3><p>Artisan breads from our dedicated gluten-free kitchen, including demi baguettes noted on our holiday menu.</p></article>
-<article class="panel sage"><h3>Café &amp; Brunch</h3><p>Grab a coffee and a pastry, sit down for brunch, or treat yourself just because.</p></article>
-<article class="panel rose"><h3>Holiday Baking</h3><p>Gluten-free pumpkin pie, chocolate pecan pie and apple pie for Thanksgiving; stollen, bûche de Noël, holiday cookie platters and gingerbread house kits for winter celebrations.</p></article>
-<article class="panel"><h3>Gift Cards</h3><p>Send a Happy to someone special with a Happy Tart gift card.</p></article>
-</div></section>
-
-<section><div class="kicker">Order Ahead</div><h2 style="text-align:center;color:#7a2e3f;font-weight:400;font-size:2rem;margin:.4em 0">Four Easy Ways To Order</h2>
-<div class="grid two">
-<a class="panel order" href="http://the-happy-tart-105944.square.site/"><h3>Express Pickup →</h3><p><strong>Same Day Orders:</strong> Fresh coffee, pastries, and café favorites, ready when you are.</p></a>
-<a class="panel order gold" href="http://pre-orders-104084.square.site/"><h3>Advance Orders →</h3><p><strong>Pre-Order:</strong> Reserve your favorites, seasonal specials, and larger treats — perfect for when you need a little extra delight.</p></a>
-<a class="panel order rose" href="http://happy-tart-celebrations.square.site/"><h3>Celebrations →</h3><p><strong>Cakes &amp; Weddings:</strong> Beautifully crafted cakes and delightful event treats, made to sweeten life&rsquo;s special moments.</p></a>
-<a class="panel order sage" href="https://happy-tart-holidays.square.site/"><h3>Thanksgiving &amp; Holidays →</h3><p>Thanksgiving orders close Nov 19 on the shop&rsquo;s holiday site. Don&rsquo;t be a turkey — order early and let us take care of the rest.</p></a>
+<div class="duo">
+<article class="ticket blush"><span class="hole"></span><div class="kicker">From Our Kitchen</div><h2>Baked Without Gluten. Ever.</h2><p>The Happy Tart has been Northern Virginia&rsquo;s dedicated gluten-and-wheat-free bakery <strong>since 2012</strong>, and under new ownership since 2025, we&rsquo;re bringing fresh energy to the kitchen.</p><p>Expect bold, seasonal flavors, classic French technique, and real butter, chocolate, and fruit in everything we bake — all from our 100% gluten-free and wheat-free kitchen.</p></article>
+<article class="ticket mint"><span class="hole"></span><div class="kicker">Good To Know</div><h2>Options For Many Tables</h2><ul class="list"><li><strong>100% gluten-free &amp; wheat-free</strong> kitchen</li><li><strong>Dairy-free</strong> and <strong>nut-free</strong> options too</li><li>Soy-free, gluten-free, dairy-free, nut-free &amp; wheat-free offerings daily</li><li>Scratch-baked with butter, eggs, cream &amp; our own gluten-free flour blends</li></ul><p class="small">Hours and menu prices: <strong>Call for details</strong> — (571) 395-8280.</p></article>
 </div>
-<p class="small" style="text-align:center">Gift cards: <a href="https://app.squareup.com/gift/MLN5WK4XTMEE6/order">Order via Square</a> · Our main website is currently under construction — same delightful treats, with a fresh new vibe on the way.</p></section>
 
-<section class="grid two">
-<article class="panel"><div class="kicker">Visit Us</div><h2>Find The Tart</h2><address><strong>The Happy Tart</strong><br>410 S Maple Ave, #110<br>Falls Church, VA 22046</address><p><a href="https://www.google.com/maps/search/?api=1&amp;query=The+Happy+Tart+410+S+Maple+Ave+%23110+Falls+Church+VA+22046">Open in Google Maps →</a></p><p><a href="tel:+15713958280">(571) 395-8280</a><br><a href="mailto:info@happytartbakery.com">info@happytartbakery.com</a></p></article>
-<article class="panel gold"><div class="kicker">Our Promise</div><h2>A Kitchen Where Gluten Never Enters</h2><p>For more than a decade, we&rsquo;ve scratch-baked French-style pies, breads and desserts in a kitchen where gluten never enters — so our pie crust is flaky, golden, and just as good as the one you remember.</p><p>That means guests with celiac disease, gluten intolerance, or dairy allergies can all be delighted at the table.</p></article>
+<section class="counter-ticket"><div class="kicker">What We Make</div><h2 style="font-size:1.9rem;margin:.35em 0 .2em">Real Services, Up Front</h2>
+<div class="bake-row"><h3>Tarts &amp; Pastries</h3><span class="dots"></span><p>Flaky tarts and pastries, baked fresh with classic French technique.</p></div>
+<div class="bake-row"><h3>Custom Celebration Cakes</h3><span class="dots"></span><p>Beautifully crafted cakes and delightful event treats for life&rsquo;s special moments — including weddings.</p></div>
+<div class="bake-row"><h3>Artisan Breads</h3><span class="dots"></span><p>Artisan breads from our dedicated gluten-free kitchen, including demi baguettes noted on our holiday menu.</p></div>
+<div class="bake-row"><h3>Café &amp; Brunch</h3><span class="dots"></span><p>Grab a coffee and a pastry, sit down for brunch, or treat yourself just because.</p></div>
+<div class="bake-row"><h3>Holiday Baking</h3><span class="dots"></span><p>Gluten-free pumpkin pie, chocolate pecan pie and apple pie for Thanksgiving; stollen, bûche de Noël, holiday cookie platters and gingerbread house kits for winter celebrations.</p></div>
+<div class="bake-row"><h3>Gift Cards</h3><span class="dots"></span><p>Send a Happy to someone special with a Happy Tart gift card.</p></div>
 </section>
 
+<section class="window-frame">
+<div class="awning" aria-hidden="true"></div>
+<div class="window-head"><div class="kicker" style="justify-content:center">Order Ahead</div><h2>Four Easy Ways To Order</h2></div>
+<div class="windows">
+<a class="win" href="http://the-happy-tart-105944.square.site/"><div class="no">№ 1</div><div><span class="stub-tag">Window One</span></div><h3>Express Pickup →</h3><p><strong>Same Day Orders:</strong> Fresh coffee, pastries, and café favorites, ready when you are.</p></a>
+<a class="win" href="http://pre-orders-104084.square.site/"><div class="no">№ 2</div><div><span class="stub-tag">Window Two</span></div><h3>Advance Orders →</h3><p><strong>Pre-Order:</strong> Reserve your favorites, seasonal specials, and larger treats — perfect for when you need a little extra delight.</p></a>
+<a class="win" href="http://happy-tart-celebrations.square.site/"><div class="no">№ 3</div><div><span class="stub-tag">Window Three</span></div><h3>Celebrations →</h3><p><strong>Cakes &amp; Weddings:</strong> Beautifully crafted cakes and delightful event treats, made to sweeten life&rsquo;s special moments.</p></a>
+<a class="win" href="https://happy-tart-holidays.square.site/"><div class="no">№ 4</div><div><span class="stub-tag">Window Four</span></div><h3>Thanksgiving &amp; Holidays →</h3><p>Thanksgiving orders close Nov 19 on the shop&rsquo;s holiday site. Don&rsquo;t be a turkey — order early and let us take care of the rest.</p></a>
+</div>
+<p class="window-foot">Gift cards: <a href="https://app.squareup.com/gift/MLN5WK4XTMEE6/order">Order via Square</a> · Our main website is currently under construction — same delightful treats, with a fresh new vibe on the way.</p>
+</section>
+
+<div class="duo">
+<article class="ticket"><span class="hole"></span><div class="kicker">Visit Us</div><h2>Find The Tart</h2><address><strong>The Happy Tart</strong><br>410 S Maple Ave, #110<br>Falls Church, VA 22046</address><p><a href="https://www.google.com/maps/search/?api=1&amp;query=The+Happy+Tart+410+S+Maple+Ave+%23110+Falls+Church+VA+22046">Open in Google Maps →</a></p><p><a href="tel:+15713958280">(571) 395-8280</a><br><a href="mailto:info@happytartbakery.com">info@happytartbakery.com</a></p></article>
+<article class="ticket goldbg"><span class="hole"></span><div class="kicker">Our Promise</div><h2>A Kitchen Where Gluten Never Enters</h2><p>For more than a decade, we&rsquo;ve scratch-baked French-style pies, breads and desserts in a kitchen where gluten never enters — so our pie crust is flaky, golden, and just as good as the one you remember.</p><p>That means guests with celiac disease, gluten intolerance, or dairy allergies can all be delighted at the table.</p></article>
+</div>
+
+<div class="ribbon-band">
 <p class="sig">Let&rsquo;s make life a little happier,<br>one treat at a time.</p>
-<div class="price-note">Ready to order? Call <a style="color:#f6c86b" href="tel:+15713958280">(571) 395-8280</a> or use the Square ordering links above.</div>
+<p style="margin:0">Ready to order? Call <a href="tel:+15713958280">(571) 395-8280</a> or use the Square ordering links above.</p>
+</div>
 <footer><p>Preview demo built for The Happy Tart by Lucian Brucker — not this business's official website.</p><p>The Happy Tart · 410 S Maple Ave #110, Falls Church, VA 22046 · (571) 395-8280</p></footer>
-</div></div></body></html>
+</div></body></html>
