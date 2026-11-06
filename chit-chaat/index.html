@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chit Chaat Cafe — Indian Street Food in Vienna, VA (Preview Demo)</title>
+<meta name="description" content="Preview demo for Chit Chaat Cafe, Vienna VA: chaat, biryani, butter chicken, burritos and catering. 100% Halal, open daily 11 AM–8 PM.">
+<style>
+:root{
+  --maroon:#6d0f1b; --deep:#3d0710; --saffron:#f59e0b; --turmeric:#fbbf24;
+  --chili:#dc2626; --leaf:#15803d; --teal:#0f766e; --cream:#fff7e6; --paper:#fffdf8;
+  --ink:#2a1215; --muted:#6b4a4a;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:Georgia,'Times New Roman',serif;background:var(--paper);color:var(--ink);line-height:1.55}
+a{color:inherit}
+.wrap{max-width:1060px;margin:0 auto;padding:0 18px}
+.topbar{background:var(--deep);color:#ffe9c2;font-family:Arial,Helvetica,sans-serif;font-size:.82rem;text-align:center;padding:8px 12px}
+.topbar strong{color:var(--turmeric)}
+header.site{position:sticky;top:0;z-index:20;background:rgba(61,7,16,.97);color:#fff}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0}
+.logo{font-size:1.35rem;font-weight:bold;letter-spacing:.5px;line-height:1.1}
+.logo span{color:var(--turmeric);display:block;font-family:Arial,Helvetica,sans-serif;font-size:.62rem;letter-spacing:3px;text-transform:uppercase}
+.navlinks{display:none;gap:18px;font-family:Arial,Helvetica,sans-serif;font-size:.9rem}
+.navlinks a{text-decoration:none;color:#ffe9c2}
+.btn{display:inline-block;font-family:Arial,Helvetica,sans-serif;font-weight:bold;text-decoration:none;border-radius:999px;padding:12px 22px;font-size:.95rem;text-align:center}
+.btn-call{background:var(--saffron);color:#3d0710}
+.btn-order{background:var(--chili);color:#fff}
+.btn-ghost{border:2px solid #fff;color:#fff}
+.hero{background:
+  radial-gradient(circle at 15% 20%, rgba(251,191,36,.35) 0 90px, transparent 91px),
+  radial-gradient(circle at 88% 12%, rgba(220,38,38,.35) 0 70px, transparent 71px),
+  radial-gradient(circle at 82% 88%, rgba(21,128,61,.30) 0 100px, transparent 101px),
+  linear-gradient(145deg,var(--maroon),var(--deep) 70%);
+  color:#fff;padding:52px 0 58px;text-align:center}
+.kicker{font-family:Arial,Helvetica,sans-serif;letter-spacing:3px;text-transform:uppercase;font-size:.72rem;color:var(--turmeric);margin-bottom:14px}
+.hero h1{font-size:2.5rem;line-height:1.08;max-width:720px;margin:0 auto 14px}
+.hero h1 em{color:var(--turmeric);font-style:italic}
+.hero p{max-width:620px;margin:0 auto 24px;color:#ffe9c2;font-size:1.06rem}
+.cta-row{display:flex;flex-direction:column;gap:10px;max-width:420px;margin:0 auto}
+.badges{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:26px;font-family:Arial,Helvetica,sans-serif;font-size:.8rem}
+.badges span{border:1px solid rgba(255,233,194,.5);color:#ffe9c2;border-radius:999px;padding:5px 12px}
+section{padding:46px 0}
+h2{font-size:1.85rem;line-height:1.15;margin-bottom:8px;color:var(--maroon)}
+.sub{color:var(--muted);max-width:640px;margin-bottom:24px}
+.fav-grid{display:grid;gap:14px}
+.card{background:#fff;border:1px solid #f3ddae;border-top:5px solid var(--saffron);border-radius:14px;padding:18px;box-shadow:0 4px 14px rgba(61,7,16,.06)}
+.card h3{font-size:1.12rem;margin-bottom:4px}
+.card p{font-size:.94rem;color:#4c2d2d}
+.price{font-family:Arial,Helvetica,sans-serif;font-weight:bold;color:var(--chili)}
+.menu-sec{background:var(--cream)}
+.menu-grid{display:grid;gap:22px}
+.menu-block{background:#fff;border-radius:14px;padding:20px;border:1px solid #f3ddae}
+.menu-block h3{color:var(--teal);font-family:Arial,Helvetica,sans-serif;text-transform:uppercase;letter-spacing:1.5px;font-size:.92rem;border-bottom:2px dotted #e8c87a;padding-bottom:8px;margin-bottom:10px}
+.item{display:flex;justify-content:space-between;gap:14px;padding:7px 0;border-bottom:1px dashed #eee0bd}
+.item:last-child{border-bottom:none}
+.item b{font-weight:normal}
+.item small{display:block;color:var(--muted);font-family:Arial,Helvetica,sans-serif;font-size:.78rem;margin-top:2px}
+.note{font-size:.86rem;color:var(--muted);font-style:italic;margin-top:14px}
+.about-grid{display:grid;gap:18px}
+.highlight{background:linear-gradient(140deg,#fff3d6,#ffe4e0);border-radius:14px;padding:20px;border:1px solid #f3ddae}
+.visit{background:var(--deep);color:#ffe9c2}
+.visit h2{color:#fff}
+.visit-grid{display:grid;gap:18px}
+.visit a{color:var(--turmeric)}
+.hours{list-style:none;font-family:Arial,Helvetica,sans-serif;font-size:.95rem}
+.hours li{display:flex;justify-content:space-between;border-bottom:1px dashed rgba(255,233,194,.3);padding:6px 0}
+form{background:#fff;border:1px solid #f3ddae;border-radius:14px;padding:20px;box-shadow:0 4px 14px rgba(61,7,16,.06)}
+label{display:block;font-family:Arial,Helvetica,sans-serif;font-size:.85rem;font-weight:bold;margin:14px 0 5px}
+label:first-child{margin-top:0}
+input,select,textarea{width:100%;padding:11px 12px;border:1px solid #dcc08a;border-radius:9px;font-size:1rem;font-family:Arial,Helvetica,sans-serif;background:#fffdf8}
+button[type=submit]{width:100%;border:none;cursor:pointer;margin-top:18px}
+#formMsg{display:none;margin-top:14px;background:#e9f9ee;border:1px solid #86c99a;border-radius:9px;padding:12px;font-family:Arial,Helvetica,sans-serif;font-size:.9rem}
+footer{background:#22040a;color:#d9b8a6;text-align:center;padding:26px 18px;font-family:Arial,Helvetica,sans-serif;font-size:.86rem}
+footer strong{color:#fff}
+@media(max-width:560px){.logo span{letter-spacing:1.5px;font-size:.56rem}}
+@media(min-width:720px){
+  .navlinks{display:flex}
+  .hero h1{font-size:3.4rem}
+  .cta-row{flex-direction:row;max-width:none;justify-content:center}
+  .fav-grid{grid-template-columns:repeat(3,1fr)}
+  .menu-grid{grid-template-columns:1fr 1fr}
+  .about-grid,.visit-grid{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">Open daily <strong>11:00 AM – 8:00 PM</strong> · 100% Halal · Delivery &amp; takeout · Inside the Vienna Mobil</div>
+
+<header class="site">
+  <div class="wrap nav">
+    <div class="logo">Chit Chaat Cafe<span>Indian Street Food · Vienna, VA</span></div>
+    <nav class="navlinks">
+      <a href="#menu">Menu</a><a href="#about">Our Story</a><a href="#visit">Visit</a><a href="#order">Order / Catering</a>
+    </nav>
+    <a class="btn btn-call" href="tel:+15713780867" style="padding:9px 16px">Call</a>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <p class="kicker">Vienna's hidden gem · Est. 2021</p>
+    <h1>Best Indian food, <em>hiding in a Vienna gas station.</em></h1>
+    <p>Fresh chaat, biryani, butter chicken and our famous samosa burrito — Punjabi food cooked by hand, 100% Halal, inside the Vienna Mobil at 200 Maple Ave E.</p>
+    <div class="cta-row">
+      <a class="btn btn-call" href="tel:+15713780867">📞 Call (571) 378-0867</a>
+      <a class="btn btn-order" href="#menu">See the Menu</a>
+      <a class="btn btn-ghost" href="#order">Request Catering</a>
+    </div>
+    <div class="badges"><span>100% Halal</span><span>Delivery &amp; Takeout</span><span>Lunch Special 11–3, Mon–Fri</span><span>Catering — office lunches to weddings</span></div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <h2>Start with the chaat. Thank us later.</h2>
+    <p class="sub">Everybody starts with the chaat — crispy, tangy, made to share. These are the dishes the cafe itself says it is known for, and its most-ordered items online.</p>
+    <div class="fav-grid">
+      <div class="card"><h3>Samosa Chaat</h3><p>Two samosas with chickpeas, chutneys, cilantro and onions — the perfect street-food flavour.</p><p class="price">$11.99 · Lunch special $9.99</p></div>
+      <div class="card"><h3>Pani Puri</h3><p>India's favourite street food: semolina puffs stuffed with potatoes and chutney, dunked in the cafe's secret spicy water.</p><p class="price">$11.99 · 10 pieces</p></div>
+      <div class="card"><h3>The Samosa Burrito</h3><p>The crowd favourite invented here: samosas, choley, green and brown chutneys, cilantro and onions, grilled tight in a burrito.</p><p class="price">$12.99</p></div>
+      <div class="card"><h3>Butter Chicken</h3><p>Tender chicken breast drenched in a creamy, tomato, silky-smooth sauce. The cafe's most-ordered dish.</p><p class="price">$8.99+</p></div>
+      <div class="card"><h3>Chicken Biryani</h3><p>Layers of marinated chicken, basmati rice, herbs and spices, topped with fried onions and served with yogurt sauce.</p><p class="price">$14.99</p></div>
+      <div class="card"><h3>Pani Puri Kits</h3><p>A big hit to take home: crack the puris, stuff them with potato masala, and dunk — a family-size appetiser.</p><p class="price">Ask in store</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="menu-sec" id="menu">
+  <div class="wrap">
+    <h2>Menu</h2>
+    <p class="sub">Real items and prices from the cafe's own online menu. Lunch Special is 11 AM–3 PM, Monday to Friday — every lunch item $9.99.</p>
+    <div class="menu-grid">
+      <div class="menu-block"><h3>Chaat Options</h3>
+        <div class="item"><div><b>Samosa Chaat</b><small>Two samosas, chickpeas, chutneys, cilantro, onions</small></div><span class="price">$11.99</span></div>
+        <div class="item"><div><b>Pani Puri</b><small>Semolina puffs, potatoes, chutney, secret spicy water</small></div><span class="price">$11.99</span></div>
+        <div class="item"><div><b>Dahi Puri — 10 Pieces</b><small>Creamy yogurt sauce with green chutney</small></div><span class="price">$11.99</span></div>
+        <div class="item"><div><b>Bhel Puri</b><small>Puffed rice, tamarind &amp; green chutneys, potatoes, sev</small></div><span class="price">$7.99</span></div>
+        <div class="item"><div><b>Papdi Chaat</b><small>Chickpeas, potatoes, chutneys, yogurt, sev, coriander</small></div><span class="price">$7.99</span></div>
+        <div class="item"><div><b>Tangy Yam Chaat</b><small>Crispy sweet potato, lime, cilantro, house sauces</small></div><span class="price">$8.99</span></div>
+        <div class="item"><div><b>Masala Fries</b><small>Chaat masala, red chili, dried mango powder</small></div><span class="price">$6.99</span></div>
+        <div class="item"><div><b>Samosa (1 Pc)</b><small>Spiced potato and peas</small></div><span class="price">$1.99</span></div>
+      </div>
+      <div class="menu-block"><h3>Curries</h3>
+        <div class="item"><div><b>Butter Chicken</b><small>Creamy tomato sauce · 16oz comes with rice</small></div><span class="price">$8.99+</span></div>
+        <div class="item"><div><b>Chicken Tikka Masala</b></div><span class="price">$8.99+</span></div>
+        <div class="item"><div><b>Lamb Curry</b><small>Tomatoes and onions cooked with spices</small></div><span class="price">$9.99</span></div>
+        <div class="item"><div><b>Palak Paneer</b><small>Paneer cheese in a spinach-based sauce</small></div><span class="price">$8.99+</span></div>
+        <div class="item"><div><b>Paneer Tikka Masala</b><small>Grilled paneer in a velvety tomato sauce</small></div><span class="price">$8.99+</span></div>
+        <div class="item"><div><b>Shahi Paneer</b><small>Paneer in a creamy tomato-onion sauce</small></div><span class="price">$8.99+</span></div>
+        <div class="item"><div><b>Daal Makhani</b><small>Creamy black lentils</small></div><span class="price">$7.99+</span></div>
+        <div class="item"><div><b>Pindi Choley</b><small>Traditional Punjabi chickpea curry — a family recipe</small></div><span class="price">$7.99+</span></div>
+        <div class="item"><div><b>Aloo Sabji</b><small>Potatoes in a tomato-based curry</small></div><span class="price">$7.99+</span></div>
+      </div>
+      <div class="menu-block"><h3>Burritos, Biryani &amp; Platters</h3>
+        <div class="item"><div><b>Samosa Burrito</b><small>A crowd favourite</small></div><span class="price">$12.99</span></div>
+        <div class="item"><div><b>Butter Chicken Burrito</b></div><span class="price">$13.99</span></div>
+        <div class="item"><div><b>Paneer Burrito</b></div><span class="price">$13.99</span></div>
+        <div class="item"><div><b>Samosa Chicken Burrito</b></div><span class="price">$14.99</span></div>
+        <div class="item"><div><b>Lamb Burrito</b></div><span class="price">$16.99</span></div>
+        <div class="item"><div><b>Chicken Biryani</b></div><span class="price">$14.99</span></div>
+        <div class="item"><div><b>Lamb Biryani</b></div><span class="price">$17.99</span></div>
+        <div class="item"><div><b>Veggie Biryani</b></div><span class="price">$12.99</span></div>
+        <div class="item"><div><b>Butter Chicken Platter</b><small>With rice and a side curry of your choice</small></div><span class="price">$15.49</span></div>
+      </div>
+      <div class="menu-block"><h3>Sides, Drinks &amp; Dessert</h3>
+        <div class="item"><div><b>Garlic Naan</b><small>Soft — perfect for mopping up curries</small></div><span class="price">$2.99</span></div>
+        <div class="item"><div><b>Plain Naan</b><small>Fluffy, chewy, bubbly</small></div><span class="price">$1.99</span></div>
+        <div class="item"><div><b>Rice</b><small>Fragrant basmati</small></div><span class="price">$3.99+</span></div>
+        <div class="item"><div><b>Cucumber Raita</b></div><span class="price">$3.99</span></div>
+        <div class="item"><div><b>Mango Lassi</b><small>Cold, creamy, just the right amount of sweet</small></div><span class="price">$5.49</span></div>
+        <div class="item"><div><b>Masala Chai</b><small>Indian tea brewed with milk and aromatic spices</small></div><span class="price">$2.49</span></div>
+        <div class="item"><div><b>Gulab Jamun</b><small>Milky dough fried and soaked in fragrant syrup</small></div><span class="price">$5.99</span></div>
+      </div>
+    </div>
+    <p class="note">Prices shown are the cafe's online-menu prices at the time this preview was built — check the live menu when ordering.</p>
+    <p style="margin-top:16px"><a href="https://cafechitchaat.com/menu">See the full menu &amp; order online on the cafe's current site</a></p>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <h2>One stove. A few family recipes. That's it.</h2>
+    <div class="about-grid">
+      <div>
+        <p style="margin-bottom:12px">In 2021 we set up a small kitchen in the back of a Vienna gas station and started cooking the Punjabi food we grew up on. No dining room. No big sign. Just really good food.</p>
+        <p style="margin-bottom:12px">One person tried it. They told a friend. Now people drive in from all over Northern Virginia for a plate of chaat. That is how we got our name — Chit Chaat means a little chit-chat over a plate of chaat, and it still happens here every day.</p>
+        <p>Typical Punjabi dishes make up most of the menu — home-style cooking, fresh spices, and a depth of flavour that only comes from slow cooking. The samosa burrito, dreamed up by Maggie Sukhwani, one of the Puri daughters, is the spin on a snack favourite that people keep coming back for.</p>
+      </div>
+      <div class="highlight">
+        <h3 style="margin-bottom:8px">Good to know</h3>
+        <p style="margin-bottom:8px">🍽️ <strong>Dine in, take it to go, or get it delivered</strong> — there is even a window seat with a plug for your laptop.</p>
+        <p style="margin-bottom:8px">🥙 <strong>100% Halal</strong> — everything, including catering.</p>
+        <p style="margin-bottom:8px">🎉 <strong>Catering across Northern Virginia</strong> — office lunches for 20 to weddings for 200, across Vienna, Tysons Corner, Wolf Trap, Dunn Loring, Oakton, Merrifield, Idylwood, Pimmit Hills, Mantua and Fairfax. Two days' notice, no minimum order.</p>
+        <p>📍 <strong>Find us inside the Vienna Mobil</strong> and come hungry.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="visit" id="visit">
+  <div class="wrap">
+    <h2>Visit us</h2>
+    <div class="visit-grid">
+      <div>
+        <p style="font-size:1.15rem;margin-bottom:10px"><strong>Chit Chaat Cafe</strong><br>200 Maple Ave E<br>Vienna, VA 22180<br>Inside the Vienna Mobil</p>
+        <p style="margin-bottom:14px">Phone: <a href="tel:+15713780867"><strong>(571) 378-0867</strong></a></p>
+        <div class="cta-row" style="justify-content:flex-start;margin:0">
+          <a class="btn btn-call" href="tel:+15713780867">Call the cafe</a>
+          <a class="btn btn-ghost" href="https://www.google.com/maps/search/?api=1&amp;query=200+Maple+Ave+E+Vienna+VA+22180">Get directions</a>
+        </div>
+      </div>
+      <div>
+        <h3 style="color:var(--turmeric);margin-bottom:8px">Hours</h3>
+        <ul class="hours">
+          <li><span>Monday</span><span>11:00 AM – 8:00 PM</span></li>
+          <li><span>Tuesday</span><span>11:00 AM – 8:00 PM</span></li>
+          <li><span>Wednesday</span><span>11:00 AM – 8:00 PM</span></li>
+          <li><span>Thursday</span><span>11:00 AM – 8:00 PM</span></li>
+          <li><span>Friday</span><span>11:00 AM – 8:00 PM</span></li>
+          <li><span>Saturday</span><span>11:00 AM – 8:00 PM</span></li>
+          <li><span>Sunday</span><span>11:00 AM – 8:00 PM</span></li>
+        </ul>
+        <p style="margin-top:10px;font-size:.9rem">Lunch Special: 11 AM – 3 PM, Monday to Friday.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="order">
+  <div class="wrap">
+    <h2>Order / catering request</h2>
+    <p class="sub">For pickup and delivery, order on the cafe's live menu. Use this form to request catering or a large order — catering needs 2 days' notice, and the cafe asks you to call to discuss specific needs.</p>
+    <form id="demoForm">
+      <label for="name">Your name</label>
+      <input id="name" name="name" type="text" required autocomplete="name" placeholder="Your name">
+      <label for="phone">Phone</label>
+      <input id="phone" name="phone" type="tel" required autocomplete="tel" placeholder="Best number to reach you">
+      <label for="type">What do you need?</label>
+      <select id="type" name="type">
+        <option>Catering — office lunch</option>
+        <option>Catering — party / wedding</option>
+        <option>Large takeout order</option>
+        <option>Other request</option>
+      </select>
+      <label for="date">Date needed</label>
+      <input id="date" name="date" type="date">
+      <label for="details">Details — dishes, how many people, anything else</label>
+      <textarea id="details" name="details" rows="4" placeholder="e.g. Samosa chaat and chicken biryani for 25 people…"></textarea>
+      <button class="btn btn-order" type="submit">Send request</button>
+      <div id="formMsg">Thanks — this preview form doesn't send anywhere yet. In the live site it would go straight to the cafe. For now, please call <strong>(571) 378-0867</strong>.</div>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <p><strong>Chit Chaat Cafe</strong> · 200 Maple Ave E, Vienna, VA 22180 · (571) 378-0867</p>
+  <p style="margin-top:8px">Preview demo built for Chit Chaat Cafe by Lucian Brucker — not this business's official website.</p>
+</footer>
+
+<script>
+document.getElementById('demoForm').addEventListener('submit',function(e){
+  e.preventDefault();
+  document.getElementById('formMsg').style.display='block';
+});
+</script>
+</body>
+</html>
