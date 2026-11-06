@@ -11,7 +11,7 @@
 <style>
 :root{
   --blue:#4543b4; --blue-deep:#35338c; --ink:#23224f; --ink-soft:#4c4b73;
-  --tint:#eeeef8; --tint-2:#e2e1f3; --ground:#fafaff; --card:#ffffff;
+  --tint:#eeeef8; --tint-2:#e2e1f3; --ground:#f6f3ec; --card:#ffffff; --gold-soft:#d9b45b;
   --line:#dcdaf0; --gold:#b98a1c;
 }
 *{margin:0;padding:0;box-sizing:border-box}
@@ -110,6 +110,70 @@ footer p{font-size:.92rem;margin-top:10px}
 footer a{color:#fff}
 footer .fineprint{margin-top:20px;font-size:.82rem;color:#9d9bc4;max-width:640px;margin-left:auto;margin-right:auto}
 
+/* === Zia restyle: warm ground, grain, route frame, nameplate, layered panels === */
+body{background-color:var(--ground);
+  background-image:
+    radial-gradient(720px 430px at 6% 108%, rgba(69,67,180,.14), rgba(69,67,180,0) 70%),
+    radial-gradient(720px 430px at 94% 108%, rgba(185,138,28,.11), rgba(185,138,28,0) 70%),
+    radial-gradient(960px 520px at 50% -12%, rgba(69,67,180,.08), rgba(69,67,180,0) 70%);
+  background-attachment:fixed}
+body::after{content:'';position:fixed;inset:0;z-index:300;pointer-events:none;opacity:.05;
+  background-image:url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* hero: route frame + nameplate */
+.hero{position:relative;padding:82px 0 48px;background:linear-gradient(180deg,#fdfcf7 0%,var(--tint) 100%)}
+.route-frame{position:absolute;top:12px;left:0;right:0;height:56px;pointer-events:none}
+.route-frame svg{width:100%;height:100%;display:block}
+.nameplate{position:relative;z-index:0;max-width:600px;margin:4px auto 30px;text-align:center;
+  background:linear-gradient(165deg,#2e2c74 0%,#23224f 55%,#1b1a3e 100%);
+  border:1px solid rgba(217,180,91,.55);border-radius:16px;padding:26px 28px 22px;
+  box-shadow:inset 0 0 0 5px rgba(255,255,255,.03), inset 0 0 0 6px rgba(217,180,91,.16), 9px 9px 0 rgba(69,67,180,.85)}
+.nameplate .np-name{font-family:'Great Vibes',cursive;font-size:3rem;line-height:1.05;color:#f0d48a}
+.nameplate .np-rule{width:54px;height:1px;background:rgba(217,180,91,.75);margin:13px auto 0}
+.nameplate .np-sub{font-family:'Montserrat',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:#c9c7e8;margin-top:11px}
+
+/* editorial kickers with hairline rules */
+.sec-head .kicker{display:inline-flex;align-items:center;gap:14px}
+.sec-head .kicker::before,.sec-head .kicker::after{content:'';width:40px;height:1px;background:currentColor;opacity:.45}
+
+/* layered panels: offset back-layers */
+.card{box-shadow:9px 9px 0 var(--tint-2), 0 2px 10px rgba(35,34,79,.05)}
+.step{box-shadow:9px 9px 0 var(--tint-2)}
+.visit-card{box-shadow:9px 9px 0 var(--tint-2)}
+.why{background-color:var(--ink);
+  background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);
+  background-size:34px 34px}
+.why .card{box-shadow:9px 9px 0 #232257}
+
+/* deep panels (brands + signature) */
+.panel-dark,.sig-panel{position:relative;z-index:0;border-radius:20px;color:#eceaf8;
+  background-color:#23224f;
+  background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(165deg,#2e2c74,#1b1a3e);
+  background-size:34px 34px,34px 34px,cover}
+.panel-dark{padding:44px 34px;box-shadow:9px 9px 0 rgba(69,67,180,.8), 0 18px 40px rgba(35,34,79,.16)}
+.panel-dark .sec-head h2{color:#fff}
+.panel-dark .sec-head p{color:#bdbbe0}
+.panel-dark .kicker{color:var(--gold-soft)}
+.panel-dark .brand-chip{background:rgba(255,255,255,.06);border-color:#45438a;color:#eceaf8}
+.panel-dark .brands-note{color:#bdbbe0}
+.panel-dark .brands-note a{color:#fff}
+
+/* signature closing band (Paul) */
+.paul{background:transparent;border-top:none;border-bottom:none;text-align:center}
+.sig-panel{padding:48px 34px;box-shadow:9px 9px 0 rgba(185,138,28,.55), 0 18px 40px rgba(35,34,79,.16)}
+.sig-panel blockquote{color:#f7f3df}
+.paul .sig-panel p{color:#c9c7e8}
+.sig-kicker{display:inline-flex;align-items:center;gap:14px;font-family:'Montserrat',sans-serif;font-size:.75rem;font-weight:800;letter-spacing:.3em;text-transform:uppercase;color:var(--gold-soft);margin-bottom:18px}
+.sig-kicker::before,.sig-kicker::after{content:'';width:40px;height:1px;background:currentColor;opacity:.45}
+
+@media (max-width:760px){
+  .hero{padding-top:64px}
+  .route-frame{height:40px;opacity:.8}
+  .nameplate .np-name{font-size:2.25rem}
+  .nameplate{padding:20px 16px 17px}
+  .panel-dark,.sig-panel{padding:30px 18px}
+}
+
 /* mascot */
 .mascot{position:fixed;right:18px;bottom:18px;width:92px;z-index:60;pointer-events:none}
 .mascot img{width:100%;display:block;cursor:pointer;pointer-events:auto;animation:bob 2.6s ease-in-out infinite;filter:drop-shadow(0 10px 14px rgba(35,34,79,.3))}
@@ -154,8 +218,36 @@ footer .fineprint{margin-top:20px;font-size:.82rem;color:#9d9bc4;max-width:640px
 </header>
 
 <div class="hero">
+  <div class="route-frame" aria-hidden="true">
+    <svg viewBox="0 0 1200 60" preserveAspectRatio="xMidYMin meet" fill="none">
+      <defs>
+        <filter id="rsoft" x="-20%" y="-80%" width="140%" height="260%"><feGaussianBlur stdDeviation="2.2"/></filter>
+      </defs>
+      <g filter="url(#rsoft)" opacity=".32" transform="translate(0,7)">
+        <path d="M-10 40 C 180 12, 360 54, 590 30 S 990 14, 1210 34" stroke="#8f8ed8" stroke-width="3" stroke-linecap="round" stroke-dasharray="1 8"/>
+      </g>
+      <path d="M-10 40 C 180 12, 360 54, 590 30 S 990 14, 1210 34" stroke="#4543b4" stroke-width="3" stroke-linecap="round" stroke-dasharray="1 8"/>
+      <g fill="#fff" stroke="#4543b4" stroke-width="2.5">
+        <circle cx="180" cy="26" r="5.5"/><circle cx="420" cy="41" r="5.5"/><circle cx="700" cy="25" r="5.5"/><circle cx="950" cy="20" r="5.5"/>
+      </g>
+      <g fill="#4543b4">
+        <circle cx="180" cy="26" r="2"/><circle cx="420" cy="41" r="2"/><circle cx="700" cy="25" r="2"/><circle cx="950" cy="20" r="2"/>
+      </g>
+      <circle cx="590" cy="30" r="7.5" fill="#b98a1c"/>
+      <circle cx="590" cy="30" r="3" fill="#f6f3ec"/>
+      <g transform="translate(1144,4)">
+        <polygon points="0,11 11,1 22,11" fill="#23224f"/>
+        <rect x="3" y="11" width="16" height="11" fill="#4543b4"/>
+        <rect x="9.5" y="15" width="4" height="7" fill="#f6f3ec"/>
+      </g>
+    </svg>
+  </div>
   <div class="wrap">
-    <div class="kicker">Vienna, VA · In-Home Service</div>
+    <div class="nameplate">
+      <div class="np-name">Master Appliance Service</div>
+      <div class="np-rule"></div>
+      <div class="np-sub">In-Home Appliance Repair · Vienna, VA</div>
+    </div>
     <h1>Timely, In-Home Appliance Repair</h1>
     <p>When your machines are being a bother, give Master Appliance Service a call. Paul serves Vienna and the surrounding area — and he repairs your appliances in the comfort of your own home.</p>
     <div class="hero-ctas">
@@ -274,15 +366,8 @@ footer .fineprint{margin-top:20px;font-size:.82rem;color:#9d9bc4;max-width:640px
   </div>
 </section>
 
-<section class="paul">
-  <div class="wrap">
-    <blockquote>“Paul treats his customers as if they were family.”</blockquote>
-    <p>That is the approach on his own site. His mission: get broken appliances up and running with minimal down time at a reasonable price — and keep your home appliances running at maximum efficiency.</p>
-  </div>
-</section>
-
 <section id="brands">
-  <div class="wrap">
+  <div class="wrap panel-dark">
     <div class="sec-head">
       <div class="kicker">Brands</div>
       <h2>Brands We Service</h2>
@@ -335,6 +420,14 @@ footer .fineprint{margin-top:20px;font-size:.82rem;color:#9d9bc4;max-width:640px
         </div>
       </div>
     </div>
+  </div>
+</section>
+
+<section class="paul">
+  <div class="wrap sig-panel">
+    <div class="sig-kicker">From Paul's Own Site</div>
+    <blockquote>“Paul treats his customers as if they were family.”</blockquote>
+    <p>That is the approach on his own site. His mission: get broken appliances up and running with minimal down time at a reasonable price — and keep your home appliances running at maximum efficiency.</p>
   </div>
 </section>
 

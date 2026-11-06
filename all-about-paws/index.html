@@ -83,9 +83,50 @@
   footer a{color:#FFD9B8}
   .demo-line{margin-top:14px;padding-top:14px;border-top:1px solid rgba(255,255,255,.25);font-size:.88rem;color:#E8D5C0}
   @media(min-width:720px){.hero h1{font-size:3.2rem}}
+
+  /* ===== ZIA-stand composition restyle (identity + content unchanged) ===== */
+  body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(560px 380px at 10% 108%,rgba(201,111,59,.15),transparent 70%),radial-gradient(560px 380px at 90% 108%,rgba(125,140,92,.17),transparent 70%),radial-gradient(760px 320px at 50% -6%,rgba(246,231,215,.55),transparent 70%)}
+  body::after{content:"";position:fixed;inset:0;z-index:90;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.16 0 0 0 0 0.10 0 0 0 0 0.05 0 0 0 0.05 0'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)'/%3E%3C/svg%3E")}
+  header,footer{position:relative;z-index:1}
+  .hero{position:relative;z-index:0}
+  .frame{position:absolute;inset:0 0 auto 0;height:118px;z-index:-1;pointer-events:none}
+  .frame .leash{position:absolute;top:0;left:0;width:100%;height:96px;opacity:.30}
+  .paws{position:absolute;top:0;width:118px;height:88px}
+  .paws.left{left:-6px}
+  .paws.right{right:-6px;transform:scaleX(-1)}
+  .paws svg{position:absolute}
+  .paws .p1{left:0;top:0;width:40%;transform:rotate(-16deg)}
+  .paws .p2{left:37%;top:29%;width:31%;transform:rotate(10deg)}
+  .paws .p3{left:66%;top:55%;width:23%;transform:rotate(-22deg)}
+  .paws.far{filter:blur(3px);opacity:.30}
+  .paws.far.left{transform:translate(-9px,-7px) scale(1.07)}
+  .paws.far.right{transform:scaleX(-1) translate(-9px,-7px) scale(1.07)}
+  .paws.near{filter:drop-shadow(0 2px 3px rgba(59,42,32,.18))}
+  @media(max-width:640px){.paws{width:78px;height:60px}.paws.far{display:none}.frame{height:84px}}
+  .nameplate{position:relative;display:flex;align-items:center;gap:16px;background:linear-gradient(155deg,#4A3423 0%,#33241A 55%,#2A1D13 100%);border-radius:16px;padding:20px 24px;box-shadow:9px 9px 0 0 var(--terra);margin-bottom:32px}
+  .nameplate .mark{width:54px;height:54px;font-size:.92rem}
+  .plate-name{font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;color:#F6E7D7;font-weight:800;letter-spacing:.24em;font-size:1.24rem;line-height:1.3;text-transform:uppercase}
+  .plate-sub{font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;color:#E7C9A3;letter-spacing:.3em;text-transform:uppercase;font-size:.68rem;font-weight:700;margin-top:5px}
+  .plate-paw{margin-left:auto;width:42px;flex:none;fill:var(--terra);opacity:.55;transform:rotate(14deg)}
+  @media(max-width:640px){.plate-paw{display:none}.plate-name{font-size:1.02rem}}
+  .kicker{font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;text-transform:uppercase;letter-spacing:.18em;font-size:.72rem;font-weight:700;color:var(--terra-dark);display:flex;align-items:center;gap:14px;margin-bottom:12px}
+  .kicker::after{content:"";flex:1;height:1px;background:var(--line)}
+  .card{box-shadow:9px 9px 0 0 var(--sand)}
+  .cards .card:nth-child(3),.cards .card:nth-child(4){box-shadow:9px 9px 0 0 #DCE2C8}
+  .fact{box-shadow:5px 5px 0 0 var(--sand)}
+  .panel{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:26px}
+  .panel--sand{box-shadow:9px 9px 0 0 var(--sand)}
+  .panel--sage{box-shadow:9px 9px 0 0 #DCE2C8}
+  form{box-shadow:9px 9px 0 0 var(--sand)}
+  .signoff-sec{padding:6px 0 54px}
+  .signoff{background:linear-gradient(155deg,#4A3423 0%,#33241A 55%,#2A1D13 100%);color:#F3E6D8;border-radius:var(--radius);padding:36px 30px;text-align:center;box-shadow:9px 9px 0 0 var(--sage)}
+  .signoff .paw-mark{width:34px;fill:var(--terra);opacity:.9;margin-bottom:14px}
+  .signoff-line{font-size:1.45rem;line-height:1.35;font-style:italic;max-width:32em;margin:0 auto}
+  .signoff-sub{margin-top:16px;font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;text-transform:uppercase;letter-spacing:.26em;font-size:.7rem;font-weight:700;color:#E7C9A3}
 </style>
 </head>
 <body id="top">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><g id="pawprint"><ellipse cx="30" cy="38" rx="13" ry="10.5"/><ellipse cx="10" cy="22" rx="5.2" ry="7" transform="rotate(-18 10 22)"/><ellipse cx="22" cy="13" rx="5.4" ry="7.4" transform="rotate(-6 22 13)"/><ellipse cx="38" cy="13" rx="5.4" ry="7.4" transform="rotate(6 38 13)"/><ellipse cx="50" cy="22" rx="5.2" ry="7" transform="rotate(18 50 22)"/></g></defs></svg>
 
 <div class="pattern" aria-hidden="true"></div>
 <header>
@@ -99,6 +140,21 @@
 </header>
 
 <div class="wrap hero">
+  <div class="frame" aria-hidden="true">
+    <svg class="leash" viewBox="0 0 1020 96" preserveAspectRatio="none"><path d="M-10 82 Q 510 -34 1030 74" fill="none" stroke="#7D8C5C" stroke-width="2.5" stroke-dasharray="2 8" stroke-linecap="round"/></svg>
+    <div class="paws far left"><svg class="p1" viewBox="0 0 60 52" fill="#C96F3B"><use href="#pawprint"/></svg><svg class="p2" viewBox="0 0 60 52" fill="#7D8C5C"><use href="#pawprint"/></svg><svg class="p3" viewBox="0 0 60 52" fill="#C96F3B"><use href="#pawprint"/></svg></div>
+    <div class="paws near left"><svg class="p1" viewBox="0 0 60 52" fill="#C96F3B"><use href="#pawprint"/></svg><svg class="p2" viewBox="0 0 60 52" fill="#7D8C5C"><use href="#pawprint"/></svg><svg class="p3" viewBox="0 0 60 52" fill="#C96F3B"><use href="#pawprint"/></svg></div>
+    <div class="paws far right"><svg class="p1" viewBox="0 0 60 52" fill="#7D8C5C"><use href="#pawprint"/></svg><svg class="p2" viewBox="0 0 60 52" fill="#C96F3B"><use href="#pawprint"/></svg><svg class="p3" viewBox="0 0 60 52" fill="#7D8C5C"><use href="#pawprint"/></svg></div>
+    <div class="paws near right"><svg class="p1" viewBox="0 0 60 52" fill="#7D8C5C"><use href="#pawprint"/></svg><svg class="p2" viewBox="0 0 60 52" fill="#C96F3B"><use href="#pawprint"/></svg><svg class="p3" viewBox="0 0 60 52" fill="#7D8C5C"><use href="#pawprint"/></svg></div>
+  </div>
+  <div class="nameplate">
+    <span class="mark">AAP</span>
+    <div>
+      <p class="plate-name">All About Paws DMV</p>
+      <p class="plate-sub">Falls Church, Virginia</p>
+    </div>
+    <svg class="plate-paw" viewBox="0 0 60 52" aria-hidden="true"><use href="#pawprint"/></svg>
+  </div>
   <p class="eyebrow">Crate-Free Grooming &middot; Private Training &middot; Doggie School</p>
   <h1>Grooming and training, <em>catered to your pet</em> — never crated, never rushed.</h1>
   <p class="lede">All About Paws in Falls Church, VA is a doggie school with pack walks and individualized care. It also offers crate-free grooming and private training, all catered to your pet&rsquo;s specific needs.</p>
@@ -115,6 +171,7 @@
 
 <section class="white" id="services">
   <div class="wrap">
+    <p class="kicker">Catered to your pet&rsquo;s specific needs</p>
     <h2>Services</h2>
     <p class="section-sub">Every service below is one All About Paws publicly lists or is described as offering. Prices are not published online — please call for details on any service.</p>
     <div class="cards">
@@ -162,26 +219,30 @@
 </section>
 
 <section class="alt">
-  <div class="wrap about">
+  <div class="wrap">
+    <div class="panel panel--sage about">
+    <p class="kicker">Led by Carmen</p>
     <h2>About All About Paws</h2>
     <p>All About Paws DMV is a pet grooming and training business in Falls Church, Virginia. Led by Carmen, the team caters to every puppy&rsquo;s individual needs without using crates — and welcomes special requests from clients.</p>
     <p>The approach is personal: care is catered to each pet&rsquo;s specific needs, whether that is a full groom, a private training session, or a day built around pack walks and socialization.</p>
     <p>For pet owners in Falls Church and the surrounding areas, it is a local, crate-free option for grooming and training in one place.</p>
+    </div>
   </div>
 </section>
 
 <section id="visit">
   <div class="wrap">
+    <p class="kicker">Call or email to book</p>
     <h2>Visit &amp; Contact</h2>
     <p class="section-sub">Call or email to book, ask about a service, or make a special request.</p>
     <div class="grid2">
-      <div>
+      <div class="panel panel--sand">
         <div class="contact-line"><b>Address</b>7961 Yancey Dr<br>Falls Church, VA 22042<br><span style="color:var(--muted)">Merrifield area</span></div>
         <div class="contact-line"><b>Phone</b><a href="tel:+15713560903">(571) 356-0903</a></div>
         <div class="contact-line"><b>Email</b><a href="mailto:allaboutpawsdmv@gmail.com">allaboutpawsdmv@gmail.com</a></div>
         <p><a class="call-btn" href="tel:+15713560903">Call to book</a></p>
       </div>
-      <div>
+      <div class="panel panel--sage">
         <h3 class="sans" style="margin-bottom:10px">Hours — as listed in public directories</h3>
         <table class="hours">
           <tr><td>Monday</td><td>7:30 AM – 2:30 PM</td></tr>
@@ -200,6 +261,7 @@
 
 <section class="white" id="book">
   <div class="wrap">
+    <p class="kicker">Tell us about your pet</p>
     <h2>Request a Grooming Appointment</h2>
     <p class="section-sub">Tell us about your pet and the service you want. Prefer to talk it through? Call <a href="tel:+15713560903">(571) 356-0903</a>.</p>
     <form id="booking-form" novalidate>
@@ -233,6 +295,16 @@
       <button type="submit">Send booking request</button>
       <div id="form-note" role="status"></div>
     </form>
+  </div>
+</section>
+
+<section class="signoff-sec">
+  <div class="wrap">
+    <div class="signoff">
+      <svg class="paw-mark" viewBox="0 0 60 52" aria-hidden="true"><use href="#pawprint"/></svg>
+      <p class="signoff-line">Grooming and training, catered to your pet — never crated, never rushed.</p>
+      <p class="signoff-sub">All About Paws DMV LLC &middot; Falls Church, Virginia</p>
+    </div>
   </div>
 </section>
 

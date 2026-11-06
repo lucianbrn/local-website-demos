@@ -97,6 +97,62 @@ footer.site{border-top:1px solid var(--line);padding:28px 0 40px;text-align:cent
 .mascot-bubble.show{opacity:1;transform:translateY(0)}
 @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
 @keyframes jump{0%{transform:translateY(0)}35%{transform:translateY(-26px) rotate(-4deg)}70%{transform:translateY(2px)}100%{transform:translateY(0)}}
+/* ===== Zia-standard restyle: warm ground, grain, pooled glow, lace frame, nameplate, layered panels ===== */
+body{background:
+  radial-gradient(1100px 520px at 12% -4%, rgba(176,175,221,.22), rgba(176,175,221,0) 60%),
+  radial-gradient(900px 480px at 88% 0%, rgba(246,233,236,.55), rgba(246,233,236,0) 55%),
+  radial-gradient(1200px 700px at 50% 112%, rgba(176,175,221,.16), rgba(176,175,221,0) 60%),
+  var(--paper)}
+body::after{content:"";position:fixed;left:0;right:0;bottom:0;height:46vh;z-index:1;pointer-events:none;background:
+  radial-gradient(420px 300px at 4% 100%, rgba(176,175,221,.35), rgba(176,175,221,0) 70%),
+  radial-gradient(420px 300px at 96% 100%, rgba(176,175,221,.35), rgba(176,175,221,0) 70%)}
+body::before{content:"";position:fixed;inset:0;z-index:45;pointer-events:none;opacity:.05;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.6'/%3E%3C/svg%3E")}
+/* lace / eyelet frame: far soft layer + near sharp layer */
+.laceframe{position:relative}
+.laceframe::before,.laceframe::after{content:"";position:absolute;left:0;right:0;top:0;height:18px;pointer-events:none;background-repeat:repeat-x;background-size:22px 18px;z-index:4}
+.laceframe::before{background-image:radial-gradient(circle at 11px -6px, transparent 13px, rgba(176,175,221,.6) 14.5px);filter:blur(1.6px);transform:translateY(4px)}
+.laceframe::after{background-image:radial-gradient(circle at 11px 5px, rgba(110,106,168,.45) 1.7px, transparent 2.5px),radial-gradient(circle at 11px -6px, transparent 13px, rgba(255,255,255,.96) 14.5px)}
+.laceframe--dark::before{background-image:radial-gradient(circle at 11px -6px, transparent 13px, rgba(110,106,168,.65) 14.5px)}
+.laceframe--dark::after{background-image:radial-gradient(circle at 11px 5px, rgba(38,35,63,.55) 1.7px, transparent 2.5px),radial-gradient(circle at 11px -6px, transparent 13px, rgba(214,213,240,.95) 14.5px)}
+.lace-strip{position:absolute;top:0;left:16px;right:16px;height:14px;pointer-events:none;background-repeat:repeat-x;background-size:18px 14px;background-image:radial-gradient(circle at 9px 4px, rgba(43,40,73,.5) 1.3px, transparent 2px),radial-gradient(circle at 9px -5px, transparent 10.5px, rgba(214,213,240,.9) 11.5px)}
+/* nameplate anchor */
+.plaque-zone{padding:48px 0 0}
+.plaque{position:relative;overflow:hidden;text-align:center;color:#F4F2FC;background:linear-gradient(120deg,#3B3866 0%,#2B2849 78%);border-radius:18px;padding:36px 30px 28px;box-shadow:10px 10px 0 rgba(176,175,221,.5),0 24px 44px rgba(50,47,82,.28)}
+.plaque .p-name{font-family:'Jura',sans-serif;font-weight:700;font-size:clamp(1.5rem,4.6vw,2.5rem);letter-spacing:.32em;padding-left:.32em;text-transform:uppercase;color:#FBFAFE;line-height:1.15}
+.plaque .p-rule{width:210px;height:1px;margin:16px auto 13px;background:linear-gradient(90deg,transparent,rgba(214,213,240,.85),transparent);position:relative}
+.plaque .p-rule::after{content:"";position:absolute;left:50%;top:50%;width:7px;height:7px;background:var(--peri);transform:translate(-50%,-50%) rotate(45deg)}
+.plaque .p-sub{font-family:'Jura',sans-serif;font-size:.68rem;font-weight:600;letter-spacing:.44em;padding-left:.44em;text-transform:uppercase;color:var(--peri)}
+.hero-in{padding-top:36px}
+/* layered panels: offset back-layers by content tone */
+.featured{box-shadow:9px 9px 0 rgba(176,175,221,.45),0 14px 34px rgba(91,87,160,.08)}
+.card{box-shadow:9px 9px 0 rgba(176,175,221,.32),0 10px 26px rgba(91,87,160,.06)}
+.quote{box-shadow:9px 9px 0 rgba(110,106,168,.35)}
+.book-side{position:relative;box-shadow:9px 9px 0 rgba(110,106,168,.5)}
+form.appt{background:#fff;border:1px solid var(--line);border-radius:20px;padding:26px 28px 28px;box-shadow:9px 9px 0 rgba(176,175,221,.4)}
+form.appt label:first-child{margin-top:0}
+.visit-info{background:#fff;border:1px solid var(--line);border-radius:20px;padding:26px 28px;box-shadow:9px 9px 0 rgba(176,175,221,.35)}
+.hours{box-shadow:9px 9px 0 rgba(176,175,221,.35)}
+/* editorial headers: letterspaced kicker + hairline rule with lozenge */
+.sec-kick{font-family:'Jura',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.38em;padding-left:.38em;text-transform:uppercase;color:var(--peri-deep);margin-bottom:12px}
+.rule{width:190px;height:1px;background:linear-gradient(90deg,transparent,rgba(110,106,168,.75),transparent);position:relative;margin:18px auto 0}
+.rule::after{content:"";position:absolute;left:50%;top:50%;width:7px;height:7px;background:var(--peri-deep);transform:translate(-50%,-50%) rotate(45deg)}
+.hero .kicker{display:flex;align-items:center;gap:16px}
+.hero .kicker::after{content:"";flex:0 1 140px;height:1px;background:linear-gradient(90deg,var(--peri-deep),transparent)}
+.featured .kicker{display:flex;align-items:center;gap:14px}
+.featured .kicker::after{content:"";flex:0 1 110px;height:1px;background:linear-gradient(90deg,var(--peri-deep),transparent)}
+/* signature ending */
+.signature{position:relative;background:linear-gradient(140deg,#37345C 0%,#26233F 80%);color:#EDEAF7;text-align:center;padding:76px 0 64px;overflow:hidden}
+.signature .sig-line{font-family:'Jura',sans-serif;font-size:clamp(1.45rem,3.4vw,2.15rem);font-weight:600;line-height:1.35;color:#FBFAFE;max-width:46rem;margin:0 auto}
+.signature .sig-sub{margin:16px auto 26px;font-family:'Jura',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.38em;padding-left:.38em;text-transform:uppercase;color:var(--peri)}
+@media (max-width:860px){
+  .plaque-zone{padding-top:30px}
+  .plaque{padding:28px 16px 22px}
+  .plaque .p-name{letter-spacing:.16em;padding-left:.16em;font-size:1.3rem}
+  .plaque .p-sub{letter-spacing:.26em;padding-left:.26em}
+  .laceframe::before,.laceframe::after{background-size:16px 14px;height:14px}
+  form.appt{padding:22px 20px 24px}
+  .visit-info{padding:22px 20px}
+}
 @media (prefers-reduced-motion: reduce){.mascot-box img{animation:none}}
 @media (max-width:860px){
   .hero-in{grid-template-columns:1fr;padding:42px 0 40px}
@@ -129,7 +185,15 @@ footer.site{border-top:1px solid var(--line);padding:28px 0 40px;text-align:cent
 </header>
 
 <main id="top">
-<section class="hero">
+<section class="hero laceframe">
+  <div class="wrap plaque-zone">
+    <div class="plaque">
+      <span class="lace-strip" aria-hidden="true"></span>
+      <p class="p-name">Tammy&rsquo;s Fashions</p>
+      <div class="p-rule"></div>
+      <p class="p-sub">Tailoring &middot; Dressmaking &middot; Vienna, Virginia</p>
+    </div>
+  </div>
   <div class="wrap hero-in">
     <div>
       <p class="kicker">Vienna &middot; Tailoring &amp; Dressmaking</p>
@@ -157,9 +221,10 @@ footer.site{border-top:1px solid var(--line);padding:28px 0 40px;text-align:cent
 <section id="services">
   <div class="wrap">
     <div class="sec-head">
+      <p class="sec-kick">Alterations &middot; Dressmaking &middot; Restorations</p>
       <h2>Services</h2>
       <div class="rule"></div>
-      <p>From a perfect fit off the rack to a gown created just for you — every service the shop lists, in one place.</p>
+      <p>Every service the shop lists, in one place.</p>
     </div>
 
     <article class="featured">
@@ -200,7 +265,7 @@ footer.site{border-top:1px solid var(--line);padding:28px 0 40px;text-align:cent
   </div>
 </section>
 
-<section class="band" id="words">
+<section class="band laceframe" id="words">
   <div class="wrap">
     <p class="free">What Clients Say</p>
     <h2>In their own words</h2>
@@ -221,6 +286,7 @@ footer.site{border-top:1px solid var(--line);padding:28px 0 40px;text-align:cent
 <section id="book">
   <div class="wrap">
     <div class="sec-head">
+      <p class="sec-kick">Book by Text</p>
       <h2>Request an Appointment</h2>
       <div class="rule"></div>
       <p>Appointments are preferred — and the shop&rsquo;s favorite way to book is a text. Fill this in and it opens your messaging app with the text ready to send.</p>
@@ -248,6 +314,7 @@ footer.site{border-top:1px solid var(--line);padding:28px 0 40px;text-align:cent
         <p class="fineprint">This opens your texting app with the message written for you — nothing is sent until you press send. Prefer to talk? Call <a href="tel:+15712394381">571.239.4381</a>.</p>
       </form>
       <aside class="book-side">
+        <span class="lace-strip" aria-hidden="true"></span>
         <h3>Text Tammy</h3>
         <p class="big">571.239.4381</p>
         <p>Text Tammy to schedule an appointment at the boutique — or in the privacy of your home.</p>
@@ -262,13 +329,13 @@ footer.site{border-top:1px solid var(--line);padding:28px 0 40px;text-align:cent
 <section id="visit" style="padding-top:10px">
   <div class="wrap">
     <div class="sec-head">
+      <p class="sec-kick">Maple Avenue &middot; Vienna</p>
       <h2>Visit the Boutique</h2>
       <div class="rule"></div>
     </div>
     <div class="visit-grid">
       <div class="visit-info">
         <p class="addr">Tammy&rsquo;s Fashions<br>302 Maple Avenue West<br>Vienna, VA 22180</p>
-        <p>In the heart of Vienna, serving the Washington DC metro area.</p>
         <p>Major credit cards accepted.</p>
         <div class="hero-ctas" style="margin-top:18px">
           <a class="btn btn-text" href="sms:+15712394381">Text Tammy</a>
@@ -286,6 +353,13 @@ footer.site{border-top:1px solid var(--line);padding:28px 0 40px;text-align:cent
         <p class="fineprint" style="margin-top:10px">Boutique hours as published by the shop — or by appointment. Text ahead; appointments are preferred.</p>
       </div>
     </div>
+  </div>
+</section>
+<section class="signature laceframe laceframe--dark">
+  <div class="wrap">
+    <p class="sig-line">&ldquo;Tammy works with her hands, her mind and her heart.&rdquo;</p>
+    <p class="sig-sub">In the Shop&rsquo;s Own Words</p>
+    <a class="btn btn-light" href="sms:+15712394381">Text Tammy: 571.239.4381</a>
   </div>
 </section>
 </main>
