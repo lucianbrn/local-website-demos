@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vienna Valet — Eco-Friendly Dry Cleaners · Vienna, VA</title>
+<meta name="description" content="Vienna Valet — eco-friendly dry cleaning, dress shirt laundry, same day services, alterations, wedding dress cleaning and household items cleaning in Vienna, VA.">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --ground:#eef0e6; --ground2:#e2e6d4;
+  --ink:#26302a; --ink2:#4c5a50;
+  --sage:#5c7263; --sage-deep:#33473b;
+  --linen:#fbfaf3; --paper:#fffef9;
+  --gold:#b9975a; --mist:#aebfa9;
+  --line:rgba(51,71,59,.28);
+}
+html{scroll-behavior:smooth}
+body{
+  font-family:Georgia,'Times New Roman',serif;
+  color:var(--ink); background:var(--ground);
+  background-image:
+    repeating-linear-gradient(0deg, rgba(51,71,59,.045) 0 1px, transparent 1px 7px),
+    radial-gradient(rgba(92,114,99,.06) 1px, transparent 1.4px),
+    linear-gradient(180deg,var(--ground),var(--ground2));
+  background-size:100% 7px,26px 26px,100% 100%;
+  line-height:1.55;
+}
+.wrap{max-width:1060px;margin:0 auto;padding:20px 16px 56px}
+/* pressed-crease frame motif */
+.frame{position:relative;border:1px solid var(--line);padding:10px;margin-top:10px;background:rgba(251,250,243,.5)}
+.frame::before{content:"";position:absolute;top:0;bottom:0;left:50%;width:1px;background:rgba(51,71,59,.18)}
+.frame::after{content:"";position:absolute;inset:6px;border:1px dashed rgba(185,151,90,.55);pointer-events:none}
+/* nameplate */
+.nameplate{background:var(--sage-deep);color:var(--linen);text-align:center;padding:54px 22px 42px;position:relative}
+.nameplate::before,.nameplate::after{content:"";position:absolute;top:16px;width:26px;height:14px;border:2px solid var(--gold);border-bottom:0;border-radius:26px 26px 0 0;opacity:.85}
+.nameplate::before{left:22px}
+.nameplate::after{right:22px}
+.kicker{font-family:Verdana,Geneva,sans-serif;font-size:.68rem;letter-spacing:.34em;text-transform:uppercase;color:var(--gold)}
+h1{font-size:clamp(2rem,7vw,3.7rem);letter-spacing:.2em;text-transform:uppercase;font-weight:400;margin:14px 0 6px;line-height:1.08}
+.sub{letter-spacing:.22em;text-transform:uppercase;font-size:.78rem;color:#d5dfd0;font-family:Verdana,Geneva,sans-serif}
+.rule{width:74px;height:1px;background:var(--gold);margin:18px auto;border:0}
+.nameplate p.lede{max-width:580px;margin:0 auto;font-style:italic;color:#eef1e6;font-size:1.02rem}
+.cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:24px}
+.btn{font-family:Verdana,Geneva,sans-serif;font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;padding:13px 22px;border-radius:999px;display:inline-block}
+.btn-call{background:var(--gold);color:#1f2a23}
+.btn-ghost{border:1px solid rgba(251,250,243,.65);color:var(--linen)}
+/* layered panels */
+.panel-wrap{position:relative;margin-top:34px}
+.panel-wrap::before{content:"";position:absolute;inset:0;transform:translate(10px,10px);background:var(--mist);opacity:.5}
+.panel-wrap.gold::before{background:var(--gold);opacity:.35}
+.panel-wrap.deep::before{background:var(--sage-deep);opacity:.28}
+.panel{position:relative;background:var(--paper);border:1px solid var(--line);padding:28px 24px;box-shadow:0 10px 28px rgba(38,48,42,.10)}
+.panel .kicker{color:var(--sage)}
+h2{font-size:1.55rem;letter-spacing:.12em;text-transform:uppercase;font-weight:400;margin:8px 0 4px;color:var(--sage-deep)}
+h3{font-size:1.05rem;letter-spacing:.12em;text-transform:uppercase;font-weight:400;color:var(--sage-deep)}
+hr.hair{border:0;border-top:1px solid var(--line);margin:12px 0 16px}
+.note{font-size:.9rem;color:var(--ink2);font-style:italic}
+/* eco strip */
+.eco{display:grid;grid-template-columns:1fr;gap:10px;text-align:center}
+@media(min-width:720px){.eco{grid-template-columns:repeat(3,1fr)}}
+.eco div{border:1px solid var(--line);background:var(--linen);padding:16px 10px;font-family:Verdana,Geneva,sans-serif;font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;color:var(--sage-deep)}
+/* services */
+.svc-grid{display:grid;grid-template-columns:1fr;gap:14px}
+@media(min-width:720px){.svc-grid{grid-template-columns:1fr 1fr}}
+.svc{border:1px solid var(--line);background:var(--linen);padding:20px 18px;position:relative}
+.svc::before{content:"";position:absolute;top:0;left:18px;right:18px;height:1px;background:repeating-linear-gradient(90deg,var(--gold) 0 6px,transparent 6px 12px);opacity:.7}
+.svc p{color:var(--ink2);font-size:.96rem;margin-top:6px}
+.price{font-family:Verdana,Geneva,sans-serif;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--sage);margin-top:10px;display:block}
+/* info */
+.cols{display:grid;grid-template-columns:1fr;gap:22px}
+@media(min-width:720px){.cols{grid-template-columns:1fr 1fr}}
+.hours{width:100%;border-collapse:collapse;font-size:.98rem}
+.hours td{padding:7px 4px;border-bottom:1px dotted rgba(51,71,59,.3)}
+.hours td:last-child{text-align:right;font-family:Verdana,Geneva,sans-serif;font-size:.86rem;color:var(--ink2)}
+a{color:var(--sage-deep)}
+.big-link{font-size:1.12rem}
+/* ending */
+.ending{background:var(--sage-deep);color:var(--linen);text-align:center}
+.ending .kicker{color:#d9bc7f}
+.ending h2{color:var(--linen)}
+.ending p{max-width:600px;margin:10px auto 0;color:#e2e9da}
+footer{text-align:center;margin-top:36px;padding:22px 14px;border-top:1px solid var(--line)}
+footer .fname{letter-spacing:.26em;text-transform:uppercase;font-size:.85rem;color:var(--sage-deep)}
+footer p{font-size:.8rem;color:var(--ink2);margin-top:8px;font-family:Verdana,Geneva,sans-serif}
+.sticky-call{position:fixed;left:12px;right:12px;bottom:12px;z-index:9;text-align:center}
+.sticky-call a{display:block;background:var(--sage-deep);color:#fff;text-decoration:none;font-family:Verdana,Geneva,sans-serif;letter-spacing:.16em;text-transform:uppercase;font-size:.82rem;padding:15px;border-radius:999px;box-shadow:0 10px 24px rgba(0,0,0,.25)}
+@media(min-width:720px){.sticky-call{display:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="frame">
+    <header class="nameplate">
+      <div class="kicker">Vienna · Virginia</div>
+      <h1>Vienna Valet</h1>
+      <div class="sub">Eco-Friendly Dry Cleaners</div>
+      <hr class="rule">
+      <p class="lede">No harmful chemicals. No chemical smell. Better for your clothes.</p>
+      <div class="cta-row">
+        <a class="btn btn-call" href="tel:+17039388634">Call (703) 938-8634</a>
+        <a class="btn btn-ghost" href="#services">Our Services</a>
+      </div>
+    </header>
+  </div>
+
+  <!-- ECO PROMISE -->
+  <div class="panel-wrap gold">
+    <section class="panel">
+      <div class="kicker">The Vienna Valet Way</div>
+      <h2>Eco-Friendly, By Design</h2>
+      <hr class="hair">
+      <div class="eco">
+        <div>Eco-Friendly<br>Dry Cleaners</div>
+        <div>No Harmful Chemicals<br>No Chemical Smell</div>
+        <div>Better For<br>Your Clothes</div>
+      </div>
+    </section>
+  </div>
+
+  <!-- SERVICES -->
+  <div class="panel-wrap" id="services">
+    <section class="panel">
+      <div class="kicker">Professional Services</div>
+      <h2>What We Provide</h2>
+      <hr class="hair">
+      <div class="svc-grid">
+        <div class="svc">
+          <h3>Dry Cleaning</h3>
+          <p>Our core dry cleaning service — done the eco-friendly way, with no harmful chemicals and no chemical smell.</p>
+          <span class="price">Call for details</span>
+        </div>
+        <div class="svc">
+          <h3>Dress Shirt Laundry</h3>
+          <p>Dress shirt laundry, handled by experienced and friendly professionals.</p>
+          <span class="price">Call for details</span>
+        </div>
+        <div class="svc">
+          <h3>Same Day Services</h3>
+          <p>Same day services for when you need your garments back on schedule.</p>
+          <span class="price">Call for details</span>
+        </div>
+        <div class="svc">
+          <h3>Alterations</h3>
+          <p>Alterations, completed efficiently and on schedule.</p>
+          <span class="price">Call for details</span>
+        </div>
+        <div class="svc">
+          <h3>Wedding Dress Cleaning</h3>
+          <p>Wedding dress cleaning — entrusted to a team that goes above and beyond for its clients.</p>
+          <span class="price">Call for details</span>
+        </div>
+        <div class="svc">
+          <h3>Household Items Cleaning</h3>
+          <p>Household items cleaning, with the same care we give your wardrobe.</p>
+          <span class="price">Call for details</span>
+        </div>
+      </div>
+      <p class="note" style="margin-top:16px">Pricing isn't published online — call <a href="tel:+17039388634">(703) 938-8634</a> for details on any service.</p>
+    </section>
+  </div>
+
+  <!-- ABOUT -->
+  <div class="panel-wrap deep">
+    <section class="panel">
+      <div class="kicker">About Us</div>
+      <h2>Reliable &amp; Honest</h2>
+      <hr class="hair">
+      <p>Since our founding, we've worked with numerous clients throughout the Vienna area. Great service begins and ends with experienced and friendly professionals, which is why we put so much consideration into selecting only the best to join our team.</p>
+      <p style="margin-top:12px">We complete projects efficiently and on schedule, and go above and beyond to form lasting relationships with our clients.</p>
+    </section>
+  </div>
+
+  <!-- VISIT -->
+  <div class="panel-wrap gold">
+    <section class="panel">
+      <div class="kicker">Get In Touch</div>
+      <h2>Hours &amp; Location</h2>
+      <hr class="hair">
+      <div class="cols">
+        <div>
+          <h3 style="margin-bottom:8px">Hours</h3>
+          <table class="hours">
+            <tr><td>Monday – Friday</td><td>7:00 AM – 7:00 PM</td></tr>
+            <tr><td>Saturday</td><td>8:00 AM – 6:00 PM</td></tr>
+            <tr><td>Sunday</td><td>Call for details</td></tr>
+          </table>
+          <p class="note" style="margin-top:10px">Questions, comments or requests? Feel free to reach out — we'd love to hear from you.</p>
+        </div>
+        <div>
+          <h3 style="margin-bottom:8px">Find Us</h3>
+          <p class="big-link">103 Beulah Rd #103<br>Vienna, VA 22180</p>
+          <p style="margin-top:10px"><a href="https://www.google.com/maps/search/?api=1&amp;query=Vienna+Valet+103+Beulah+Rd+Vienna+VA+22180" target="_blank" rel="noopener">Get directions on Google Maps →</a></p>
+          <p style="margin-top:14px">Call: <a href="tel:+17039388634">(703) 938-8634</a><br>
+          Email: <a href="mailto:hidy.llc@gmail.com">hidy.llc@gmail.com</a></p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- SIGNATURE ENDING -->
+  <div class="panel-wrap">
+    <section class="panel ending">
+      <div class="kicker">Reliable &amp; Honest</div>
+      <h2>Pressed, Finished,<br>Better For Your Clothes.</h2>
+      <hr class="rule">
+      <p>Eco-friendly cleaning with no harmful chemicals and no chemical smell — from a Vienna team that completes projects efficiently, on schedule, and goes above and beyond for its clients.</p>
+      <div class="cta-row">
+        <a class="btn btn-call" href="tel:+17039388634">Call (703) 938-8634</a>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    <div class="fname">Vienna Valet</div>
+    <p>Preview demo built for Vienna Valet by Lucian Brucker — not this business's official website.</p>
+  </footer>
+</div>
+<div class="sticky-call"><a href="tel:+17039388634">☎ Call Vienna Valet</a></div>
+</body>
+</html>
