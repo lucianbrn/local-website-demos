@@ -109,21 +109,83 @@
   @media(max-width:560px){.cutout{width:82px}.cutout-tea{width:64px}.cutout-badge{width:80px;height:80px}.mascot{width:72px;right:10px;bottom:10px}}
   @media(prefers-reduced-motion:reduce){.mascot{animation:none}}
   footer{padding-bottom:7.5rem}
+  /* ---------- Zia-standard recomposition (2026-11-05) ---------- */
+  /* weather: film grain over the whole page */
+  body::before{content:"";position:fixed;inset:0;z-index:70;pointer-events:none;opacity:.05;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.6'/%3E%3C/svg%3E")}
+  /* ambience: saffron light pooled in the corners (candle-glow analog) */
+  body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(560px 360px at -4% 104%,rgba(238,136,20,.22),transparent 70%),radial-gradient(560px 360px at 104% 104%,rgba(236,87,8,.18),transparent 70%),radial-gradient(760px 400px at 50% -10%,rgba(232,195,110,.22),transparent 70%)}
+  header{z-index:1}
+  header::before,header::after{display:none}
+  main{position:relative;z-index:1}
+  .preview-banner{position:relative;z-index:1}
+  /* frame: hanging flame-licks at the top corners, far layer blurred / near layer sharp */
+  .frame{position:absolute;top:0;left:0;right:0;z-index:6;pointer-events:none}
+  .sprig{position:absolute;top:0;width:190px;height:150px}
+  .sprig-tl{left:0}
+  .sprig-tr{right:0;transform:scaleX(-1)}
+  .sprig svg{position:absolute;top:0;left:0;width:100%;height:100%;overflow:visible}
+  .sprig .far{filter:blur(3px);opacity:.35;transform:translate(7px,3px) scale(1.05)}
+  @media(max-width:560px){.sprig{width:104px;height:84px}}
+  /* nameplate anchor: dark plaque, letterspaced caps, saffron-gold ink, offset back-layer */
+  .nameplate{position:relative;max-width:36rem;margin:0 auto 1.7rem;background:linear-gradient(165deg,rgba(34,31,28,.97),rgba(16,16,15,.98));border:1px solid rgba(232,195,110,.6);border-radius:14px;padding:1.8rem 1.4rem 1.55rem;box-shadow:10px 10px 0 rgba(208,74,3,.9)}
+  .nameplate::after{content:"";position:absolute;inset:7px;border:1px solid rgba(232,195,110,.35);border-radius:9px;pointer-events:none}
+  .nameplate .hero-logo{height:84px;margin-bottom:.6rem}
+  header h1{font-size:clamp(1.95rem,6.8vw,3.05rem);letter-spacing:.15em;line-height:1.08}
+  header h1 em{color:var(--saffron-soft)}
+  .np-sub{font-family:'Marcellus',serif;letter-spacing:.26em;text-transform:uppercase;font-size:.76rem;color:var(--saffron);margin-top:.6rem}
+  @media(max-width:560px){.nameplate{padding:1.35rem 1rem 1.2rem}}
+  /* editorial kickers: letterspaced small caps + hairline rules */
+  .kicker{display:flex;align-items:center;justify-content:center;gap:1rem}
+  .kicker::before,.kicker::after{content:"";height:1px;width:min(110px,20vw)}
+  .kicker::before{background:linear-gradient(90deg,transparent,rgba(208,74,3,.55))}
+  .kicker::after{background:linear-gradient(90deg,rgba(208,74,3,.55),transparent)}
+  /* layered panels: offset back-layers, tone by content type */
+  #about{background:linear-gradient(165deg,#fdf9ef,#f5ecd9);border:1px solid var(--line);border-radius:18px;padding:2.5rem 1.4rem 2.3rem;margin-top:2.8rem;box-shadow:10px 10px 0 #ecdcba}
+  @media(max-width:560px){#about{padding:2rem 1rem 1.8rem}}
+  .about-cards .card{box-shadow:7px 7px 0 rgba(232,195,110,.45),0 4px 14px rgba(23,22,21,.07)}
+  .menu-cat{background:linear-gradient(170deg,#fffdf8,#fdf6e7);box-shadow:9px 9px 0 #f0dfb6,0 4px 12px rgba(23,22,21,.05)}
+  .sig-band{box-shadow:10px 10px 0 var(--pom-dark)}
+  .visit{box-shadow:10px 10px 0 var(--saffron)}
+  form{box-shadow:9px 9px 0 #f0dfb6,0 6px 18px rgba(23,22,21,.08)}
+  .duo figure{box-shadow:8px 8px 0 rgba(208,74,3,.28),0 10px 28px rgba(23,22,21,.16)}
+  /* signature ending: their own true material, set as a dark panel */
+  .signature{margin-top:3rem;background:linear-gradient(160deg,#211e1b,#10100f);color:var(--cream);border-radius:16px;padding:2.3rem 1.5rem 2.1rem;text-align:center;position:relative;overflow:hidden;box-shadow:10px 10px 0 var(--pom-dark)}
+  .signature::before{content:"";position:absolute;inset:0;background:radial-gradient(460px 220px at 50% -30%,rgba(238,136,20,.35),transparent 70%);pointer-events:none}
+  .signature .sig-k{font-family:'Marcellus',serif;letter-spacing:.3em;text-transform:uppercase;font-size:.78rem;color:var(--saffron-soft);position:relative}
+  .signature .sig-line{font-family:'Marcellus',serif;font-size:clamp(1.5rem,4.6vw,2.1rem);line-height:1.25;margin:.7rem auto .8rem;max-width:34rem;position:relative}
+  .signature .sig-sub{letter-spacing:.18em;text-transform:uppercase;font-size:.74rem;color:#d8cdb4;position:relative}
 </style>
 </head>
 <body>
 
+<div class="frame" aria-hidden="true">
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><g id="flameSprig">
+    <path d="M20 0 C22 30 12 48 18 74 C22 92 38 98 46 84 C52 74 48 60 44 48 C40 34 44 16 42 0 Z" fill="#ec5708"/>
+    <path d="M27 6 C28 24 22 38 25 54 C27 64 36 67 40 58 C43 51 40 42 38 34 C35 24 37 12 36 6 Z" fill="#ee8814"/>
+    <path d="M30 30 C31 40 28 46 30 54 C31 59 36 59 37 54 C38 47 35 40 34 30 Z" fill="#e8c36e"/>
+    <path d="M64 0 C65 18 59 28 62 42 C64 51 72 53 76 46 C79 41 77 33 75 27 C72 19 74 8 73 0 Z" fill="#ee8814"/>
+    <path d="M92 0 C93 11 89 17 91 26 C92 31 98 32 100 27 C102 23 100 18 99 13 C97 8 98 4 98 0 Z" fill="#e8c36e"/>
+    <circle cx="120" cy="12" r="3" fill="#ee8814"/>
+    <circle cx="138" cy="30" r="2.2" fill="#ec5708"/>
+    <circle cx="112" cy="38" r="1.8" fill="#e8c36e"/>
+    <circle cx="152" cy="8" r="1.6" fill="#e8c36e"/>
+  </g></defs></svg>
+  <div class="sprig sprig-tl"><svg class="far" viewBox="0 0 220 170"><use href="#flameSprig"/></svg><svg viewBox="0 0 220 170"><use href="#flameSprig"/></svg></div>
+  <div class="sprig sprig-tr"><svg class="far" viewBox="0 0 220 170"><use href="#flameSprig"/></svg><svg viewBox="0 0 220 170"><use href="#flameSprig"/></svg></div>
+</div>
+
 <header>
+  <div class="nameplate">
   <img class="hero-logo" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIwAAACOCAMAAADU1hAHAAADJmlUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgOS4wLWMwMDAgNzkuMTcxYzI3ZmFiLCAyMDIyLzA4LzE2LTIyOjM1OjQxICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgMjQuMCAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NkE2MzBCQUZGQUZBMTFFREE4RjNGNDQ4ODNDNDNGNkIiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NkE2MzBCQjBGQUZBMTFFREE4RjNGNDQ4ODNDNDNGNkIiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo2QTYzMEJBREZBRkExMUVEQThGM0Y0NDg4M0M0M0Y2QiIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo2QTYzMEJBRUZBRkExMUVEQThGM0Y0NDg4M0M0M0Y2QiIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Pn8rPnsAAAAZdEVYdFNvZnR3YXJlAEFkb2JlIEltYWdlUmVhZHlxyWU8AAAC+lBMVEVHcEz8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" alt="Baku Delicious logo" width="140" height="142">
-  <p class="eyebrow">Fairfax, Virginia · Flavours of Baku</p>
   <h1>Baku <em>Delicious</em></h1>
+    <p class="np-sub">Azerbaijani Bakery &amp; Café — Fairfax, Virginia</p>
+  </div>
   <p class="hero-sub">An Azerbaijani bakery &amp; café bringing the flavours of Baku to Fairfax — aromatic plov, stuffed dolma, flaky khachapuri, and pastries like pakhlava, shekerbura and kete.</p>
   <div class="hero-tags">
     <span>Bakery</span><span>Café</span><span>Azerbaijani Shop</span><span>Breakfast Daily</span>
   </div>
   <a class="btn btn-call" href="tel:+17035033003">Call (703) 503-3003</a>
   <a class="btn btn-ghost" href="#menu">See the menu</a>
-  <p class="hero-note">Traditional recipes, passed through generations.</p>
 </header>
 <div class="pattern-band" aria-hidden="true"></div>
 
@@ -133,7 +195,7 @@
     <p class="kicker">Our Restaurant</p>
     <h2>A taste of home, in Fairfax</h2>
     <div class="rule"></div>
-    <p class="lede">Located in Fairfax, Virginia, Baku Delicious brings you the authentic flavours of Azerbaijani, Turkish, Georgian, Slavic and Uzbek cuisine — every dish crafted to remind you of home, in a warm and welcoming atmosphere.</p>
+    <p class="lede">Located in Fairfax, Virginia, Baku Delicious brings you the authentic flavours of Azerbaijani, Turkish, Georgian, Slavic and Uzbek cuisine.</p>
     <div class="about-cards">
       <div class="card"><span class="orn">✦</span><h3>The Bakery</h3><p>Fresh pastries and cakes from Azerbaijani tradition — pakhlava layered with walnut and honey, shekerbura, kete, honey cake, Napoleon cake and Spartak cake.</p></div>
       <div class="card"><span class="orn">✦</span><h3>The Café</h3><p>A cosy café serving breakfast every day, Azerbaijani tea and Turkish coffee, and mains from across the Caucasus and Central Asia.</p></div>
@@ -150,7 +212,6 @@
     <p class="kicker">Our Food</p>
     <h2>From the menu</h2>
     <div class="rule"></div>
-    <p class="lede">Azerbaijan's cuisine brings a rich tapestry of flavours to your table — fresh herbs, warm spices and centuries-old traditions.</p>
           <div class="sig-band">
         <h3><span class="flame">&#10022;</span> House signatures</h3>
         <p>Start with <strong>Levengi</strong> &mdash; chicken with ground walnut and the house plum sauce &mdash; and the <strong>liver p&acirc;t&eacute; with butter</strong>. From the bakery counter: <strong>syrniki</strong>, cottage-cheese pancakes, and <strong>Turkish borek</strong>, thin flaky dough with cheese. Breakfast is served every day.</p>
@@ -253,6 +314,12 @@
       <p class="demo-tag">Demo form — this preview form does not send anywhere yet. On the live site it would deliver straight to Baku Delicious.</p>
     </form>
   </section>
+
+  <div class="signature">
+    <p class="sig-k">The Baku Table</p>
+    <p class="sig-line">Plov, levengi, pakhlava and tea — the flavours of Baku, in Fairfax.</p>
+    <p class="sig-sub">Since 2016 · Certified Halal · Breakfast Served Daily</p>
+  </div>
 
   <footer>
     <p>Baku Delicious · Azerbaijani Bakery &amp; Café · Fairfax, Virginia</p>
