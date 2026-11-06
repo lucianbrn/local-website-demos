@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Burke Florist — Family-Owned Florist in Fairfax, VA | Preview Demo</title>
+<meta name="description" content="Burke Florist is a family-owned shop in Fairfax, VA creating unique floral arrangements for delivery, weddings, sympathy, and everyday occasions. Call (703) 352-3633 to order.">
+<style>
+  :root{
+    --ink:#26332a; --pine:#2f4531; --pine-deep:#1e3021; --sage:#8aa38d; --sage-light:#dfe8dc;
+    --cream:#faf6ef; --paper:#fffdf8; --blush:#c48383; --rose:#a85f5f; --petal:#f2ddd3; --gold:#b9975b;
+    --line:#e3ddd0; --muted:#5d6b5f;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:Georgia,'Times New Roman',serif;color:var(--ink);background:var(--cream);line-height:1.6;font-size:17px}
+  a{color:var(--pine)}
+  .wrap{max-width:1060px;margin:0 auto;padding:0 20px}
+
+  /* Botanical decoration — pure CSS shapes, no images */
+  .petals{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+  .petal{position:absolute;border-radius:80% 0 80% 0;background:rgba(255,255,255,.09)}
+  .leaf{position:absolute;border-radius:0 90% 0 90%;background:rgba(138,163,141,.35);transform:rotate(24deg)}
+  .bloom{position:relative;width:92px;height:92px;margin:0 auto 10px}
+  .bloom i{position:absolute;left:50%;top:50%;width:34px;height:52px;margin:-44px 0 0 -17px;border-radius:50% 50% 50% 50%/60% 60% 40% 40%;background:var(--petal);opacity:.92;transform-origin:50% 88%}
+  .bloom i:nth-child(1){transform:rotate(0deg)} .bloom i:nth-child(2){transform:rotate(60deg)}
+  .bloom i:nth-child(3){transform:rotate(120deg)} .bloom i:nth-child(4){transform:rotate(180deg)}
+  .bloom i:nth-child(5){transform:rotate(240deg)} .bloom i:nth-child(6){transform:rotate(300deg)}
+  .bloom b{position:absolute;left:50%;top:50%;width:26px;height:26px;margin:-13px 0 0 -13px;border-radius:50%;background:var(--gold)}
+
+  header.top{background:var(--paper);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10}
+  .top-in{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:13px 0}
+  .brand{font-size:1.3rem;letter-spacing:.04em;color:var(--pine-deep);text-decoration:none;font-weight:bold}
+  .brand small{display:block;font-size:.68rem;letter-spacing:.28em;text-transform:uppercase;color:var(--blush);font-family:Arial,Helvetica,sans-serif;font-weight:bold}
+  .call-btn{background:var(--pine);color:#fff;text-decoration:none;padding:10px 18px;border-radius:999px;font-family:Arial,Helvetica,sans-serif;font-size:.92rem;font-weight:bold;white-space:nowrap}
+  .call-btn:hover{background:var(--pine-deep)}
+
+  .hero{position:relative;background:linear-gradient(160deg,var(--pine) 0%,var(--pine-deep) 78%);color:#f4efe3;text-align:center;padding:64px 20px 58px}
+  .hero h1{font-size:2.5rem;line-height:1.15;font-weight:normal;max-width:700px;margin:6px auto 14px}
+  .hero h1 em{color:var(--petal);font-style:italic}
+  .hero p{max-width:580px;margin:0 auto 26px;color:#d9e2d5;font-size:1.05rem}
+  .hero .eyebrow{letter-spacing:.3em;text-transform:uppercase;font-size:.7rem;font-family:Arial,Helvetica,sans-serif;color:var(--sage-light)}
+  .hero-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+  .btn{display:inline-block;text-decoration:none;padding:14px 26px;border-radius:999px;font-family:Arial,Helvetica,sans-serif;font-weight:bold;font-size:.98rem}
+  .btn-rose{background:var(--rose);color:#fff}.btn-rose:hover{background:#934f4f}
+  .btn-ghost{border:1.5px solid #cfe0cc;color:#eef4ec}.btn-ghost:hover{background:rgba(255,255,255,.08)}
+  .hero .note{margin-top:20px;font-size:.9rem;color:#b9cbb5}
+
+  section{padding:56px 0}
+  h2{font-size:1.9rem;font-weight:normal;color:var(--pine-deep);text-align:center;margin-bottom:8px}
+  .sub{text-align:center;color:var(--muted);max-width:600px;margin:0 auto 34px}
+  .rule{width:64px;height:2px;background:var(--blush);margin:14px auto 0;border-radius:2px}
+
+  .cards{display:grid;grid-template-columns:1fr;gap:16px}
+  @media(min-width:680px){.cards{grid-template-columns:1fr 1fr}}
+  @media(min-width:960px){.cards{grid-template-columns:1fr 1fr 1fr}}
+  .card{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:26px 24px;position:relative;overflow:hidden}
+  .card:before{content:"";position:absolute;right:-26px;top:-26px;width:78px;height:78px;border-radius:0 90% 0 90%;background:var(--sage-light);transform:rotate(20deg)}
+  .card h3{color:var(--pine);font-size:1.2rem;margin-bottom:8px;font-weight:normal}
+  .card p,.card li{color:var(--muted);font-size:.97rem}
+  .card ul{list-style:none;margin-top:6px}
+  .card li{padding:3px 0 3px 18px;position:relative}
+  .card li:before{content:"❀";position:absolute;left:0;color:var(--blush);font-size:.8rem;top:6px}
+
+  .how{background:var(--sage-light)}
+  .steps{display:grid;grid-template-columns:1fr;gap:16px;counter-reset:step}
+  @media(min-width:760px){.steps{grid-template-columns:1fr 1fr 1fr}}
+  .step{background:var(--paper);border-radius:16px;padding:26px 24px;text-align:center}
+  .step .n{width:44px;height:44px;border-radius:50%;background:var(--pine);color:#fff;display:flex;align-items:center;justify-content:center;margin:0 auto 12px;font-size:1.15rem}
+  .step h3{font-weight:normal;color:var(--pine);margin-bottom:6px}
+  .step p{color:var(--muted);font-size:.96rem}
+
+  .visit-grid{display:grid;grid-template-columns:1fr;gap:22px}
+  @media(min-width:760px){.visit-grid{grid-template-columns:1fr 1fr}}
+  .panel{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:28px}
+  .panel h3{color:var(--pine);font-weight:normal;font-size:1.25rem;margin-bottom:14px}
+  table.hours{width:100%;border-collapse:collapse;font-size:.98rem}
+  table.hours td{padding:7px 0;border-bottom:1px solid var(--line)}
+  table.hours tr:last-child td{border-bottom:none}
+  table.hours td:last-child{text-align:right;color:var(--muted)}
+  .panel p{margin-bottom:10px;color:var(--muted)}
+  .panel p strong{color:var(--ink)}
+  .big-link{font-size:1.15rem}
+
+  form{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:28px;max-width:680px;margin:0 auto}
+  label{display:block;font-family:Arial,Helvetica,sans-serif;font-size:.85rem;font-weight:bold;letter-spacing:.04em;color:var(--pine);margin:16px 0 6px}
+  label:first-of-type{margin-top:0}
+  input,select,textarea{width:100%;padding:12px 14px;border:1px solid #c9c2b2;border-radius:10px;font:inherit;font-size:1rem;background:#fff;color:var(--ink)}
+  input:focus,select,textarea:focus{outline:2px solid var(--sage)}
+  textarea{min-height:110px;resize:vertical}
+  .row{display:grid;grid-template-columns:1fr;gap:0}
+  @media(min-width:620px){.row{grid-template-columns:1fr 1fr;gap:16px}}
+  button.submit{margin-top:22px;width:100%;background:var(--rose);color:#fff;border:none;padding:15px;border-radius:999px;font-family:Arial,Helvetica,sans-serif;font-weight:bold;font-size:1rem;cursor:pointer}
+  button.submit:hover{background:#934f4f}
+  .form-note{font-size:.88rem;color:var(--muted);text-align:center;margin-top:14px}
+  #demo-msg{display:none;margin-top:16px;background:var(--sage-light);border-radius:10px;padding:14px 16px;font-size:.95rem}
+
+  footer{background:var(--pine-deep);color:#c9d6c6;padding:42px 20px;text-align:center;font-size:.94rem}
+  footer .fname{color:#fff;font-size:1.25rem;margin-bottom:6px}
+  footer a{color:var(--petal)}
+  .disclaimer{margin:26px auto 0;max-width:640px;border-top:1px solid rgba(255,255,255,.22);padding-top:18px;font-size:.85rem;color:#9fb59f;font-style:italic}
+</style>
+</head>
+<body id="top">
+
+<header class="top">
+  <div class="wrap top-in">
+    <a class="brand" href="#top">Burke Florist<small>Fairfax, Virginia</small></a>
+    <a class="call-btn" href="tel:+17033523633">Call (703) 352-3633</a>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="petals" aria-hidden="true">
+    <span class="petal" style="width:120px;height:120px;left:-30px;top:24px"></span>
+    <span class="petal" style="width:80px;height:80px;right:6%;top:36px"></span>
+    <span class="petal" style="width:150px;height:150px;right:-40px;bottom:-50px"></span>
+    <span class="leaf" style="width:90px;height:90px;left:8%;bottom:28px"></span>
+    <span class="leaf" style="width:60px;height:60px;right:16%;bottom:60px"></span>
+  </div>
+  <div class="bloom" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><b></b></div>
+  <p class="eyebrow">Family owned &amp; operated since 2006</p>
+  <h1>Beautiful, unique floral arrangements — <em>made in Fairfax, delivered with care</em></h1>
+  <p>Burke Florist is a family-owned shop creating arrangements for everyday moments and life&rsquo;s biggest occasions — for walk-in customers, local delivery, and curbside pickup.</p>
+  <div class="hero-actions">
+    <a class="btn btn-rose" href="tel:+17033523633">Call to order — (703) 352-3633</a>
+    <a class="btn btn-ghost" href="#request">Send an order request</a>
+  </div>
+  <p class="note">In University Mall, across from GMU &middot; 3769-A Pickett Road, Fairfax, VA 22031</p>
+</div>
+
+<section id="occasions">
+  <div class="wrap">
+    <h2>Occasions &amp; Services</h2>
+    <div class="rule"></div>
+    <p class="sub">From a simple bouquet to a full wedding, the shop handles the flowers — and the delivery or pickup.</p>
+    <div class="cards">
+      <div class="card">
+        <h3>Everyday &amp; Special Occasions</h3>
+        <p>Floral arrangements and centerpieces for everyday, special occasions, holidays, and parties — plus fruit and gourmet baskets and silk arrangements.</p>
+      </div>
+      <div class="card">
+        <h3>Weddings</h3>
+        <p>Bouquets, ceremony settings, and reception decor — including flower arches and floral art.</p>
+        <ul><li>Planning a wedding? Email <a href="mailto:burkeflorist@hotmail.com">burkeflorist@hotmail.com</a> to set up a bridal consultation.</li></ul>
+      </div>
+      <div class="card">
+        <h3>Sympathy &amp; Funerals</h3>
+        <p>Tasteful funeral arrangements, prepared with care:</p>
+        <ul><li>Casket sprays</li><li>Standing sprays</li><li>Baskets &amp; plants</li></ul>
+      </div>
+      <div class="card">
+        <h3>Church Altars</h3>
+        <p>Church altar arrangements, made to suit the service and the space.</p>
+      </div>
+      <div class="card">
+        <h3>Prom &amp; Homecoming</h3>
+        <p>Corsages and boutonnieres for prom and homecoming — order ahead by phone so yours is ready for the night.</p>
+      </div>
+      <div class="card">
+        <h3>Delivery, Pickup &amp; Wire Orders</h3>
+        <p>The shop is open Monday&ndash;Saturday for walk-in customers, local deliveries, wire orders, and special occasions — and you can call ahead to arrange a curbside pickup.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="how" id="how">
+  <div class="wrap">
+    <h2>How ordering works</h2>
+    <div class="rule"></div>
+    <p class="sub">No online checkout — a real person at the shop takes your order. That&rsquo;s how a family florist works.</p>
+    <div class="steps">
+      <div class="step"><div class="n">1</div><h3>Call or email</h3><p>Call <a href="tel:+17033523633">(703) 352-3633</a> during shop hours, email <a href="mailto:burkeflorist@hotmail.com">burkeflorist@hotmail.com</a>, or send the request form below.</p></div>
+      <div class="step"><div class="n">2</div><h3>Tell them the occasion</h3><p>The occasion, the date you need it, and anything you have in mind — colours, style, or a basket or plant instead of cut flowers.</p></div>
+      <div class="step"><div class="n">3</div><h3>Pickup or delivery</h3><p>Arrange a curbside pickup at the shop, or local delivery — just call the shop to arrange it.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="visit">
+  <div class="wrap">
+    <h2>Visit the shop</h2>
+    <div class="rule"></div>
+    <p class="sub">In University Mall, across from George Mason University.</p>
+    <div class="visit-grid">
+      <div class="panel">
+        <h3>Find us</h3>
+        <p><strong>Burke Florist</strong><br>3769-A Pickett Road<br>Fairfax, VA 22031</p>
+        <p>Phone: <a class="big-link" href="tel:+17033523633">(703) 352-3633</a></p>
+        <p>Email: <a href="mailto:burkeflorist@hotmail.com">burkeflorist@hotmail.com</a><br><span style="font-size:.9rem">Email is also how you set up a bridal consultation.</span></p>
+      </div>
+      <div class="panel">
+        <h3>Shop hours</h3>
+        <table class="hours">
+          <tr><td>Monday</td><td>9:00 AM &ndash; 5:00 PM</td></tr>
+          <tr><td>Tuesday</td><td>9:00 AM &ndash; 5:00 PM</td></tr>
+          <tr><td>Wednesday</td><td>9:00 AM &ndash; 5:00 PM</td></tr>
+          <tr><td>Thursday</td><td>9:00 AM &ndash; 5:00 PM</td></tr>
+          <tr><td>Friday</td><td>9:00 AM &ndash; 5:00 PM</td></tr>
+          <tr><td>Saturday</td><td>9:00 AM &ndash; 12:00 PM</td></tr>
+          <tr><td>Sunday</td><td>Closed</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="request" style="padding-top:0">
+  <div class="wrap">
+    <h2>Send an order request</h2>
+    <div class="rule"></div>
+    <p class="sub">Tell the shop what you need — they&rsquo;ll confirm details, price, and timing with you directly.</p>
+    <form id="order-form" novalidate>
+      <div class="row">
+        <div><label for="name">Your name</label><input id="name" name="name" type="text" autocomplete="name" placeholder="Your name"></div>
+        <div><label for="phone">Phone or email</label><input id="phone" name="phone" type="text" autocomplete="tel" placeholder="Best way to reach you"></div>
+      </div>
+      <div class="row">
+        <div>
+          <label for="occasion">Occasion</label>
+          <select id="occasion" name="occasion">
+            <option>Everyday / just because</option>
+            <option>Birthday, anniversary, or holiday</option>
+            <option>Wedding / bridal consultation</option>
+            <option>Sympathy / funeral</option>
+            <option>Church altar</option>
+            <option>Prom / homecoming</option>
+            <option>Party or event centerpiece</option>
+            <option>Fruit / gourmet basket</option>
+            <option>Something else</option>
+          </select>
+        </div>
+        <div><label for="date">Date needed</label><input id="date" name="date" type="date"></div>
+      </div>
+      <label for="details">Details</label>
+      <textarea id="details" name="details" placeholder="Colours, style, delivery or pickup, card message — anything that helps the shop shape your arrangement."></textarea>
+      <button class="submit" type="submit">Send request</button>
+      <p class="form-note">Prefer to talk? Call <a href="tel:+17033523633">(703) 352-3633</a> — the shop arranges curbside pickup and delivery by phone.</p>
+      <div id="demo-msg" role="status">This is a preview demo form, so nothing was sent. To order for real, call Burke Florist at (703) 352-3633 or email burkeflorist@hotmail.com.</div>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="fname">Burke Florist</div>
+  <p>3769-A Pickett Road, Fairfax, VA 22031 &middot; <a href="tel:+17033523633">(703) 352-3633</a> &middot; <a href="mailto:burkeflorist@hotmail.com">burkeflorist@hotmail.com</a></p>
+  <p>Mon&ndash;Fri 9:00 AM&ndash;5:00 PM &middot; Sat 9:00 AM&ndash;12:00 PM &middot; Sun Closed</p>
+  <p class="disclaimer">Preview demo built for Burke Florist by Lucian Brucker — not this business&rsquo;s official website.</p>
+</footer>
+
+<script>
+  document.getElementById('order-form').addEventListener('submit', function(e){
+    e.preventDefault();
+    document.getElementById('demo-msg').style.display = 'block';
+  });
+</script>
+</body>
+</html>
