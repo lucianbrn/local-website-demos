@@ -10,16 +10,32 @@
 <link href="https://fonts.googleapis.com/css2?family=Cardo:wght@700&family=Lato:ital,wght@0,400;0,700;1,400&family=Ubuntu:wght@700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --deep:#122E2B; --green:#2D604B; --green-soft:#e9f1ec; --gold:#ffc000; --gold-deep:#e0aa00;
-    --paper:#ffffff; --cream:#f7f5ef; --ink:#1e2a27; --ink-soft:#4a5a55; --line:#ddd8c9;
+    --deep:#122E2B; --deepest:#0A1F1C; --green:#2D604B; --green-soft:#e9f1ec; --gold:#ffc000; --gold-deep:#b88900;
+    --paper:#fffdf6; --ground:#f2efe0; --ink:#1e2a27; --ink-soft:#4a5a55; --line:#ddd6bf;
+    --layer-gold:#eed9a4; --layer-green:#cfe0d2;
   }
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
-  body{font-family:'Lato',system-ui,sans-serif;color:var(--ink);background:var(--cream);line-height:1.55}
+  body{font-family:'Lato',system-ui,sans-serif;color:var(--ink);line-height:1.55;position:relative;
+    background:
+      radial-gradient(720px 420px at 10% -80px, rgba(255,192,0,.16), rgba(255,192,0,0) 70%),
+      radial-gradient(900px 620px at 92% 26%, rgba(45,96,75,.12), rgba(45,96,75,0) 70%),
+      radial-gradient(820px 640px at 50% 112%, rgba(255,192,0,.12), rgba(255,192,0,0) 70%),
+      var(--ground)}
+  body::before{content:"";position:fixed;inset:0;z-index:200;pointer-events:none;opacity:.05;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E")}
   h1,h2,h3{font-family:'Cardo',Georgia,serif;font-weight:700;line-height:1.15;color:var(--deep)}
-  .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 20px;position:relative}
+  /* ambient sparkle frame — far layer soft, near layer sharp */
+  .frame{position:absolute;top:0;left:0;right:0;height:340px;overflow:hidden;pointer-events:none;z-index:1}
+  .frame .sp{position:absolute;color:var(--gold);line-height:1;text-shadow:0 0 16px rgba(255,192,0,.6);animation:tw 3.8s ease-in-out infinite alternate}
+  .frame .far{filter:blur(2.5px);opacity:.4;animation-name:twf}
+  .frame .near{opacity:.95}
+  @keyframes tw{from{opacity:.35}to{opacity:.95}}
+  @keyframes twf{from{opacity:.18}to{opacity:.48}}
+  @media(prefers-reduced-motion:reduce){ .frame .sp{animation:none} }
   /* header */
-  header{position:sticky;top:0;z-index:50;background:var(--paper);border-bottom:1px solid var(--line)}
+  header{position:sticky;top:0;z-index:50;background:rgba(255,253,246,.97);border-bottom:1px solid var(--line)}
   .header-in{display:flex;align-items:center;gap:18px;padding:12px 0}
   .wordmark{font-family:'Ubuntu',sans-serif;font-weight:700;font-size:1.28rem;color:var(--deep);letter-spacing:.2px;text-decoration:none;line-height:1.1}
   .wordmark .star{color:var(--gold-deep)}
@@ -28,41 +44,59 @@
   nav a{color:var(--ink);text-decoration:none;font-weight:700;font-size:.95rem}
   nav a:hover{color:var(--green)}
   .call-btn{margin-left:8px;background:var(--gold);color:#141414;text-decoration:none;padding:11px 20px;border-radius:8px;font-weight:700;font-size:.95rem;white-space:nowrap}
-  .call-btn:hover{background:var(--gold-deep)}
+  .call-btn:hover{background:#e0aa00}
   @media(max-width:760px){ nav{display:none} .call-btn{margin-left:auto} }
+  /* editorial kicker + hairline */
+  .kick{display:flex;align-items:center;gap:14px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;font-size:.72rem;color:var(--gold-deep);margin-bottom:12px}
+  .kick::after{content:"";flex:1;height:1px;background:currentColor;opacity:.35}
+  .kick.on-dark{color:var(--gold)}
+  .kick.center{justify-content:center}
+  .kick.center::before{content:"";flex:1;height:1px;background:currentColor;opacity:.35}
   /* hero */
-  .hero{background:var(--deep);color:#f2efe6;padding:64px 0 56px;position:relative;overflow:hidden}
-  .hero::after{content:"✦";position:absolute;right:4%;top:16px;font-size:7rem;color:rgba(255,192,0,.14);line-height:1}
-  .hero .kicker{color:var(--gold);font-weight:700;letter-spacing:.22em;text-transform:uppercase;font-size:.78rem;margin-bottom:14px}
+  .hero{background:linear-gradient(168deg,#0C2521 0%,var(--deep) 55%,#173D33 100%);color:#f2efe6;padding:56px 0 62px;position:relative;overflow:hidden}
+  .hero::before{content:"";position:absolute;left:-130px;bottom:-170px;width:430px;height:430px;background:radial-gradient(circle,rgba(255,192,0,.22),rgba(255,192,0,0) 65%);pointer-events:none}
+  .hero::after{content:"";position:absolute;right:-130px;bottom:-170px;width:430px;height:430px;background:radial-gradient(circle,rgba(255,192,0,.17),rgba(255,192,0,0) 65%);pointer-events:none}
+  .hero .wrap{z-index:2}
+  .plate-row{text-align:center;margin-bottom:36px}
+  .plate{display:inline-block;background:linear-gradient(165deg,#0A1F1C,#14322C);border:1px solid rgba(255,192,0,.6);box-shadow:0 0 0 5px rgba(255,192,0,.10),0 20px 36px rgba(0,0,0,.35);border-radius:6px;padding:18px 38px 14px}
+  .plate .pstar{color:var(--gold);font-size:1rem;line-height:1;text-shadow:0 0 12px rgba(255,192,0,.85)}
+  .plate .pname{font-family:'Ubuntu',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.26em;color:var(--gold);font-size:clamp(1rem,3vw,1.35rem);margin-top:7px}
+  .plate .psub{letter-spacing:.32em;text-transform:uppercase;font-size:.6rem;color:#cfe0d4;margin-top:7px;font-weight:700}
+  @media(max-width:600px){ .plate{padding:14px 20px 12px} .plate .pname{letter-spacing:.16em} }
   .hero h1{color:#fff;font-size:clamp(2.3rem,5.4vw,3.6rem);max-width:640px}
   .hero h1 em{font-style:normal;color:var(--gold)}
   .hero p{max-width:560px;margin:18px 0 26px;font-size:1.08rem;color:#dde5df}
   .hero-ctas{display:flex;gap:14px;flex-wrap:wrap}
   .btn{display:inline-block;text-decoration:none;padding:14px 26px;border-radius:8px;font-weight:700;font-size:.98rem}
   .btn-gold{background:var(--gold);color:#141414}
-  .btn-gold:hover{background:var(--gold-deep)}
+  .btn-gold:hover{background:#e0aa00}
   .btn-line{border:1.5px solid #cfd8d2;color:#fff}
   .btn-line:hover{background:rgba(255,255,255,.08)}
   .chips{display:flex;gap:10px;flex-wrap:wrap;margin-top:30px}
   .chip{border:1px solid rgba(255,255,255,.35);color:#eef2ee;border-radius:999px;padding:6px 14px;font-size:.85rem;font-weight:700}
   .chip b{color:var(--gold);font-weight:700}
-  /* about */
-  .about{padding:52px 0 6px}
-  .about .cols{display:grid;grid-template-columns:1.2fr .8fr;gap:34px;align-items:start}
-  @media(max-width:760px){ .about .cols{grid-template-columns:1fr} }
-  .about h2{font-size:1.9rem;margin-bottom:12px}
-  .about p{color:var(--ink-soft);margin-bottom:12px}
-  .since-card{background:var(--green-soft);border:1px solid #cfdfd4;border-radius:14px;padding:22px}
-  .since-card .big{font-family:'Cardo',serif;font-size:2.2rem;color:var(--green);line-height:1}
-  .since-card p{margin:8px 0 0;color:var(--ink)}
+  /* layered panels */
+  .panel{position:relative;background:var(--paper);border:1px solid var(--line);border-radius:18px;box-shadow:9px 9px 0 var(--layer-gold)}
+  /* story */
+  .story{padding:56px 0 8px}
+  .story-panel{padding:30px 32px}
+  @media(max-width:600px){ .story-panel{padding:24px 22px} }
+  .story .cols{display:grid;grid-template-columns:1.2fr .8fr;gap:34px;align-items:start}
+  @media(max-width:760px){ .story .cols{grid-template-columns:1fr} }
+  .story h2{font-size:1.9rem;margin-bottom:12px}
+  .story p{color:var(--ink-soft)}
+  .since{border-left:3px solid var(--gold);padding-left:20px}
+  .since .big{font-family:'Cardo',serif;font-size:2.4rem;color:var(--green);line-height:1}
+  .since p{margin:8px 0 0;color:var(--ink)}
   /* services */
-  .services{padding:46px 0 10px}
+  .services{padding:48px 0 12px}
   .services h2{font-size:2rem}
   .services .sub{color:var(--ink-soft);max-width:640px;margin:10px 0 26px}
-  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
   @media(max-width:900px){ .grid{grid-template-columns:repeat(2,1fr)} }
   @media(max-width:600px){ .grid{grid-template-columns:1fr} }
-  .card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:22px;position:relative;overflow:visible}
+  .card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:22px;position:relative;overflow:visible;box-shadow:9px 9px 0 var(--layer-green)}
+  .card.has-cutout{box-shadow:9px 9px 0 var(--layer-gold)}
   .card h3{font-size:1.22rem;margin-bottom:8px;padding-right:0}
   .card p{color:var(--ink-soft);font-size:.96rem}
   .card .tag{display:inline-block;margin-top:12px;background:var(--green-soft);color:var(--green);font-weight:700;font-size:.8rem;border-radius:999px;padding:4px 12px}
@@ -70,16 +104,19 @@
   .cutout{position:absolute;top:10px;right:12px;width:92px;pointer-events:none;filter:drop-shadow(0 10px 12px rgba(18,46,43,.25));z-index:3}
   @media(max-width:600px){ .cutout{width:72px} .card.has-cutout h3,.card.has-cutout p{padding-right:70px} }
   /* delivery */
-  .delivery{margin:52px 0 0;background:var(--green);color:#eef4ef;padding:48px 0}
-  .delivery h2{color:#fff;font-size:1.9rem;margin-bottom:10px}
-  .delivery p{max-width:620px;color:#dfeae1}
-  .delivery .rule{display:inline-block;margin-top:16px;background:rgba(255,192,0,.16);border:1px solid var(--gold);color:#ffe9a8;border-radius:10px;padding:10px 16px;font-weight:700}
-  .delivery .btn{margin-top:22px}
+  .delivery{padding:56px 0 8px}
+  .del-panel{position:relative;background:radial-gradient(420px 220px at 92% -30px,rgba(255,192,0,.20),rgba(255,192,0,0) 70%),linear-gradient(165deg,var(--green),#24503D);color:#eef4ef;border-radius:18px;padding:36px 38px;box-shadow:9px 9px 0 var(--deep)}
+  @media(max-width:600px){ .del-panel{padding:28px 24px} }
+  .del-panel h2{color:#fff;font-size:1.9rem;margin-bottom:10px}
+  .del-panel p{max-width:620px;color:#e2eee4}
+  .del-panel .rule{display:inline-block;margin-top:16px;background:rgba(255,192,0,.16);border:1px solid var(--gold);color:#ffe9a8;border-radius:10px;padding:10px 16px;font-weight:700}
+  .del-panel .btn{margin-top:22px}
   /* visit */
-  .visit{padding:52px 0 60px}
-  .visit .cols{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .visit{padding:54px 0 60px}
+  .visit h2{font-size:2rem;margin-bottom:18px}
+  .visit .cols{display:grid;grid-template-columns:1fr 1fr;gap:22px}
   @media(max-width:700px){ .visit .cols{grid-template-columns:1fr} }
-  .vcard{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:24px}
+  .vcard{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:24px;position:relative;box-shadow:9px 9px 0 var(--layer-green)}
   .vcard h3{font-size:1.3rem;margin-bottom:10px}
   .vcard p{color:var(--ink-soft)}
   .hours{width:100%;border-collapse:collapse;margin-top:6px}
@@ -87,8 +124,17 @@
   .hours td:last-child{text-align:right;color:var(--ink);font-weight:700}
   .hours tr:last-child td{border-bottom:none}
   .tel-big{display:inline-block;margin-top:12px;font-size:1.25rem;font-weight:700;color:var(--green);text-decoration:none}
+  /* signature ending */
+  .signature{padding:8px 0 60px}
+  .sig-panel{position:relative;background:radial-gradient(520px 210px at 50% -50px,rgba(255,192,0,.20),rgba(255,192,0,0) 70%),linear-gradient(170deg,var(--deep),var(--deepest));border-radius:18px;padding:46px 38px 42px;text-align:center;color:#e9efe9;box-shadow:9px 9px 0 var(--gold)}
+  @media(max-width:600px){ .sig-panel{padding:34px 22px 30px} }
+  .sig-panel .kick{color:var(--gold)}
+  .sig-stars{color:var(--gold);letter-spacing:.6em;margin-bottom:16px;text-shadow:0 0 12px rgba(255,192,0,.7)}
+  .sig-panel h2{color:#fff;font-size:clamp(1.7rem,3.6vw,2.3rem);max-width:640px;margin:0 auto}
+  .sig-panel p{margin:12px auto 0;max-width:560px;color:#cfe0d4}
+  .sig-panel .addr{margin-top:22px;font-size:.82rem;letter-spacing:.18em;text-transform:uppercase;color:#9db8a8}
   /* footer */
-  footer{background:var(--deep);color:#b9c6bd;padding:30px 0 110px;font-size:.9rem}
+  footer{background:var(--deepest);color:#b9c6bd;padding:30px 0 110px;font-size:.9rem}
   footer .fl{font-family:'Ubuntu',sans-serif;color:#fff;font-size:1.05rem;margin-bottom:8px}
   footer p{max-width:720px}
   /* mascot */
@@ -104,6 +150,19 @@
 </style>
 </head>
 <body>
+<div class="frame" aria-hidden="true">
+  <span class="sp far" style="top:88px;left:3.5%;font-size:52px">✦</span>
+  <span class="sp far" style="top:196px;left:8%;font-size:30px">✦</span>
+  <span class="sp near" style="top:124px;left:11%;font-size:19px">✦</span>
+  <span class="sp near" style="top:244px;left:5.5%;font-size:14px">✦</span>
+  <span class="sp near" style="top:172px;left:15%;font-size:12px">✦</span>
+  <span class="sp far" style="top:98px;right:3.5%;font-size:46px">✦</span>
+  <span class="sp far" style="top:214px;right:8.5%;font-size:28px">✦</span>
+  <span class="sp near" style="top:142px;right:12%;font-size:17px">✦</span>
+  <span class="sp near" style="top:256px;right:5%;font-size:13px">✦</span>
+  <span class="sp near" style="top:184px;right:16%;font-size:11px">✦</span>
+</div>
+
 
 <header>
   <div class="wrap header-in">
@@ -119,9 +178,16 @@
 
 <section class="hero" id="top">
   <div class="wrap">
-    <div class="kicker">Tysons Corner · Vienna, VA</div>
+    <div class="plate-row">
+      <div class="plate">
+        <div class="pstar">✦</div>
+        <div class="pname">Tysons Plaza Cleaners</div>
+        <div class="psub">Dry Cleaning · Vienna, VA</div>
+      </div>
+    </div>
+    <div class="kick on-dark">Tysons Corner · Vienna, VA</div>
     <h1>Refresh your <em>wardrobe</em> today</h1>
-    <p>Experience unparalleled fabric care and exceptional service at Tysons Corner's preferred dry cleaners — with a focus on attention to detail and customer satisfaction, we keep your wardrobe looking fresh and pristine.</p>
+    <p>Family-run dry cleaners in the Pike 7 Shopping Center — same-day service, an in-house tailor with 25+ years of experience, and pickup &amp; delivery for orders of $50 or more.</p>
     <div class="hero-ctas">
       <a class="btn btn-gold" href="tel:+17038935458">📞 Call (703) 893-5458</a>
       <a class="btn btn-line" href="#services">See the services</a>
@@ -135,30 +201,35 @@
   </div>
 </section>
 
-<section class="about">
-  <div class="wrap cols">
-    <div>
-      <h2>Your trusted dry cleaning experts in Tysons Corner</h2>
-      <p>Welcome to Tysons Plaza Cleaners. Our family has been servicing the Tysons Corner area since 1985, and with our commitment to quality and customer satisfaction, we strive to provide exceptional dry cleaning services to our valued clients.</p>
-      <p>We understand the importance of maintaining a clean and well-presented wardrobe. With our state-of-the-art facilities and experienced team, every garment is treated with the utmost care and attention to detail — whether it's delicate fabrics, formal wear, or everyday clothing, we use advanced cleaning techniques to deliver impeccable results.</p>
-    </div>
-    <div class="since-card">
-      <div class="big">Since 1985</div>
-      <p>One family, serving Tysons Corner since 1985 — quality and customer satisfaction, from our family to your wardrobe.</p>
+<section class="story">
+  <div class="wrap">
+    <div class="panel story-panel">
+      <div class="kick">Our Story</div>
+      <div class="cols">
+        <div>
+          <h2>A family-run shop in Tysons Corner</h2>
+          <p>Our family has been servicing the Tysons Corner area since 1985.</p>
+        </div>
+        <div class="since">
+          <div class="big">Since 1985</div>
+          <p>One family, serving Tysons Corner since 1985 — quality and customer satisfaction, from our family to your wardrobe.</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
 <section class="services" id="services">
   <div class="wrap">
-    <h2>Our services</h2>
-    <p class="sub">Everything below is a service Tysons Plaza Cleaners lists on its own site — dry cleaning, tailoring, stain removal, specialty care, and eco-friendly options under one roof.</p>
+    <div class="kick">The Services</div>
+    <h2>Everything under one roof</h2>
+    <p class="sub">Dry cleaning, tailoring, stain removal, specialty and delicate care, and eco-friendly options.</p>
     <div class="grid">
 
       <div class="card has-cutout">
         <img class="cutout" src="data:image/webp;base64,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" alt="" style="transform:rotate(4deg)">
         <h3>Expert dry cleaning</h3>
-        <p>Suits, dresses, and delicate fabrics, cleaned with advanced techniques and finished to look fresh and pristine.</p>
+        <p>Suits, dresses, and delicate fabrics — cleaned and finished to look fresh and pristine.</p>
         <span class="tag">Standard turnaround 1–2 days</span>
       </div>
 
@@ -171,13 +242,13 @@
 
       <div class="card">
         <h3>Tailoring &amp; alterations</h3>
-        <p>Our in-house tailor has over twenty-five years of experience and can service all of your tailoring needs — alterations are available with cleaning, so your garments fit perfectly.</p>
+        <p>Our in-house tailor has over twenty-five years of experience. Alterations are available with cleaning.</p>
         <span class="tag">Free consultation</span>
       </div>
 
       <div class="card">
         <h3>Professional stain removal</h3>
-        <p>Our experts use advanced techniques to remove even the toughest stains, restoring your garments — with specialized stain treatments available.</p>
+        <p>Our experts remove even the toughest stains, restoring your garments — specialized stain treatments available.</p>
         <span class="tag">Specialized treatments</span>
       </div>
 
@@ -200,17 +271,21 @@
 
 <section class="delivery" id="delivery">
   <div class="wrap">
-    <h2>Pickup &amp; delivery service</h2>
-    <p>We offer pick up and drop off for orders of $50 or more. Delivery address must be within a 5 mile radius — call to schedule your delivery.</p>
-    <div class="rule">Orders $50+ · within 5 miles</div>
-    <br>
-    <a class="btn btn-gold" href="tel:+17038935458">Call to schedule delivery</a>
+    <div class="del-panel">
+      <div class="kick on-dark">Pickup &amp; Delivery</div>
+      <h2>Pickup &amp; delivery service</h2>
+      <p>We offer pick up and drop off for orders of $50 or more. Delivery address must be within a 5 mile radius — call to schedule your delivery.</p>
+      <div class="rule">Orders $50+ · within 5 miles</div>
+      <br>
+      <a class="btn btn-gold" href="tel:+17038935458">Call to schedule delivery</a>
+    </div>
   </div>
 </section>
 
 <section class="visit" id="visit">
   <div class="wrap">
-    <h2 style="font-size:2rem;margin-bottom:18px">Visit us</h2>
+    <div class="kick">Visit</div>
+    <h2>Visit us</h2>
     <div class="cols">
       <div class="vcard">
         <h3>Find us in the Pike 7 Shopping Center</h3>
@@ -227,6 +302,18 @@
         </table>
         <p style="margin-top:12px">Same-day service: drop off before 9:00 AM, pick up after 5:00 PM.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="signature">
+  <div class="wrap">
+    <div class="sig-panel">
+      <div class="sig-stars">✦ ✦ ✦</div>
+      <div class="kick on-dark center">Since 1985</div>
+      <h2>One family, serving Tysons Corner since 1985.</h2>
+      <p>Quality and customer satisfaction — from our family to your wardrobe.</p>
+      <div class="addr">Tysons Plaza Cleaners · Pike 7 Shopping Center · 8367 Leesburg Pike, Vienna, VA</div>
     </div>
   </div>
 </section>

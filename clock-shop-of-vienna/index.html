@@ -41,7 +41,7 @@ nav.main a:hover{color:var(--red)}
 .wrap{max-width:1180px;margin:0 auto;padding:0 22px}
 /* HERO */
 .hero{padding:56px 0 64px}
-.hero-panel{position:relative;background:var(--walnut);border-radius:22px;padding:58px 54px;overflow:hidden;box-shadow:0 30px 60px rgba(38,25,19,.28)}
+.hero-panel{position:relative;background:var(--walnut);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='560' height='560' viewBox='0 0 560 560'%3E%3Cg fill='none' stroke='%23b08d4f' stroke-opacity='0.15'%3E%3Ccircle cx='280' cy='-160' r='330'/%3E%3Ccircle cx='280' cy='-160' r='415'/%3E%3Cpath d='M280 -160 L168 268'/%3E%3C/g%3E%3Ccircle cx='162' cy='286' r='19' fill='%23b08d4f' fill-opacity='0.13'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right -40px top -30px;border-radius:22px;padding:58px 54px;overflow:hidden;box-shadow:10px 12px 0 rgba(126,22,26,.45),0 30px 60px rgba(38,25,19,.28)}
 .hero-panel:before{content:"";position:absolute;inset:12px;border:1px solid rgba(176,141,79,.45);border-radius:14px;pointer-events:none}
 .hero-panel:after{content:"";position:absolute;right:-70px;top:-70px;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(176,141,79,.22),transparent 65%)}
 .kicker{letter-spacing:.34em;text-transform:uppercase;font-size:.78rem;font-weight:700;color:var(--brass)}
@@ -106,6 +106,39 @@ section{padding:58px 0 8px}
 /* FOOTER */
 footer{background:var(--walnut);color:#cdbb96;padding:30px 22px;text-align:center;font-size:.95rem}
 footer .fl{max-width:60em;margin:0 auto}
+/* ZIA RESTYLE — warm ground, clock frame, nameplate, layered panels, sign-off */
+body{background:radial-gradient(640px 300px at 50% -90px, rgba(176,141,79,.16), transparent 62%),radial-gradient(780px 430px at 4% 106%, rgba(226,152,54,.17), transparent 62%),radial-gradient(780px 430px at 96% 106%, rgba(166,30,34,.10), transparent 62%),var(--cream);background-attachment:fixed}
+body::before{content:"";position:fixed;inset:0;z-index:200;pointer-events:none;opacity:.05;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.6'/%3E%3C/svg%3E")}
+.minute-track{height:20px;position:relative;background:linear-gradient(180deg,#f4ecd6,#eee1c4);border-bottom:1px solid var(--line);overflow:hidden}
+.minute-track::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg, rgba(176,141,79,.35) 0 1px, transparent 1px 10px),repeating-linear-gradient(90deg, rgba(38,25,19,.55) 0 1px, transparent 1px 50px);background-size:100% 8px,100% 14px;background-repeat:repeat-x;background-position:bottom left}
+.minute-track .rn{position:absolute;top:2px;font-family:'Playfair Display',serif;font-size:.6rem;font-weight:700;letter-spacing:.18em;color:var(--brass);z-index:1}
+.minute-track .rn.l{left:10px}
+.minute-track .rn.r{right:10px}
+.nameplate{position:relative;z-index:2;background:linear-gradient(160deg,#2c1b13,#180d09);border:1px solid rgba(176,141,79,.55);border-radius:14px;padding:18px 26px 14px;text-align:center;margin-bottom:32px;box-shadow:9px 9px 0 rgba(126,22,26,.55)}
+.np-ticks{height:9px;background:repeating-linear-gradient(90deg, rgba(232,201,135,.75) 0 1px, transparent 1px 12px)}
+.np-ticks.b{margin-top:12px}
+.np-name{font-family:'Playfair Display',serif;font-weight:900;letter-spacing:.13em;text-transform:uppercase;color:#f7efdd;font-size:clamp(1.1rem,2.6vw,1.65rem);margin-top:11px;line-height:1.2}
+.np-name span{color:#e8c987}
+.np-sub{margin-top:7px;font-size:.72rem;letter-spacing:.32em;text-transform:uppercase;color:#cdbb96}
+.sec-head .kicker{display:flex;align-items:center;gap:16px}
+.sec-head .kicker::after{content:"";height:1px;flex:1;background:linear-gradient(90deg, rgba(176,141,79,.8), rgba(176,141,79,0))}
+.card{box-shadow:9px 9px 0 #e9dcbf,0 10px 24px rgba(38,25,19,.06)}
+.svc{box-shadow:9px 9px 0 rgba(126,22,26,.8)}
+.press{box-shadow:9px 9px 0 var(--walnut-2)}
+.visit-card{box-shadow:9px 9px 0 #e9dcbf}
+.price-note{box-shadow:7px 7px 0 rgba(176,141,79,.35)}
+.tip-band{box-shadow:7px 7px 0 rgba(38,25,19,.14)}
+.signoff{position:relative;background:linear-gradient(160deg,var(--walnut-2),var(--walnut));border-radius:18px;padding:46px 36px;text-align:center;margin:20px 0 70px;box-shadow:9px 9px 0 rgba(126,22,26,.55);overflow:hidden}
+.signoff::before{content:"";position:absolute;inset:10px;border:1px solid rgba(176,141,79,.4);border-radius:12px;pointer-events:none}
+.so-kicker{letter-spacing:.34em;text-transform:uppercase;font-size:.74rem;font-weight:700;color:var(--brass)}
+.so-line{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(1.6rem,3.4vw,2.4rem);color:#f7efdd;margin-top:14px;line-height:1.25}
+.so-line em{color:#e8c987}
+.so-sub{margin:12px auto 0;color:#cdbb96;font-size:1.02rem;max-width:36em;position:relative}
+@media (max-width:860px){
+  .nameplate{padding:15px 14px 11px}
+  .np-sub{letter-spacing:.2em}
+  .signoff{padding:34px 22px;margin-bottom:56px}
+}
 /* MASCOT */
 .mascot{position:fixed;right:18px;bottom:16px;width:92px;z-index:60;cursor:pointer;background:none;border:none;padding:0}
 .mascot img{width:100%;display:block;filter:drop-shadow(0 10px 16px rgba(38,25,19,.35));animation:bob 2.8s ease-in-out infinite}
@@ -131,6 +164,8 @@ footer .fl{max-width:60em;margin:0 auto}
 </head>
 <body>
 
+<div class="minute-track" aria-hidden="true"><span class="rn l">XII</span><span class="rn r">XII</span></div>
+
 <div class="topbar">A family clock shop · Historic Church Street, Vienna · <b>Since 1975</b></div>
 
 <header class="site">
@@ -150,7 +185,12 @@ footer .fl{max-width:60em;margin:0 auto}
 
 <div class="wrap hero">
   <div class="hero-panel">
-    <div class="kicker">Vienna, Virginia · Family owned since 1975</div>
+    <div class="nameplate">
+      <div class="np-ticks"></div>
+      <div class="np-name">The Clock Shop <span>of Vienna</span></div>
+      <div class="np-sub">Historic Church Street · Vienna, Virginia · Since 1975</div>
+      <div class="np-ticks b"></div>
+    </div>
     <h1>Where all we have <em>is time.</em></h1>
     <p class="lede">We are a local family clock shop on historic Church Street in Vienna, showcasing over 500 clocks on display for sale — and a family of clock experts to help you through every part of clock ownership, from choosing one to keeping it running.</p>
     <div class="hero-ctas">
@@ -237,7 +277,6 @@ footer .fl{max-width:60em;margin:0 auto}
         <h3>The shop</h3>
         <p class="addr">The Clock Shop of Vienna<br>109 Church St NW<br>Vienna, VA 22180</p>
         <p class="fine">Phone: <a href="tel:+17039383990"><b>(703) 938-3990</b></a> — call for prices, availability, repairs and servicing.</p>
-        <p class="fine">We select the finest timepieces to showcase and will help you find what you're looking for.</p>
       </div>
       <div class="visit-card">
         <h3>Hours</h3>
@@ -254,6 +293,12 @@ footer .fl{max-width:60em;margin:0 auto}
       </div>
     </div>
   </section>
+
+  <div class="signoff">
+    <div class="so-kicker">The Clock Shop of Vienna · Est. 1975</div>
+    <p class="so-line">&ldquo;Where all we have <em>is time.</em>&rdquo;</p>
+    <p class="so-sub">A family clock shop on historic Church Street — over 500 clocks on display, serviced and repaired in-house.</p>
+  </div>
 </div>
 
 <footer>
