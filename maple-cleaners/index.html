@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Maple Cleaners &amp; Laundry — Vienna, VA | Preview Demo</title>
+<meta name="description" content="Preview demo for Maple Cleaners in Vienna, VA: dry cleaning, laundry, wash dry fold, alterations, same-day service, and pickup & delivery.">
+<style>
+  :root{
+    --navy:#0f2a43; --teal:#0e7c86; --aqua:#e6f4f6; --sky:#d9edf5;
+    --ink:#1a2b3c; --muted:#5a6b7a; --line:#d7e6ea; --white:#fff;
+    --radius:16px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--white);line-height:1.55;-webkit-font-smoothing:antialiased}
+  a{color:var(--teal)}
+  .wrap{max-width:1060px;margin:0 auto;padding:0 20px}
+  /* top bar */
+  .topbar{background:var(--navy);color:#cfe6ec;font-size:.86rem;padding:8px 0}
+  .topbar .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  .topbar a{color:#fff;text-decoration:none;font-weight:600}
+  /* header */
+  header.site{position:sticky;top:0;background:rgba(255,255,255,.96);border-bottom:1px solid var(--line);z-index:10;backdrop-filter:blur(6px)}
+  header.site .wrap{display:flex;align-items:center;justify-content:space-between;padding:14px 20px}
+  .brand{display:flex;align-items:center;gap:12px}
+  .mark{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,var(--teal),#39a7b5);display:grid;place-items:center;color:#fff;font-weight:800;font-size:1.15rem;letter-spacing:.02em}
+  .brand strong{display:block;color:var(--navy);font-size:1.08rem;line-height:1.15}
+  .brand span{display:block;color:var(--muted);font-size:.82rem}
+  .btn{display:inline-block;background:var(--teal);color:#fff;text-decoration:none;font-weight:700;padding:12px 20px;border-radius:999px;border:0;cursor:pointer;font-size:1rem}
+  .btn:hover{background:#0a6570}
+  .btn.light{background:#fff;color:var(--navy)}
+  .btn.outline{background:transparent;border:2px solid #fff;color:#fff}
+  nav.main{display:none;gap:22px}
+  nav.main a{color:var(--ink);text-decoration:none;font-weight:600;font-size:.95rem}
+  @media(min-width:760px){nav.main{display:flex}}
+  header.site .btn{padding:10px 16px;font-size:.92rem;white-space:nowrap;flex:none}
+  header.site .brand{min-width:0}
+  /* hero */
+  .hero{background:linear-gradient(160deg,var(--navy) 0%,#174a63 58%,var(--teal) 130%);color:#fff;padding:56px 0 64px;position:relative;overflow:hidden}
+  .hero::after{content:"";position:absolute;right:-70px;top:-70px;width:280px;height:280px;border-radius:50%;background:rgba(255,255,255,.07)}
+  .hero::before{content:"";position:absolute;right:90px;bottom:-110px;width:190px;height:190px;border-radius:50%;background:rgba(255,255,255,.06)}
+  .eyebrow{text-transform:uppercase;letter-spacing:.14em;font-size:.78rem;font-weight:700;color:#9fd8de;margin-bottom:14px}
+  .hero h1{font-size:2.35rem;line-height:1.08;letter-spacing:-.02em;max-width:620px}
+  .hero p.lead{margin:18px 0 26px;font-size:1.08rem;color:#dceef2;max-width:560px}
+  .hero .cta{display:flex;gap:12px;flex-wrap:wrap;position:relative;z-index:1}
+  .hero .facts{margin-top:34px;display:flex;gap:10px;flex-wrap:wrap;position:relative;z-index:1}
+  .chip{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);padding:8px 13px;border-radius:999px;font-size:.88rem;font-weight:600}
+  @media(min-width:760px){.hero h1{font-size:3rem}}
+  /* sections */
+  section{padding:54px 0}
+  section.alt{background:var(--aqua)}
+  h2{color:var(--navy);font-size:1.65rem;letter-spacing:-.01em;margin-bottom:10px}
+  .sub{color:var(--muted);max-width:640px;margin-bottom:28px}
+  .grid{display:grid;gap:16px}
+  @media(min-width:700px){.grid.c3{grid-template-columns:repeat(3,1fr)}.grid.c2{grid-template-columns:repeat(2,1fr)}}
+  .card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:22px}
+  .card h3{color:var(--navy);font-size:1.05rem;margin-bottom:8px}
+  .card p{color:var(--muted);font-size:.95rem}
+  .icon{width:42px;height:42px;border-radius:11px;background:var(--sky);display:grid;place-items:center;font-size:1.25rem;margin-bottom:13px}
+  /* steps */
+  .step{display:flex;gap:16px;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:20px}
+  .num{flex:0 0 38px;width:38px;height:38px;border-radius:50%;background:var(--teal);color:#fff;display:grid;place-items:center;font-weight:800}
+  .step h3{color:var(--navy);margin-bottom:5px}
+  .step p{color:var(--muted);font-size:.95rem}
+  .steps{display:grid;gap:14px}
+  @media(min-width:820px){.steps{grid-template-columns:repeat(3,1fr)}.step{flex-direction:column}}
+  /* visit */
+  .visit{display:grid;gap:16px}
+  @media(min-width:820px){.visit{grid-template-columns:1.1fr .9fr}}
+  table.hours{width:100%;border-collapse:collapse;font-size:.96rem}
+  table.hours td{padding:9px 4px;border-bottom:1px solid var(--line)}
+  table.hours td:last-child{text-align:right;font-weight:600;color:var(--navy)}
+  .big{font-size:1.2rem;font-weight:800;color:var(--navy)}
+  /* form */
+  form{display:grid;gap:14px}
+  label{font-weight:600;font-size:.92rem;color:var(--navy);display:block;margin-bottom:6px}
+  input,select,textarea{width:100%;padding:12px 13px;border:1px solid #b9cfd6;border-radius:10px;font:inherit;background:#fff;color:var(--ink)}
+  input:focus,select,textarea:focus{outline:2px solid var(--teal);outline-offset:1px}
+  .note{font-size:.86rem;color:var(--muted)}
+  .success{display:none;background:#e7f6ec;border:1px solid #9fd3ab;color:#155c2c;border-radius:10px;padding:14px;font-size:.95rem}
+  /* footer */
+  footer{background:var(--navy);color:#cfe6ec;padding:36px 0 28px;font-size:.92rem}
+  footer strong{color:#fff}
+  .preview{margin-top:22px;border-top:1px solid rgba(255,255,255,.18);padding-top:18px;font-size:.86rem;color:#9fc3cd}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <span>348 Maple Ave W, Vienna, VA 22180 — Jades Shopping Center</span>
+    <span>Mon–Fri 7am–7pm · Sat 8am–6pm · Sun 10am–4pm</span>
+  </div>
+</div>
+
+<header class="site">
+  <div class="wrap">
+    <div class="brand">
+      <div class="mark" aria-hidden="true">M</div>
+      <div><strong>Maple Cleaners</strong><span>Dry Cleaning &amp; Laundry · Vienna, VA</span></div>
+    </div>
+    <nav class="main" aria-label="Main">
+      <a href="#services">Services</a><a href="#how">How it works</a><a href="#visit">Visit</a><a href="#request">Request service</a>
+    </nav>
+    <a class="btn" href="tel:+17032557100">Call (703) 255-7100</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Vienna · Oakton · Tysons · McLean · Fairfax</p>
+    <h1>Dry cleaning and laundry, done carefully — and fast when you need it.</h1>
+    <p class="lead">Maple Cleaners cleans shirts, suits, dresses and jackets — plus comforters, blankets, small rugs, uniforms, choir robes, wedding dresses and saris. Same-day service is available Monday to Saturday, and an on-site tailor handles alterations.</p>
+    <div class="cta">
+      <a class="btn light" href="tel:+17032557100">Call (703) 255-7100</a>
+      <a class="btn outline" href="#request">Request pickup or service</a>
+    </div>
+    <div class="facts">
+      <span class="chip">Same-day service Mon–Sat</span>
+      <span class="chip">Pickup &amp; delivery available</span>
+      <span class="chip">On-site tailor</span>
+      <span class="chip">Free parking at Jades Shopping Center</span>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="wrap">
+    <h2>Services</h2>
+    <p class="sub">Everything below is a service Maple Cleaners lists on its own site. For current pricing, please call — prices vary by garment and care instructions.</p>
+    <div class="grid c3">
+      <div class="card"><div class="icon" aria-hidden="true">👔</div><h3>Dry cleaning</h3><p>Suits, slacks, dresses, jackets, blazers, overcoats, skirts and blouses — including designer pieces that need hand pressing and special care.</p></div>
+      <div class="card"><div class="icon" aria-hidden="true">👕</div><h3>Shirts &amp; laundry</h3><p>Men&rsquo;s cotton shirts laundered and pressed, plus everyday laundry finished and ready to wear.</p></div>
+      <div class="card"><div class="icon" aria-hidden="true">🧺</div><h3>Wash, dry &amp; fold</h3><p>A drop-off laundry service for when there is no time in the day — drop it off and pick it up washed, dried and folded.</p></div>
+      <div class="card"><div class="icon" aria-hidden="true">✂️</div><h3>Alterations &amp; tailoring</h3><p>An on-site tailor for hemming, zipper fixes and professional dress alterations — plus patch and rank sewing for uniforms.</p></div>
+      <div class="card"><div class="icon" aria-hidden="true">🛏️</div><h3>Household items</h3><p>Comforters, blankets, linens, pillows, small rugs, tablecloths and draperies — the bulky items that do not fit a home machine.</p></div>
+      <div class="card"><div class="icon" aria-hidden="true">👗</div><h3>Special &amp; formal pieces</h3><p>Wedding gowns (including cleaning and preservation), gowns and long dresses, choir robes, Indian saris and blouses, leather, tuxedos and uniforms.</p></div>
+      <div class="card"><div class="icon" aria-hidden="true">🎖️</div><h3>Military uniforms</h3><p>Cleaning and tailoring for Army, Navy, Air Force, Coast Guard, Marine Corps and Space Force uniforms — creases pressed or made new, patches and ranks sewn on.</p></div>
+      <div class="card"><div class="icon" aria-hidden="true">🧴</div><h3>Spot &amp; stain removal</h3><p>Tell the counter about ink, wine, coffee, dressing, makeup or pet stains when you drop off — stained items are treated separately for the best result.</p></div>
+      <div class="card"><div class="icon" aria-hidden="true">⚡</div><h3>Same-day &amp; urgent service</h3><p>Same-day dry cleaning Monday to Saturday for trips, weddings and flights — and a 1-hour service for ultra emergencies. Call ahead so staff can confirm timing for your garment.</p></div>
+    </div>
+    <p class="note" style="margin-top:18px">Bring your metal wire hangers back with you — Maple Cleaners recycles them, since they cannot go in single-stream recycling bins.</p>
+  </div>
+</section>
+
+<section class="alt" id="how">
+  <div class="wrap">
+    <h2>How it works</h2>
+    <p class="sub">Drop off in the Jades Shopping Center, or schedule pickup and delivery by phone.</p>
+    <div class="steps">
+      <div class="step"><div class="num">1</div><div><h3>Drop off or call for pickup</h3><p>Bring garments to 348 Maple Ave W in Vienna — free parking in the Jades Shopping Center, next to Social Burger and Organic Nails &amp; Spa. Pickup and delivery is offered across Northern Virginia, Washington, D.C. and Maryland; call to schedule.</p></div></div>
+      <div class="step"><div class="num">2</div><div><h3>Tell us what needs care</h3><p>Counter staff tag each garment with its own label and give you an invoice receipt. Point out any stains or special care instructions so they can be treated separately.</p></div></div>
+      <div class="step"><div class="num">3</div><div><h3>Clean, press, ready</h3><p>Garments are cleaned, pressed and assembled in their on-site plant. Same-day orders dropped off in the morning can be ready the same day — call if you are up against a deadline.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="visit">
+  <div class="wrap">
+    <h2>Visit us</h2>
+    <p class="sub">Just north of the Vienna Metro area, a short drive from Oakton, Dunn Loring, Tysons, Fairfax, Annandale and McLean.</p>
+    <div class="visit">
+      <div class="card">
+        <p class="big">Maple Cleaners &amp; Laundry</p>
+        <p style="margin:10px 0;color:var(--muted)">348 Maple Ave W<br>Vienna, VA 22180<br>Inside Jades Shopping Center — next to Social Burger and Organic Nails &amp; Spa</p>
+        <p style="margin:12px 0">Phone: <a href="tel:+17032557100"><strong>(703) 255-7100</strong></a><br>
+        Email: <a href="mailto:maplecleanersusa@gmail.com">maplecleanersusa@gmail.com</a></p>
+        <p><a class="btn" href="tel:+17032557100">Call the shop</a></p>
+      </div>
+      <div class="card">
+        <h3 style="margin-bottom:10px">Hours</h3>
+        <table class="hours">
+          <tr><td>Monday – Friday</td><td>7:00 AM – 7:00 PM</td></tr>
+          <tr><td>Saturday</td><td>8:00 AM – 6:00 PM</td></tr>
+          <tr><td>Sunday</td><td>10:00 AM – 4:00 PM</td></tr>
+        </table>
+        <p class="note" style="margin-top:12px">Same-day service is available Monday to Saturday. On Sundays the shop provides drop-off and pickup service.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="request">
+  <div class="wrap">
+    <h2>Request service</h2>
+    <p class="sub">Tell us what you need cleaned, altered, or picked up. In this preview, the form shows how a request would look — for a real request today, please call <a href="tel:+17032557100">(703) 255-7100</a>.</p>
+    <div class="card" style="max-width:680px">
+      <form id="demoForm" novalidate>
+        <div><label for="name">Your name</label><input id="name" name="name" type="text" autocomplete="name" placeholder="Full name" required></div>
+        <div><label for="phone">Phone</label><input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="(703) 000-0000" required></div>
+        <div><label for="service">Service needed</label>
+          <select id="service" name="service">
+            <option>Dry cleaning</option><option>Wash, dry &amp; fold</option><option>Shirts &amp; laundry</option>
+            <option>Alterations / tailoring</option><option>Comforters &amp; household items</option>
+            <option>Wedding gown / formal wear</option><option>Pickup &amp; delivery</option><option>Something else</option>
+          </select></div>
+        <div><label for="details">Details</label><textarea id="details" name="details" rows="4" placeholder="What items, when do you need them, any stains or special care?"></textarea></div>
+        <button class="btn" type="submit">Send request</button>
+        <p class="note">Demo form only — nothing is sent or stored when you submit it in this preview.</p>
+        <div class="success" id="formSuccess" role="status">Thanks — this is how your request would be confirmed. In this preview demo nothing was sent; please call (703) 255-7100 for a real request.</div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p><strong>Maple Cleaners &amp; Laundry</strong> · 348 Maple Ave W, Vienna, VA 22180 · (703) 255-7100 · maplecleanersusa@gmail.com</p>
+    <p style="margin-top:8px">Dry cleaning · Laundry · Wash dry fold · Alterations · Wedding gowns · Military uniforms · Pickup &amp; delivery</p>
+    <p class="preview">Preview demo built for Maple Cleaners by Lucian Brucker — not this business's official website.</p>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('demoForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    document.getElementById('formSuccess').style.display = 'block';
+  });
+</script>
+</body>
+</html>
