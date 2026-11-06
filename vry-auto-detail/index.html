@@ -12,7 +12,7 @@
 <style>
 :root{
   --navy:#181E38; --royal:#364692; --blue:#2F80ED; --orange:#F2994A; --orange-deep:#dd7f2e;
-  --ink:#1c2130; --grey:#555760; --paper:#F5F9FE; --card:#ffffff; --line:#dde5f2; --radius:18px;
+  --ink:#1c2130; --grey:#555760; --paper:#F7F4ED; --card:#ffffff; --line:#dde5f2; --radius:18px;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -119,6 +119,69 @@ footer .wrap{display:flex;gap:18px;flex-wrap:wrap;align-items:center}
   .mascot .bubble{right:64px;bottom:52px}
   section{padding:46px 0}
 }
+
+/* ============ ZIA RESTYLE (2026-11-05) — composition in VRY's own identity ============ */
+body{background:radial-gradient(1100px 620px at 88% -4%,rgba(242,153,74,.08),rgba(242,153,74,0) 60%),radial-gradient(1000px 760px at -12% 34%,rgba(47,128,237,.07),rgba(47,128,237,0) 60%),var(--paper);overflow-x:clip}
+body::after{content:"";position:fixed;inset:0;background-image:url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");opacity:.05;pointer-events:none;z-index:300}
+header.site{background:#FFFDF7}
+/* showroom light frame: streaks, suds, pooled polish-light */
+.hero{position:relative}
+.hero .wrap{z-index:2}
+.hero-frame,.sig-frame{position:absolute;inset:0;z-index:1;pointer-events:none}
+.hero-frame span,.sig-frame span{position:absolute;display:block}
+.streak{width:430px;height:150px;border-radius:50%;background:linear-gradient(100deg,rgba(160,200,255,0),rgba(170,205,255,.16),rgba(160,200,255,0));transform:rotate(-16deg)}
+.streak.far{filter:blur(7px);opacity:.65}
+.bub{border-radius:50%;background:radial-gradient(circle at 32% 30%,rgba(255,255,255,.9),rgba(255,255,255,.14) 55%,rgba(255,255,255,.04));border:1px solid rgba(255,255,255,.35)}
+.bub.far{filter:blur(3px);opacity:.5}
+.glow{width:460px;height:460px;border-radius:50%;background:radial-gradient(circle,rgba(242,153,74,.30),rgba(242,153,74,0) 65%)}
+/* nameplate plaque */
+.plaque{display:inline-block;text-align:center;background:linear-gradient(165deg,#141936,#0C0F21);border:1px solid rgba(242,153,74,.55);border-radius:16px;padding:18px 26px 14px;margin-bottom:30px;box-shadow:inset 0 0 0 5px #0C0F21,inset 0 0 0 6px rgba(242,153,74,.30),0 18px 34px rgba(6,8,20,.45)}
+.plaque .mark{display:inline-block;background:#F8F5EE;border-radius:10px;padding:10px 16px;line-height:0}
+.plaque .mark svg{height:44px;width:auto}
+.plaque .sub{margin-top:12px;letter-spacing:.32em;font-size:.68rem;font-weight:700;color:var(--orange);text-transform:uppercase}
+/* editorial kickers with hairline rules */
+.sec-head .kicker{display:flex;align-items:center;gap:14px}
+.sec-head .kicker::after{content:"";width:72px;height:1px;background:currentColor;opacity:.45}
+.dark-band .sec-head .kicker{color:var(--orange)}
+/* layered panels — offset back-layers, tone = content type */
+.panel{border-radius:22px;padding:32px 32px 36px}
+.panel-light{background:#FFFDF7;border:1px solid #E7E1CF;box-shadow:12px 12px 0 #DCE6F8}
+.card{box-shadow:0 4px 18px rgba(24,30,56,.05),8px 8px 0 #E4EBFA}
+.strip{box-shadow:8px 8px 0 #EAF0FC}
+.promo{box-shadow:8px 8px 0 rgba(242,153,74,.38)}
+.panel-navy{background:linear-gradient(160deg,var(--navy) 58%,var(--royal));color:#dbe4ff;box-shadow:12px 12px 0 rgba(242,153,74,.35)}
+.panel-navy .sec-head h2{color:#fff}
+.panel-navy .sec-head p{color:#a9b8e8}
+.panel-navy .sec-head .kicker{color:var(--orange)}
+.panel-navy .mini{background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.15);box-shadow:8px 8px 0 rgba(10,13,28,.55)}
+.panel-navy .mini h3{color:#fff}
+.panel-navy .mini p{color:#bfccf2}
+.step{box-shadow:8px 8px 0 rgba(84,102,178,.55)}
+form.qf{box-shadow:10px 10px 0 var(--navy)}
+.visit-card{box-shadow:10px 10px 0 rgba(242,153,74,.38)}
+/* contact list in the quote column */
+.reach{margin-top:6px}
+.reach p{padding:11px 0;border-top:1px dashed var(--line);color:var(--grey);font-size:.97rem}
+.reach b{color:var(--navy);display:inline-block;min-width:76px}
+.reach a{font-weight:700;text-decoration:none}
+.reach a:hover{text-decoration:underline}
+/* signature ending */
+.sig-band{padding-top:0}
+.sig-panel{position:relative;overflow:hidden;background:linear-gradient(150deg,var(--navy) 55%,var(--royal));border-radius:22px;padding:46px 40px 50px;text-align:center;color:#dbe4ff;box-shadow:12px 12px 0 rgba(242,153,74,.35)}
+.sig-panel .kicker{position:relative;z-index:2}
+.sig-quote{position:relative;z-index:2;font-size:1.75rem;font-weight:800;color:#fff;line-height:1.3;max-width:660px;margin:16px auto 14px}
+.sig-sub{position:relative;z-index:2;color:#b9c6ef;max-width:580px;margin:0 auto;font-size:1rem}
+@media (max-width:860px){
+  .panel{padding:22px 18px 26px;box-shadow:8px 8px 0 #DCE6F8}
+  .panel-navy{box-shadow:8px 8px 0 rgba(242,153,74,.35)}
+  .sig-panel{padding:34px 22px 38px;box-shadow:8px 8px 0 rgba(242,153,74,.35)}
+  .sig-quote{font-size:1.35rem}
+  .plaque{padding:14px 18px 12px;max-width:100%}
+  .plaque .mark svg{height:38px}
+  .hero-frame .bub.far{display:none}
+  .sig-frame .bub:first-child{display:none}
+  .streak{width:280px}
+}
 </style>
 </head>
 <body>
@@ -147,8 +210,15 @@ footer .wrap{display:flex;gap:18px;flex-wrap:wrap;align-items:center}
   </nav>
 </div></header>
 
-<div class="hero" id="top"><div class="wrap">
-  <div class="kicker">Auto Detailing · Detail Shop · McLean, VA</div>
+<div class="hero" id="top"><div class="hero-frame" aria-hidden="true"><span class="streak near" style="right:-30px;top:-46px"></span><span class="streak far" style="left:-70px;top:-30px"></span><span class="bub near" style="right:5%;top:26px;width:88px;height:88px"></span><span class="bub near" style="right:13.5%;top:118px;width:40px;height:40px"></span><span class="bub near" style="right:2.5%;top:128px;width:26px;height:26px"></span><span class="bub far" style="left:4%;top:-18px;width:58px;height:58px"></span><span class="bub far" style="left:11%;top:74px;width:28px;height:28px"></span><span class="glow" style="left:-150px;bottom:-230px"></span><span class="glow" style="right:-150px;bottom:-230px"></span></div><div class="wrap">
+  <div class="plaque"><span class="mark"><svg width="156" height="44" viewBox="0 0 156 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M44.059 26.4935C42.7306 27.0839 41.476 27.9695 40 28.2647C36.679 29.0765 33.5055 27.5267 31.8081 24.5747C27.8967 17.785 23.9852 11.0691 20.0738 4.27948C18.4502 1.40125 16.0886 -0.0747641 12.6937 -0.000963338C8.56089 0.0728374 4.35424 -0.000963338 0 -0.000963338C0.221402 0.441841 0.369004 0.737044 0.590406 1.10605C7.97048 13.9474 15.3506 26.7149 22.8044 39.5562C26.1255 45.2389 33.2103 45.3127 36.5314 39.63C39.0406 35.202 41.6236 30.7739 44.059 26.4935Z" fill="#27408A"/>
+<path d="M32.7676 0.0738007C33.8746 2.06642 34.9078 3.91144 36.0148 5.75646C37.1218 7.74908 38.2288 9.6679 39.4096 11.6605C41.1071 14.4649 44.1329 15.941 47.3801 15.3506C50.6273 14.7601 52.6938 12.7675 53.5056 9.5941C54.834 4.87085 51.2178 0.0738007 46.2731 0C42.0665 0 37.786 0 33.5794 0C33.358 0 33.1366 0.0738007 32.7676 0.0738007Z" fill="#57A0CD"/>
+<path d="M90.9225 27.8967C90.8487 27.7491 90.7749 27.5277 90.7749 27.2325C90.7749 26.9373 90.9963 26.7159 91.2915 26.4207C96.2362 23.9853 98.3764 20.1476 98.3764 15.1292C98.4502 5.23988 90.1107 1.25464 80.0738 1.25464H66.0517C62.8782 1.25464 60.2952 3.61626 60.2214 6.56829L59.8524 42.1402C59.8524 43.0259 60.5166 43.6901 61.476 43.6901H70.4797C70.9963 43.6901 71.3653 43.5425 71.7343 43.2473C72.1033 43.0259 72.1771 42.6568 72.1771 42.1402L72.2509 32.1033C72.2509 30.2583 70.5535 28.8561 68.6347 28.8561H77.3432C78.155 28.8561 78.7454 29.1513 79.1144 29.8155L85.6827 41.9926C86.1993 43.0997 87.0849 43.6163 88.3395 43.6163H97.5646C97.9336 43.6163 98.3026 43.4687 98.524 43.2473C98.8192 42.9521 98.893 42.6569 98.893 42.3616C98.893 42.214 98.8192 41.9188 98.6716 41.6974L90.9225 27.8967ZM79.8524 20H74.096C72.989 20 72.0295 19.1144 72.1033 18.0812L72.1771 13.2104C72.1771 11.4391 70.5535 9.88933 68.6347 9.88933H80C81.7712 9.88933 83.1735 10.3321 84.2067 11.1439C85.1661 12.0295 85.6827 13.358 85.6827 14.9816C85.6089 18.4502 83.3949 20 79.8524 20Z" fill="#27408A"/>
+<path d="M123.1 17.417C123.026 17.3432 122.878 17.048 122.657 16.6052C122.509 16.3838 122.362 16.1624 122.214 15.941C122.066 15.6458 121.845 15.3506 121.697 14.9816C121.328 14.3174 120.886 13.6531 120.443 12.8413C120 12.1033 119.336 11.0701 118.598 9.81551C117.343 7.67528 115.941 5.31366 114.391 2.73064C114.17 2.28783 113.948 1.91883 113.506 1.69742C113.063 1.54982 112.546 1.40222 112.03 1.40222H103.321C102.583 1.40222 101.919 1.99263 101.919 2.65683C101.919 2.87824 101.993 3.17344 102.14 3.32104L116.162 27.7491C116.827 28.7823 117.048 30.2583 117.048 31.4391L116.974 42.2878C116.974 43.1734 117.638 43.8376 118.598 43.8376H127.601C128.118 43.8376 128.561 43.69 128.856 43.3948C129.151 43.1734 129.299 42.8044 129.299 42.2878L129.373 32.1771C129.373 26.3469 125.314 20.1476 123.247 17.417C123.247 17.3432 123.173 17.417 123.1 17.417Z" fill="#27408A"/>
+<path d="M129.668 29.3727C129.816 28.7823 130.037 28.1919 130.332 27.6753C130.406 27.5277 130.701 27.1587 131.144 26.3469C131.587 25.6089 132.177 24.7233 132.768 23.6162C134.465 20.738 136.089 17.8598 137.786 15.1292C139.852 11.6605 142.214 7.67528 144.797 3.32104C144.945 3.17344 145.018 2.87824 145.018 2.65683C145.018 2.36163 144.871 2.06643 144.649 1.77123C144.28 1.54982 143.985 1.40222 143.69 1.40222H135.055C134.096 1.40222 133.284 1.84503 132.694 2.73064C131.07 5.31366 129.594 7.74909 128.339 9.81551L126.716 12.4723C126.199 13.3579 125.683 14.1697 125.314 14.834C124.871 15.4982 124.502 16.0886 124.207 16.5314C123.911 16.9742 123.764 17.1956 123.321 17.3432C125.387 20.0738 129.446 26.2731 129.446 32.1033V31.2177C129.446 30.6273 129.52 30.0369 129.668 29.3727Z" fill="#57A0CD"/>
+<path d="M140.59 34.0221C144.723 35.0553 146.125 38.3764 146.937 42.583C147.011 42.952 147.528 42.952 147.601 42.583C148.93 38.3764 150.775 35.0553 154.982 34.0221C155.351 33.9483 155.424 33.4317 155.055 33.3579C150.923 32.3247 149.52 29.0037 148.708 24.797C148.635 24.428 148.118 24.428 148.044 24.797C146.716 29.0037 144.871 32.3247 140.664 33.3579C140.221 33.4317 140.221 33.9483 140.59 34.0221Z" fill="#27408A"/>
+</svg></span><div class="sub">Auto Detailing · McLean, VA</div></div>
   <h1>A detail plan built around your car — not a price list.</h1>
   <p class="sub">VRY differentiates itself by personalizing its services: they mold and create plans and packages that satisfy your needs. That's why you won't find package prices here — every vehicle gets its own quote.</p>
   <div class="chips">
@@ -168,6 +238,7 @@ footer .wrap{display:flex;gap:18px;flex-wrap:wrap;align-items:center}
     <h2>Three levels of detail. One way to price them: ask.</h2>
     <p>These are the three detail services exactly as VRY describes them on its own site — what's included and how long each takes. The price is set when they build your plan.</p>
   </div>
+  <div class="panel panel-light">
   <div class="cards">
     <div class="card">
       <span class="sig">Signature</span>
@@ -222,9 +293,11 @@ footer .wrap{display:flex;gap:18px;flex-wrap:wrap;align-items:center}
     <h3>VRY's current promotions (from their promotions page)</h3>
     <p><b>1 free services wash</b> with any detail service purchase · <b>$50 off</b> paint correction · <b>$50 off</b> ceramic coating. Offers can't be combined with other promotions.</p>
   </div>
+  </div>
 </div></section>
 
 <section id="more" style="padding-top:0"><div class="wrap">
+  <div class="panel panel-navy">
   <div class="sec-head">
     <div class="kicker">Beyond the Detail Shop</div>
     <h2>Fleets, dealerships — and buildings, too</h2>
@@ -244,6 +317,7 @@ footer .wrap{display:flex;gap:18px;flex-wrap:wrap;align-items:center}
       <p>As an ISSA member, VRY cleans and disinfects workplaces: office and building cleaning, sanitizing and disinfection services, deep cleaning, and floor deep cleaning.</p>
     </div>
   </div>
+  </div>
 </div></section>
 
 <section class="dark-band" id="how"><div class="wrap">
@@ -253,7 +327,7 @@ footer .wrap{display:flex;gap:18px;flex-wrap:wrap;align-items:center}
     <p>VRY's own site works the same way: you send a service request, and they build the plan. Three steps:</p>
   </div>
   <div class="steps">
-    <div class="step"><div class="num">1</div><h3>Tell them the vehicle</h3><p>Call the toll-free line or send the request below — the service you want and the car it's for. Not sure where to start? That's exactly what the request is for.</p></div>
+    <div class="step"><div class="num">1</div><h3>Tell them the vehicle</h3><p>Call the toll-free line or send the request below — the service you want and the car it's for.</p></div>
     <div class="step"><div class="num">2</div><h3>They build your plan</h3><p>Personalizing is their stated difference: plans and packages are molded to your needs, and your quote prices that plan — not a generic package off a list.</p></div>
     <div class="step"><div class="num">3</div><h3>Book the work</h3><p>Detailing at the McLean shop. Fleets and dealerships can also book the mobile unit, which comes to your location by appointment.</p></div>
   </div>
@@ -267,9 +341,10 @@ footer .wrap{display:flex;gap:18px;flex-wrap:wrap;align-items:center}
         <h2>Start with the request</h2>
         <p>In need of cleaning or detailing but not sure where to start or what your office or car needs? Send the request — or just call <a href="tel:+18448798755"><b>1-844-879-8755</b></a>.</p>
       </div>
-      <div class="why">
-        <p class="big">"We are determined to change the city one car at a time."</p>
-        <p>VRY Auto Detail is a family-based company founded in 2009 by Omar Carranza, built on professionalism, dedication, and a mission to earn the trust of its customers and partners. Their favorite part of the work, they say, is the finished product.</p>
+      <div class="reach">
+        <p><b>Toll free</b> <a href="tel:+18448798755">1-844-879-8755</a></p>
+        <p><b>Local</b> <a href="tel:+15712237977">571-223-7977</a></p>
+        <p><b>Email</b> <a href="mailto:info@vryautodetail.com">info@vryautodetail.com</a></p>
       </div>
     </div>
     <form class="qf" id="quoteForm">
@@ -305,6 +380,14 @@ footer .wrap{display:flex;gap:18px;flex-wrap:wrap;align-items:center}
     <p>Toll free: <a href="tel:+18448798755"><b>1-844-879-8755</b></a> · Local: <a href="tel:+15712237977"><b>571-223-7977</b></a></p>
     <p>Email: <a href="mailto:info@vryautodetail.com"><b>info@vryautodetail.com</b></a></p>
     <p>Hours aren't published on their site — call ahead.</p>
+  </div>
+</div></section>
+
+<section class="sig-band"><div class="wrap">
+  <div class="sig-panel"><div class="sig-frame" aria-hidden="true"><span class="bub near" style="left:4%;top:22px;width:52px;height:52px"></span><span class="bub far" style="right:6%;top:16px;width:64px;height:64px"></span><span class="bub near" style="right:12%;bottom:20px;width:30px;height:30px"></span><span class="glow" style="left:-160px;bottom:-240px"></span><span class="glow" style="right:-160px;bottom:-240px"></span></div>
+    <div class="kicker">Since 2009 · Family-Based</div>
+    <p class="sig-quote">&ldquo;We are determined to change the city one car at a time.&rdquo;</p>
+    <p class="sig-sub">VRY Auto Detail was founded in 2009 by Omar Carranza — a family-based company. Their favorite part of the work, they say, is the finished product.</p>
   </div>
 </div></section>
 
